@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Le Epik Website</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/126313418?v=4">
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/8.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8882281379698874" crossorigin="anonymous"></script>
+    
+    <style>
+        /* =====================================================
+           CSS Variables for Easy Customization
+        ===================================================== */
+        :root {
+            --main-border-color: black;
+            --main-border-width: 5px;
+            --main-border-radius: 15px;
+            --main-image-max-width: 160%; /* Increased from 80% to 160% for 200% larger */
+            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced drop shadow */
+        }
+
+        /* =====================================================
+           General Styles
+        ===================================================== */
+        body {
+            color: #fff;
+            background-color: #191919;
+            font-family: 'Jetbrains Mono', monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center-align all text by default */
+        }
+
+        /* =====================================================
+           GIF Container
+        ===================================================== */
+        #gif-container {
+            margin: 20px 0;
+        }
+
+        #gif-container img {
+            /* No border or shadow applied */
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =====================================================
+           Additional Image (Main Image)
+           - Increased border thickness to 5px
+           - Made the image 200% larger
+           - Added drop shadow
+           - Organized for easy editing using CSS variables
+        ===================================================== */
+        #additional-image {
+            margin: 20px 0;
+        }
+
+        #additional-image img {
+            max-width: var(--main-image-max-width);           /* Easy to adjust image size */
+            height: auto;
+            border: var(--main-border-width) solid var(--main-border-color);  /* Easy to adjust border */
+            border-radius: var(--main-border-radius);        /* Easy to adjust border radius */
+            box-shadow: var(--main-image-box-shadow);        /* Drop shadow */
+            transition: transform 0.3s, box-shadow 0.3s;     /* Smooth hover effect */
+        }
+
+        /* Optional: Hover Effect for Main Image */
+        #additional-image img:hover {
+            transform: scale(1.05);                           /* Slightly enlarge on hover */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);       /* More prominent shadow on hover */
+        }
+
+        /* =====================================================
+           Quote Section
+        ===================================================== */
+        .quote {
+            font-size: 11pt;
+            font-style: italic;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            animation: rainbow 10s ease-in-out infinite;
+            margin: 20px 0;
+        }
+
+        /* =====================================================
+           Dropdown Menu
+        ===================================================== */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .dropdown span {
+            cursor: pointer;
+            font-size: 16pt;
+            color: rgb(42, 104, 20);
+            transition: transform 0.2s;
+        }
+
+        .dropdown span:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #232323;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .dropdown-menu p {
+            margin: 0;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            color: lightgreen;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #323232;
+            color: Chartreuse;
+        }
+
+        /* Show dropdown menu on hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* =====================================================
+           Rainbow Animation
+        ===================================================== */
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: violet; }
+        }
+
+        h1, .quote {
+            animation: rainbow 10s ease-in-out infinite;
+        }
+
+        /* =====================================================
+           Discord Info
+        ===================================================== */
+        .discord {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 11pt;
+            font-style: italic;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: rgb(42, 104, 20);
+        }
+
+        /* =====================================================
+           Countdown Timer
+        ===================================================== */
+        #demo {
+            font-size: 16pt;
+            margin: 20px 0;
+        }
+
+        /* =====================================================
+           Current Date and Special List
+        ===================================================== */
+        #date-section {
+            margin: 20px 0;
+        }
+
+        #date-section p {
+            margin: 5px 0;
+        }
+
+        #list {
+            list-style-type: disc;
+            display: inline-block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* =====================================================
+           Footer
+        ===================================================== */
+        footer {
+            margin: 40px 0 20px 0;
+        }
+
+        footer h1 {
+            font-size: 14pt;
+        }
+
+        /* =====================================================
+           Link Styles
+        ===================================================== */
+        a:link, a:visited {
+            text-decoration: none;
+            color: green;
+        }
+
+        a:hover, a:active {
+            text-decoration: underline;
+            color: Chartreuse;
+        }
+
+        /* =====================================================
+           Responsive Design
+           - Adjust image size and dropdown menu for smaller screens
+        ===================================================== */
+        @media (max-width: 600px) {
+            #additional-image img {
+                max-width: 1000%; /* Increase width on smaller screens */
+            }
+
+            .dropdown-menu {
+                min-width: 150px;
+            }
+
+            .dropdown span {
+                font-size: 14pt;
+            }
+
+            #demo {
+                font-size: 14pt;
+            }
+
+            footer h1 {
+                font-size: 12pt;
+            }
+        }
+    </style>
+
+    <script>
+        // Disable Right-Click
+        function disableRightClick() {
+            alert("Hi imma steal u press ok NOW!!!");
+            window.location.href = '../my%20le%20epik%20website/hue/index.html';
+            return false;
+        }
+    </script>
+</head>
+<body oncontextmenu="return disableRightClick();">
+    <!-- Discord Info -->
+    <h1 class="discord">Le Epik Website version 1.1</h1>
+
+    <!-- GIF Replacement -->
+    <div id="gif-container">
+        <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
+    </div>
+
+    <!-- Additional Image (Main Image) -->
+    <div id="additional-image">
+        <img src="https://avatars.githubusercontent.com/u/126313418?v=4" alt="1up">
+    </div>
+
+    <!-- Quote Section -->
+    <!-- (Your quote section content here) -->
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown">
+        <span onmouseover="changeText('&#8681;Links&#8681;')" onmouseout="changeText('&#8679;Links&#8679;')">&#8679;Links&#8679;</span>
+        <div class="dropdown-menu">
+            <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
+            <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
+            <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
+            <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+
+    <!-- Change Text Script for Dropdown -->
+    <script>
+        function changeText(text) {
+            document.querySelector('.dropdown span').innerHTML = text;
+        }
+    </script>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
+    </footer>
+</body>
+</html>
