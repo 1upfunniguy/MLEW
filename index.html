@@ -74,7 +74,7 @@
             font-size: 11pt;
             font-style: italic;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            animation: rainbow 10s ease-in-out infinite;
+            animation: rainbow 10s linear infinite; /* Ensures perfect synchronization */
             margin: 20px 0;
         }
 
@@ -91,6 +91,7 @@
             cursor: pointer;
             font-size: 16pt;
             color: rgb(42, 104, 20);
+            animation: rainbow 10s linear infinite; /* Sync with all elements */
             transition: transform 0.2s;
         }
 
@@ -120,6 +121,7 @@
             text-decoration: none;
             display: block;
             transition: background-color 0.3s, color 0.3s;
+            animation: rainbow 10s linear infinite; /* Sync with all elements */
         }
 
         .dropdown-item:hover {
@@ -146,7 +148,7 @@
         }
 
         h1, .smalltext, .dropdown span, .dropdown-item {
-            animation: rainbow 6s linear infinite; /* Consistent rainbow animation */
+            animation: rainbow 10s linear infinite; /* All elements synced */
         }
 
         /* =====================================================
