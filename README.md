@@ -70,7 +70,7 @@ _______________
     </a>
   </p>
 
- [![Certified Nerd Badge](https://custom-icon-badges.demolab.com/badge/certified-yellow?style=plastic&label=nerd&logoColor=&logo=nerd-emoji)](https://emojipedia.org/nerd-face "certified nerd") [![Vercel Deploy](https://deploy-badge.vercel.app/vercel/for-vercel-yay?root=index.html&style=plastic)](https://for-vercel-yay.vercel.app "vercel")
+ [![Certified Nerd Badge](https://custom-icon-badges.demolab.com/badge/certified-yellow?style=plastic&label=nerd&logoColor=&logo=nerd-emoji)](https://emojipedia.org/nerd-face "certified nerd") [![Vercel Deploy](https://deploy-badge.vercel.app/vercel/mlew?root=index.html&style=plastic)](https://mlew.vercel.app "vercel")
 ## Deploy to a cloud service
 [![Deploy on Railway](https://binbashbanana.github.io/deploy-buttons/buttons/remade/railway.svg)](https://railway.app/new/template?template=https://github.com/1upfunniguy/My-le-epik-website)
 [![Deploy to Cyclic](https://binbashbanana.github.io/deploy-buttons/buttons/remade/cyclic.svg)](https://app.cyclic.sh/api/app/deploy/1upfunniguy/My-le-epik-website)
