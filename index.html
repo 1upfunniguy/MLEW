@@ -9,6 +9,27 @@
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/8.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
+    <!-- Meta Tags -->
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="My Le Epik Website" />
+    <meta name="description" content="The most epik website ever made" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mlew.vercel.app/" />
+    <meta property="og:title" content="My Le Epik Website" />
+    <meta property="og:description" content="The most epik website ever made" />
+    <meta property="og:image" content="https://mlew.vercel.app/bigrat/media/metatags.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mlew.vercel.app/" />
+    <meta property="twitter:title" content="My Le Epik Website" />
+    <meta property="twitter:description" content="The most epik website ever made" />
+    <meta property="twitter:image" content="https://mlew.vercel.app/bigrat/media/metatags.png" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
     <style>
         /* =====================================================
            CSS Shi
@@ -74,7 +95,6 @@
             font-size: 11pt;
             font-style: italic;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            animation: rainbow 10s linear infinite; /* Ensures perfect synchronization */
             margin: 20px 0;
         }
 
@@ -91,7 +111,6 @@
             cursor: pointer;
             font-size: 16pt;
             color: rgb(42, 104, 20);
-            animation: rainbow 10s linear infinite; /* Sync with all elements */
             transition: transform 0.2s;
         }
 
@@ -121,7 +140,6 @@
             text-decoration: none;
             display: block;
             transition: background-color 0.3s, color 0.3s;
-            animation: rainbow 10s linear infinite; /* Sync with all elements */
         }
 
         .dropdown-item:hover {
@@ -147,8 +165,13 @@
             100% { color: violet; }
         }
 
-        h1, .smalltext, .dropdown span, .dropdown-item {
-            animation: rainbow 10s linear infinite; /* All elements synced */
+        /* Applying Rainbow Animation to all relevant elements */
+        .gaytext, .dropdown span, .dropdown-item {
+            animation: rainbow 10s linear infinite; /* Sync across elements */
+        }
+
+        h1, .smalltext {
+            animation: rainbow 10s linear infinite; /* Ensures sync */
         }
 
         /* =====================================================
