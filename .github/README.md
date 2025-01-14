@@ -62,7 +62,7 @@ _______________
 </div>
 
 > [!CAUTION]
-> nerdy stuff, be warned this for nerds ONLY!!!
+> shaq fu for the snes
 <div align="center">
     <a href="https://vercel.com?utm\_source=github\_readme\_stats\_team\&utm\_campaign=oss">
       <img src="https://raw.githubusercontent.com/anuraghazra/github-readme-stats/2bdb5359cd1d4b163350f5a78496cac366dddaf9/powered-by-vercel.svg"/>
