@@ -5,28 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Le Epik Website</title>
     <link rel="icon" type="image/x-icon" href="../bigrat/media/fwip.png">
-
+    
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/8.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    
     <style>
+        /* =====================================================
+           CSS Shi
+        ===================================================== */
         :root {
             --main-border-color: black;
             --main-border-width: 5px;
             --main-border-radius: 15px;
-            --main-image-max-width: 160%;
-            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            --main-image-max-width: 160%; /* Increased from 80% to 160% for 200% larger */
+            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced drop shadow */
         }
 
+        /* =====================================================
+           Harry Styles
+        ===================================================== */
         body {
             color: #fff;
             background-color: #191919;
             font-family: 'Jetbrains Mono', monospace;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: center; /* Center-align all text by default */
         }
 
+        /* =====================================================
+           GIF Container For Containing Gifs
+        ===================================================== */
         #gif-container {
             margin: 20px 0;
         }
@@ -36,6 +45,9 @@
             height: auto;
         }
 
+        /* =====================================================
+           FWIP
+        ===================================================== */
         #additional-image {
             margin: 20px 0;
         }
@@ -49,11 +61,15 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        /* Optional: Hover Effect for Main Image */
         #additional-image img:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
         }
 
+        /* =====================================================
+           Small Text Section Its small unlike low taper fade
+        ===================================================== */
         .smalltext {
             font-size: 11pt;
             font-style: italic;
@@ -62,6 +78,9 @@
             margin: 20px 0;
         }
 
+        /* =====================================================
+           Dropdowns :D
+        ===================================================== */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -71,7 +90,7 @@
         .dropdown span {
             cursor: pointer;
             font-size: 16pt;
-            animation: rainbow 10s ease-in-out infinite;
+            color: rgb(42, 104, 20);
             transition: transform 0.2s;
         }
 
@@ -97,34 +116,42 @@
 
         .dropdown-item {
             padding: 10px;
+            color: lightgreen;
             text-decoration: none;
             display: block;
-            animation: rainbow 10s ease-in-out infinite;
-            animation-delay: 0s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .dropdown-item:hover {
             background-color: #323232;
-            color: #fff;
+            color: Chartreuse;
         }
 
+        /* Show dropdown menu on hover */
         .dropdown:hover .dropdown-menu {
             display: block;
         }
 
+        /* =====================================================
+           Gay Animation Just Like Me FrFr
+        ===================================================== */
         @keyframes rainbow {
             0% { color: red; }
-            20% { color: orange; }
-            40% { color: yellow; }
-            60% { color: green; }
-            80% { color: blue; }
+            16.67% { color: orange; }
+            33.33% { color: yellow; }
+            50% { color: green; }
+            66.67% { color: blue; }
+            83.33% { color: indigo; }
             100% { color: violet; }
         }
 
-        h1, .smalltext {
-            animation: rainbow 10s ease-in-out infinite;
+        h1, .smalltext, .dropdown span, .dropdown-item {
+            animation: rainbow 6s linear infinite; /* Consistent rainbow animation */
         }
 
+        /* =====================================================
+           Gay Text Info Just Like Me FrFr
+        ===================================================== */
         .gaytext {
             position: absolute;
             top: 10px;
@@ -135,6 +162,9 @@
             color: rgb(42, 104, 20);
         }
 
+        /* =====================================================
+           Foot Stuff
+        ===================================================== */
         footer {
             margin: 40px 0 20px 0;
         }
@@ -143,6 +173,9 @@
             font-size: 14pt;
         }
 
+        /* =====================================================
+           Link Harry Styles
+        ===================================================== */
         a:link, a:visited {
             text-decoration: none;
             color: green;
@@ -153,6 +186,9 @@
             color: Chartreuse;
         }
 
+        /* =====================================================
+           Stuff For Phones
+        ===================================================== */
         @media (max-width: 600px) {
             #additional-image img {
                 max-width: 1000%;
@@ -177,28 +213,29 @@
     </style>
 
     <script>
+        // Disable Right-Click
         function disableRightClick() {
             alert("Hi imma steal u press ok NOW!!!");
             window.location.href = '../bigrat/hue/bigrat.html';
             return false;
         }
-
-        function changeText(text) {
-            document.querySelector('.dropdown span').innerHTML = text;
-        }
     </script>
 </head>
 <body oncontextmenu="return disableRightClick();">
+    <!-- Gay Text Info --> <!-- just like me frfr -->
     <h1 class="gaytext">Le Epik Website version 1.7</h1>
 
+    <!-- GIF Replacement Like My Parents -->
     <div id="gif-container">
         <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
     </div>
 
+    <!-- FWIP -->
     <div id="additional-image">
         <img src="../bigrat/media/fwip.png" alt="fwip" width="150">
     </div>
 
+    <!-- Dropdowns :D -->
     <div class="dropdown">
         <span onmouseover="changeText('&#8681;Links&#8681;')" onmouseout="changeText('&#8679;Links&#8679;')">&#8679;Links&#8679;</span>
         <div class="dropdown-menu">
@@ -209,8 +246,15 @@
         </div>
     </div>
 
+    <script>
+        function changeText(text) {
+            document.querySelector('.dropdown span').innerHTML = text;
+        }
+    </script>
+
     <hr>
 
+    <!-- Foot Stuff -->
     <footer>
         <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
     </footer>
