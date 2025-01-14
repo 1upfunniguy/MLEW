@@ -83,5 +83,5 @@ _______________
 ## Contributors
 [![Contrib](https://contrib.rocks/image?repo=1upfunniguy/My-le-epik-website#)](https://github.com/1upfunniguy/My-le-epik-website/graphs/contributors)
 ## todo
-- [ ] do what u need to do lil bro
+- [x] do what u need to do lil bro
 </div>
