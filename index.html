@@ -5,93 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Le Epik Website</title>
     <link rel="icon" type="image/x-icon" href="../bigrat/media/fwip.png">
-    
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/8.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- thanks metatags -->
-    <!-- Primary Meta Tags -->
-<title>My Le Epik Website</title>
-<meta name="title" content="My Le Epik Website" />
-<meta name="description" content="The most epik website ever made" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://mlew.vercel.app/" />
-<meta property="og:title" content="My Le Epik Website" />
-<meta property="og:description" content="The most epik website ever made" />
-<meta property="og:image" content="https://mlew.vercel.app/bigrat/media/metatags.png" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://mlew.vercel.app/" />
-<meta property="twitter:title" content="My Le Epik Website" />
-<meta property="twitter:description" content="The most epik website ever made" />
-<meta property="twitter:image" content="https://mlew.vercel.app/bigrat/media/metatags.png" />
-
-<!-- Meta Tags Generated with https://metatags.io -->
-    
     <style>
-        /* =====================================================
-           CSS Shi
-        ===================================================== */
         :root {
             --main-border-color: black;
             --main-border-width: 5px;
             --main-border-radius: 15px;
-            --main-image-max-width: 160%; /* Increased from 80% to 160% for 200% larger */
-            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced drop shadow */
+            --main-image-max-width: 160%;
+            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
 
-        /* =====================================================
-           Harry Styles
-        ===================================================== */
         body {
             color: #fff;
             background-color: #191919;
             font-family: 'Jetbrains Mono', monospace;
             margin: 0;
             padding: 0;
-            text-align: center; /* Center-align all text by default */
+            text-align: center;
         }
 
-        /* =====================================================
-           GIF Container For Containing Gifs
-        ===================================================== */
         #gif-container {
             margin: 20px 0;
         }
 
         #gif-container img {
-            /* No border or shadow applied */
             max-width: 100%;
             height: auto;
         }
 
-        /* =====================================================
-           FWIP
-        ===================================================== */
         #additional-image {
             margin: 20px 0;
         }
 
         #additional-image img {
-            max-width: var(--main-image-max-width);           /* Image size */
+            max-width: var(--main-image-max-width);
             height: auto;
-            border: var(--main-border-width) solid var(--main-border-color);  /* Border */
-            border-radius: var(--main-border-radius);        /* Border */
-            box-shadow: var(--main-image-box-shadow);        /* Sadhows :D */
-            transition: transform 0.3s, box-shadow 0.3s;     /* Hovering shi */
+            border: var(--main-border-width) solid var(--main-border-color);
+            border-radius: var(--main-border-radius);
+            box-shadow: var(--main-image-box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* Optional: Hover Effect for Main Image */
         #additional-image img:hover {
-            transform: scale(1.05);                           /* Make image get massive on hover y'know what else is massive, low taper fade */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);       /* Sadhows :D */
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
         }
 
-        /* =====================================================
-           Small Text Section Its small unlike low taper fade
-        ===================================================== */
         .smalltext {
             font-size: 11pt;
             font-style: italic;
@@ -100,9 +62,6 @@
             margin: 20px 0;
         }
 
-        /* =====================================================
-           Dropdowns :D
-        ===================================================== */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -112,7 +71,7 @@
         .dropdown span {
             cursor: pointer;
             font-size: 16pt;
-            color: rgb(42, 104, 20);
+            animation: rainbow 10s ease-in-out infinite;
             transition: transform 0.2s;
         }
 
@@ -138,25 +97,20 @@
 
         .dropdown-item {
             padding: 10px;
-            color: lightgreen;
             text-decoration: none;
             display: block;
-            transition: background-color 0.3s, color 0.3s;
+            animation: rainbow 10s ease-in-out infinite;
         }
 
         .dropdown-item:hover {
             background-color: #323232;
-            color: Chartreuse;
+            color: #fff;
         }
 
-        /* Show dropdown menu on hover */
         .dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        /* =====================================================
-           Gay Animation Just Like Me FrFr
-        ===================================================== */
         @keyframes rainbow {
             0% { color: red; }
             20% { color: orange; }
@@ -170,9 +124,6 @@
             animation: rainbow 10s ease-in-out infinite;
         }
 
-        /* =====================================================
-           Gay Text Info Just Like Me FrFr
-        ===================================================== */
         .gaytext {
             position: absolute;
             top: 10px;
@@ -183,9 +134,6 @@
             color: rgb(42, 104, 20);
         }
 
-        /* =====================================================
-           Foot Stuff
-        ===================================================== */
         footer {
             margin: 40px 0 20px 0;
         }
@@ -194,9 +142,6 @@
             font-size: 14pt;
         }
 
-        /* =====================================================
-           Link Harry Styles
-        ===================================================== */
         a:link, a:visited {
             text-decoration: none;
             color: green;
@@ -207,12 +152,9 @@
             color: Chartreuse;
         }
 
-        /* =====================================================
-           Stuff For Phones
-        ===================================================== */
         @media (max-width: 600px) {
             #additional-image img {
-                max-width: 1000%; /* Imagine using a phone on mlew */
+                max-width: 1000%;
             }
 
             .dropdown-menu {
@@ -234,29 +176,28 @@
     </style>
 
     <script>
-        // Disable Right-Click
         function disableRightClick() {
             alert("Hi imma steal u press ok NOW!!!");
             window.location.href = '../bigrat/hue/bigrat.html';
             return false;
         }
+
+        function changeText(text) {
+            document.querySelector('.dropdown span').innerHTML = text;
+        }
     </script>
 </head>
 <body oncontextmenu="return disableRightClick();">
-    <!-- Gay Text Info --> <!-- just like me frfr -->
     <h1 class="gaytext">Le Epik Website version 1.7</h1>
 
-    <!-- GIF Replacement Like My Parents -->
     <div id="gif-container">
         <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
     </div>
 
-    <!-- FWIP -->
     <div id="additional-image">
         <img src="../bigrat/media/fwip.png" alt="fwip" width="150">
     </div>
 
-    <!-- Dropdowns :D -->
     <div class="dropdown">
         <span onmouseover="changeText('&#8681;Links&#8681;')" onmouseout="changeText('&#8679;Links&#8679;')">&#8679;Links&#8679;</span>
         <div class="dropdown-menu">
@@ -267,16 +208,8 @@
         </div>
     </div>
 
-    <!-- Dropdowns :D -->
-    <script>
-        function changeText(text) {
-            document.querySelector('.dropdown span').innerHTML = text;
-        }
-    </script>
-
     <hr>
 
-    <!-- Foot Stuff -->
     <footer>
         <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
     </footer>
