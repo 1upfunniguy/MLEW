@@ -57,7 +57,7 @@ For support contact me. The fastest way to reach me is on discord @1upfunniguy. 
 _______________  
 ### ⚠️⚠️⚠️ NOW ENTERING THE NERDY ZONE ⚠️⚠️⚠️
 _______________
-<img src="https://media.tenor.com/xCc58fEqFREAAAAM/nerd-nerdy.gif" alt="Nerd Emoji" width="300"/><br>
+<img src="https://media.tenor.com/xCc58fEqFREAAAAM/nerd-nerdy.gif" alt="Nerd Emoji" width="300" style="border: 5px solid black;"/><br>
 
 </div>
 
