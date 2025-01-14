@@ -11,7 +11,7 @@
 <hr>
 <p align="center">
 -
-<a href="./thankyou.md">thank you for stopping by</a>
+<a href="https://raw.githubusercontent.com/1upfunniguy/My-le-epik-website/refs/heads/main/.github/thankyou.md">thank you for stopping by</a>
 -
 </p>
 <hr>
