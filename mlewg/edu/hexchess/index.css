@@ -1,0 +1,101 @@
+:root {
+	--background: hsl(270, 75%, 25%);
+	--accent: hsl(270, 75%, 40%);
+	--highlight: hsl(270, 75%, 50%);
+	--active: hsl(270, 75%, 60%);
+}
+
+html, body {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	font-family: system-ui;
+	background-color: var(--background);
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	right: 1em;
+	display: flex;
+	justify-content: space-between;
+	gap: min(2em, 5vw);
+	align-items: center;
+}
+
+header h1 span {
+	color: var(--active);
+}
+
+header p {
+	text-align: right;
+}
+
+footer {
+	position: absolute;
+	left: 1em;
+	right: 1em;
+	bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+	gap: min(2em, 5vw);
+	align-items: center;
+}
+
+footer p {
+	font-size: min(1.5em, 4vw);
+}
+
+footer p:last-of-type {
+	text-align: right;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	width: min(75em, 100vw);
+	margin: auto;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-size: min(4em, 6vw);
+	margin: 0;
+}
+
+p {
+	font-size: min(2em, 4vw);
+	margin: 0;
+}
+
+a {
+	color: white;
+}
+
+button {
+	font-size: min(5em, 12vw);
+	width: fit-content;
+	cursor: pointer;
+	padding: 0.25em;
+	border: none;
+	border-radius: 0.25em;
+	background-color: var(--accent);
+}
+
+button:hover {
+	transition: background-color 0.15s ease-in-out;
+	background-color: var(--highlight);
+}
+
+button:active {
+	transition: none;
+	background-color: var(--active);
+}

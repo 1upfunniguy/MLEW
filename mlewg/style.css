@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13.5pt;
+    color: #fafafa;
+    background-color: #0f0f0f;
+}
+
+#navbar {
+    font-size: 20pt;
+    border-color: #3e3e3e;
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+}
+
+#header {
+    text-align: center;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer {
+    font-size: 11pt;
+    color: #3f3f3f;
+    text-align: center;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.head {
+    font-size: 40pt;
+}
+
+.menze {
+    color: #17d67d;
+}
+
+.tunte {
+    color: #d61770;
+}
+
+.image {
+    border-radius: 5%;
+    border-top-width: 8px;
+    border-top-style: solid;
+    border-right-width: 8px;
+    border-right-style: solid;
+    border-bottom-width: 8px;
+    border-bottom-style: solid;
+    border-left-width: 8px;
+    border-left-style: solid;
+    border-color: #fafafa;
+}
+
+.quote {
+    font-size: 15pt;
+}
+
+.gay {
+    background-image: linear-gradient(to left,#1770d6, #17d67d,#d61770);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.saltine {
+    color: inherit;
+    text-decoration: none;
+}
+
+.lang {
+    font-size: 15pt;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+a {
+    color: #1770d6;
+}

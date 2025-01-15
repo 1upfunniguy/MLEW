@@ -1,0 +1,264 @@
+:root {
+	--tile3: hsl(250, 75%, 50%);
+	--tile2: hsl(270, 75%, 50%);
+	--tile1: hsl(290, 75%, 50%);
+	--selected: hsl(50, 50%, 50%);
+	--possible: hsl(25, 75%, 50%);
+	--whiteOutline: 0.025em white;
+	--blackOutline: 0.025em black;
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--tile3: hsl(90, 75%, 50%);
+		--tile2: hsl(180, 75%, 50%);
+		--tile1: hsl(270, 75%, 50%);
+		--selected: hsl(50, 100%, 50%);
+		--possible: hsl(25, 100%, 50%);
+		--whiteOutline: 0.05em white;
+		--blackOutline: 0.05em red;
+	}
+}
+
+@media (prefers-contrast: less) {
+	:root {
+		--tile3: hsl(260, 90%, 50%);
+		--tile2: hsl(270, 90%, 50%);
+		--tile1: hsl(280, 90%, 50%);
+		--selected: hsl(50, 35%, 40%);
+		--possible: hsl(25, 45%, 50%);
+		--whiteOutline: none;
+		--blackOutline: none;
+	}
+}
+
+main {
+	--height: min(5em, 8vw, 8vh);
+	--margin: calc(var(--height) / 20);
+	overflow: hidden;
+}
+
+board {
+	/* offset to make up for the last row */
+	padding-bottom: calc(var(--height) / 2 + (var(--margin) * 2));
+}
+
+board.flipped {
+	transform: rotateZ(180deg);
+}
+
+board, p {
+	transition: transform 1s ease-in-out;
+}
+
+board.flipped p {
+	transform: rotateZ(-180deg);
+}
+
+hex {
+	background-color: var(--background);
+	animation: tile 0.75s ease-in-out 1.15s 1 both;
+}
+
+hex.disabled {
+	background-color: transparent;
+	animation: none;
+}
+
+hex.tile1 {
+	background-color: var(--tile1);
+}
+
+hex.tile2 {
+	background-color: var(--tile2);
+}
+
+hex.tile3 {
+	background-color: var(--tile3);
+}
+
+row {
+	display: flex;
+	justify-content: center;
+	/* the gap between hexes needs to account for half of the hexagon's width, whilst accounting for margin */
+	gap: calc(var(--height) * (0.8660254 / 2) + var(--margin) * 2);
+	/* offset each row by half the height, accounting for margin */
+	margin-bottom: calc(var(--height) / -2 + var(--margin));
+	/* the 0.95 accounts for the slight different in width vs height of an even-sided hexagon */
+	height: calc(var(--height) * 0.95);
+}
+
+hex {
+	display: inline-block;
+	width: var(--height);
+	height: var(--height);
+	margin: var(--margin);
+	text-align: center;
+	line-height: var(--height);
+	/* flat-topped hexagon */
+	-webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+	clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+	transition: filter 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion) {
+	hex {
+		transition: none;
+	}
+}
+
+hex:hover:not(.disabled) {
+	filter: brightness(1.15);
+}
+
+hex.selected:not(.disabled) {
+	background-color: var(--selected);
+}
+
+hex.possible:not(.disabled) {
+	background-color: var(--possible);
+}
+
+hex:active:not(.disabled) {
+	transition: none;
+	filter: brightness(0.85);
+}
+
+@media (prefers-contrast: more) {
+	hex:hover:not(.disabled) {
+		filter: brightness(1.5);
+	}
+
+	hex:active:not(.disabled) {
+		filter: brightness(0.75);
+	}
+}
+
+@media (prefers-contrast: less) {
+	hex:hover:not(.disabled) {
+		filter: brightness(1.05);
+	}
+
+	hex:active:not(.disabled) {
+		filter: brightness(0.95);
+	}
+}
+
+@font-face {
+	font-family: 'Chess';
+	src: url('webfonts_Chess/Chess.ttf.woff') format('woff'),
+		url('webfonts_Chess/Chess.ttf.svg#Chess') format('svg'),
+		url('webfonts_Chess/Chess.ttf.eot'),
+		url('webfonts_Chess/Chess.ttf.eot?#iefix') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+hex p {
+	margin: 0;
+	font-family: "Chess";
+	font-size: calc(var(--height) / 2);
+	user-select: none;
+	animation: fade 0.5s ease-in-out 1.5s 1 both;
+}
+
+p.black {
+	color: black;
+	-webkit-text-stroke: var(--blackOutline);
+}
+
+p.white {
+	color: white;
+	-webkit-text-stroke: var(--whiteOutline);
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes tile {
+	from {
+		background-color: var(--background);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(15);
+	}
+}
+
+pulse {
+	position: fixed;
+	background: radial-gradient(circle at center, transparent 0%, white 40%, transparent 60%);
+	height: calc(var(--height) * 1.05);
+	width: calc(var(--height) * 0.95);
+	
+	animation: pulse 1s ease-out 0s 1 forwards;
+	-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+	clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+@keyframes blur {
+	from {
+		backdrop-filter: blur(0);
+	}
+	to {
+		backdrop-filter: blur(min(1em, 2vw, 2vh));
+	}
+}
+
+choose {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	animation: blur 0.5s ease-in-out 0s 1 forwards;
+
+	display: flex;
+	gap: min(2em, 5vw, 5vh);
+	justify-content: center;
+	align-items: center;
+}
+
+choose p {
+	margin: 0;
+	aspect-ratio: 1;
+	width: 1.75em;
+	line-height: 1.75em;
+	text-align: center;
+	font-size: min(8em, 10vw, 10vh);
+	font-family: "Chess";
+	user-select: none;
+	animation: fade 0.5s ease-in-out 0.5s 1 both;
+
+	background-color: var(--accent);
+	transition: background-color 0.15s ease-in-out;
+	-webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+	clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+choose p:hover {
+	cursor: pointer;
+	background-color: var(--highlight);
+}
+
+choose p:active {
+	transition: none;
+	background-color: var(--active);
+}
