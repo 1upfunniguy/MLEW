@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
         /* =====================================================
            CSS Shi
         ===================================================== */
@@ -15,7 +16,7 @@
         body {
             color: #fff;
             background-color: #191919;
-            font-family: 'Jetbrains Mono', monospace;
+            font-family: 'Mona sans', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center; /* Center-align all text by default */
