@@ -202,3 +202,10 @@
                 font-size: 12pt;
             }
         }
+        // Disable Right-Click
+        function disableRightClick() {
+            alert("Hi imma steal u press ok NOW!!!");
+            window.location.href = '../bigrat';
+            return false;
+        }
+<body oncontextmenu="return disableRightClick();">
