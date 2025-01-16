@@ -1,0 +1,204 @@
+        /* =====================================================
+           CSS Shi
+        ===================================================== */
+        :root {
+            --main-border-color: black;
+            --main-border-width: 5px;
+            --main-border-radius: 15px;
+            --main-image-max-width: 160%; /* Increased from 80% to 160% for 200% larger */
+            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced drop shadow */
+        }
+
+        /* =====================================================
+           Harry Styles
+        ===================================================== */
+        body {
+            color: #fff;
+            background-color: #191919;
+            font-family: 'Jetbrains Mono', monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center-align all text by default */
+        }
+
+        /* =====================================================
+           GIF Container For Containing Gifs
+        ===================================================== */
+        #gif-container {
+            margin: 20px 0;
+        }
+
+        #gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =====================================================
+           FWIP
+        ===================================================== */
+        #additional-image {
+            margin: 20px 0;
+        }
+
+        #additional-image img {
+            max-width: var(--main-image-max-width);
+            height: auto;
+            border: var(--main-border-width) solid var(--main-border-color);
+            border-radius: var(--main-border-radius);
+            box-shadow: var(--main-image-box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Optional: Hover Effect for Main Image */
+        #additional-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
+        }
+
+        /* =====================================================
+           Small Text Section Its small unlike low taper fade
+        ===================================================== */
+        .smalltext {
+            font-size: 11pt;
+            font-style: italic;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 20px 0;
+        }
+
+        /* =====================================================
+           Dropdowns :D
+        ===================================================== */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .dropdown span {
+            cursor: pointer;
+            font-size: 16pt;
+            color: rgb(42, 104, 20);
+            transition: transform 0.2s;
+        }
+
+        .dropdown span:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #232323;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .dropdown-menu p {
+            margin: 0;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            color: lightgreen;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #323232;
+            color: Chartreuse;
+        }
+
+        /* Show dropdown menu on hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* =====================================================
+           Gay Animation Just Like Me FrFr
+        ===================================================== */
+        @keyframes rainbow {
+            0% { color: red; }
+            16.67% { color: orange; }
+            33.33% { color: yellow; }
+            50% { color: green; }
+            66.67% { color: blue; }
+            83.33% { color: indigo; }
+            100% { color: violet; }
+        }
+
+        /* Applying Rainbow Animation to all relevant elements */
+        .gaytext, .dropdown span, .dropdown-item {
+            animation: rainbow 10s linear infinite; /* Sync across elements */
+        }
+
+        h1, .smalltext {
+            animation: rainbow 10s linear infinite; /* Ensures sync */
+        }
+
+        /* =====================================================
+           Gay Text Info Just Like Me FrFr
+        ===================================================== */
+        .gaytext {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 11pt;
+            font-style: italic;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: rgb(42, 104, 20);
+        }
+
+        /* =====================================================
+           Foot Stuff
+        ===================================================== */
+        footer {
+            margin: 40px 0 20px 0;
+        }
+
+        footer h1 {
+            font-size: 14pt;
+        }
+
+        /* =====================================================
+           Link Harry Styles
+        ===================================================== */
+        a:link, a:visited {
+            text-decoration: none;
+            color: green;
+        }
+
+        a:hover, a:active {
+            text-decoration: underline;
+            color: Chartreuse;
+        }
+
+        /* =====================================================
+           Stuff For Phones
+        ===================================================== */
+        @media (max-width: 600px) {
+            #additional-image img {
+                max-width: 1000%;
+            }
+
+            .dropdown-menu {
+                min-width: 150px;
+            }
+
+            .dropdown span {
+                font-size: 14pt;
+            }
+
+            #demo {
+                font-size: 14pt;
+            }
+
+            footer h1 {
+                font-size: 12pt;
+            }
+        }
