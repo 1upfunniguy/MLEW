@@ -211,7 +211,15 @@
             window.location.href = '../bigrat';
             return false;
         }
-        history.replaceState(null, '', 'about:blank');
+        // This function will hide the URL from the user and redirect to about:blank.
+        // It works by changing the history state and preventing page reloads.
+        window.addEventListener('DOMContentLoaded', function() {
+            // Immediately hide the actual URL by replacing the history state
+            history.replaceState(null, '', 'about:blank');
+
+            // Optionally, clear any content if you want a blank page (optional)
+            // document.body.innerHTML = ''; 
+        });
     </script>
 </head>
 <body oncontextmenu="return disableRightClick();">
