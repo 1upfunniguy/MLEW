@@ -6,7 +6,7 @@
 </p>
 
 #### give a star, this project took a while <3 ⭐️✨
-<img src= "../bigrat/media/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
+<img src= "../static/imgs/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
 <hr>
 <p align="center">
 -
@@ -57,7 +57,7 @@ For support contact me. The fastest way to reach me is on discord @1upfunniguy. 
 _______________  
 ### ⚠️⚠️⚠️ NOW ENTERING THE NERDY ZONE ⚠️⚠️⚠️
 _______________
-<img src="../bigrat/media/nerd.gif" alt="Nerd Emoji" width="300" style="border: 5px solid black;"/><br>
+<img src="../static/imgs/nerd.gif" alt="Nerd Emoji" width="300" style="border: 5px solid black;"/><br>
 
 </div>
 
