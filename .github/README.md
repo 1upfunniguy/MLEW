@@ -6,7 +6,7 @@
 </p>
 
 #### give a star, this project took a while <3 ⭐️✨
-<img src= "../static/imgs/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
+<img src= "../imgs/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
 <hr>
 <p align="center">
 -
