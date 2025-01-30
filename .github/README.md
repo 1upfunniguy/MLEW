@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <a href="https://github.com/"> 
+  <a href="https://cooltext.com"> 
 <img src="https://images.cooltext.com/5720490.gif" /></a>
 </p>
 
