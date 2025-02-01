@@ -79,6 +79,16 @@ _______________
 [![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/1upfunniguy/MLEW)
 [![Deploy to Vercel](https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/1upfunniguy/MLEW)
 
+## Star History
+
+<a href="https://star-history.com/#1upfunniguy/mlew&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=1upfunniguy/mlew&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=1upfunniguy/mlew&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=1upfunniguy/mlew&type=Date" />
+ </picture>
+</a>
+
 ## Contributors
 [![Contrib](https://contrib.rocks/image?repo=1upfunniguy/MLEW#)](https://github.com/1upfunniguy/MLEW/graphs/contributors)
 ## todo
