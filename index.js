@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 const app = express();
 
 const RECAPTCHA_SECRET_KEY = '6LcFPs8qAAAAAFWcQrQc54ugpCG7uKAvoqb-ai9e';  // Your reCAPTCHA secret key
-const storedHashedPassword = '$2a$10$rXQMZQJLDnYMiyNJREdHcuARJEojUY6LD65mXwwA.BkaL1uG5zWGa';  // bcrypt hash of 'sahilwontgetthislol-1up'
+const storedHashedPassword = '$2a$10$rXQMZQJLDnYMiyNJREdHcuARJEojUY6LD65mXwwA.BkaL1uG5zWGa';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
