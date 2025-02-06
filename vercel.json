@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/login", "dest": "../api/login.js" },
+    { "src": "/mlew/lol/password", "dest": "../api/password.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
