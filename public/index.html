@@ -3,58 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Login - My Le Epik Website</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/fwip.png">
+    <script src="../static/js/jquery.js"></script>
     <style>
-        /* Add your styles here */
+        /* =====================================================
+           Modern Design and UI Enhancements
+        ===================================================== */
+        :root {
+            --primary-color: #007bff;
+            --accent-color: #00e676;
+            --background-color: #191919;
+            --text-color: white;
+            --border-radius: 12px;
+            --input-bg-color: #1e1e1e;
+            --input-border-color: #333;
+            --input-focus-color: #007bff;
+            --error-color: #ff3b3b;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Arial', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Header style */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        /* Login container style */
+        .login-container {
+            background-color: #232323;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            width: 360px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        /* Input fields */
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: var(--border-radius);
+            background-color: var(--input-bg-color);
+            border: 1px solid var(--input-border-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        input[type="password"]:focus {
+            border-color: var(--input-focus-color);
+            outline: none;
+        }
+
+        /* Button style */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Error message */
+        .error-message {
+            margin-top: 10px;
+            color: var(--error-color);
+            font-size: 0.9rem;
+        }
+
+        .g-recaptcha {
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 80%;
+                padding: 20px;
+            }
+        }
     </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body>
-    <div class="form-container">
-        <h2>Please enter your password</h2>
-        <form id="loginForm">
-            <input type="password" id="password" name="password" placeholder="Password" required />
-            <div class="g-recaptcha" data-sitekey="6LcFPs8qAAAAAIZLQ0ck0H2LThDRLatDGTGsktMt"></div>
+<body oncontextmenu="return false;">
+    
+    <div class="login-container">
+        <h1>My Le Epik Website</h1>
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
             <button type="submit">Login</button>
         </form>
+
+        <p id="error-message" class="error-message" style="display:none;">Invalid password or reCAPTCHA verification failed</p>
     </div>
 
+    <footer>
+        <p>&copy; 2025 1up Entertainment LLC&trade;</p>
+    </footer>
+
     <script>
-        ddocument.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const password = document.getElementById('password').value;
-    const recaptchaResponse = grecaptcha.getResponse();
-
-    if (!password || !recaptchaResponse) {
-        alert("Please complete the CAPTCHA and enter your password.");
-        return;
-    }
-
-    const data = {
-        password: password,
-        recaptcha: recaptchaResponse
-    };
-
-    // Send POST request to Vercel API route
-    fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = '/mlew/lol/password';  // Redirect on success
-        } else {
-            alert(data.message || 'Invalid credentials');
+        // Disable right-click
+        function disableRightClick() {
+            alert("Hi imma steal u press ok NOW!!!");
+            window.location.href = '../bigrat';
+            return false;
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-    });
-});
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            // Validate reCAPTCHA
+            if (!recaptchaResponse) {
+                alert('Please verify that you are not a robot!');
+                return;
+            }
+
+            const data = {
+                password: password,
+                recaptcha: recaptchaResponse
+            };
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Redirect to the protected page after successful login
+                    window.location.href = '/mlew/lol/password';
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
     </script>
+
 </body>
 </html>
