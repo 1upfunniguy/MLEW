@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - My Le Epik Website</title>
     <link rel="icon" type="image/x-icon" href="../imgs/fwip.png">
+    <script src="../api/login.js"></script>
     <script src="../static/js/jquery.js"></script>
     <style>
         /* =====================================================
@@ -33,6 +34,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            flex-direction: column;
         }
 
         /* Header style */
@@ -103,9 +105,9 @@
         }
 
         footer {
-            margin-top: 20px;
             font-size: 12px;
             color: var(--accent-color);
+            margin-top: 20px;
         }
 
         /* Responsive Design */
@@ -132,6 +134,7 @@
         <p id="error-message" class="error-message" style="display:none;">Invalid password or reCAPTCHA verification failed</p>
     </div>
 
+    <!-- Copyright below the form -->
     <footer>
         <p>&copy; 2025 1up Entertainment LLC&trade;</p>
     </footer>
