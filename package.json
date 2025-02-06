@@ -1,0 +1,17 @@
+{
+  "name": "my-bcrypt-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "1up",
+  "license": "ISC",
+  "description": "its my thingy",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
+  }
+}
