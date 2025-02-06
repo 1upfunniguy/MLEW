@@ -8,7 +8,7 @@
   ],
   "routes": [
     { "src": "/api/login", "dest": "../api/login.js" },
-    { "src": "/mlew/lol/password", "dest": "../api/password.js" },
+    { "src": "/mlew/lol/password", "dest": "../api/secret.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
