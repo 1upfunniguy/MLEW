@@ -20,41 +20,41 @@
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        ddocument.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-            const password = document.getElementById('password').value;
-            const recaptchaResponse = grecaptcha.getResponse();
+    const password = document.getElementById('password').value;
+    const recaptchaResponse = grecaptcha.getResponse();
 
-            if (!password || !recaptchaResponse) {
-                alert("Please complete the CAPTCHA and enter your password.");
-                return;
-            }
+    if (!password || !recaptchaResponse) {
+        alert("Please complete the CAPTCHA and enter your password.");
+        return;
+    }
 
-            const data = {
-                password: password,
-                recaptcha: recaptchaResponse
-            };
+    const data = {
+        password: password,
+        recaptcha: recaptchaResponse
+    };
 
-            // Send POST request to Express server
-            fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = '/mlew/lol/password';  // Redirect on success
-                } else {
-                    alert(data.message || 'Invalid credentials');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            });
-        });
+    // Send POST request to Vercel API route
+    fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = '/mlew/lol/password';  // Redirect on success
+        } else {
+            alert(data.message || 'Invalid credentials');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+});
     </script>
 </body>
 </html>
