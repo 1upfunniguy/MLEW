@@ -9,7 +9,7 @@
   ],
   "headers": [
     {
-      "source": "/mlewg/edu/eykiw/*",
+      "source": "/mlewg/edu/eykiw/((?!somepath).*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
