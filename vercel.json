@@ -1,8 +1,11 @@
 {
   "cleanUrls": true,
-  "public": true,
   "redirects": [
-    { "source": "/rat", "destination": "/bigrat", "permanent": true }
+    { 
+      "source": "/rat", 
+      "destination": "/bigrat", 
+      "permanent": true 
+    }
   ],
   "headers": [
     {
