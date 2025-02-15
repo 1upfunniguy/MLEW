@@ -3,5 +3,16 @@
   "public": true,
   "redirects": [
     { "source": "/rat", "destination": "/bigrat", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/mlewg/edu/eykiw/*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
   ]
 }
