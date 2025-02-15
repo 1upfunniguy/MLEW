@@ -1,15 +1,15 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { 
-      "source": "/rat", 
-      "destination": "/bigrat", 
-      "permanent": true 
+    {
+      "source": "/rat",
+      "destination": "/bigrat",
+      "permanent": true
     }
   ],
   "headers": [
     {
-      "source": "/mlewg/edu/eykiw/.*",
+      "source": "/mlewg/edu/eykiw/*",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
