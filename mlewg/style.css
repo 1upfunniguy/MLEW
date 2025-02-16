@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap');
+@import url('https://shadok.neocities.org/fonts/funnytype.ttf');
+
+@font-face {
+        font-family: "funnytype"; 
+    src: url("https://shadok.neocities.org/fonts/funnytype.ttf") format("truetype");
+}
 
 body {
     font-family: "funnytype"; 
