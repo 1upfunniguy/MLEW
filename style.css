@@ -1,0 +1,11 @@
+/*FONTS*/
+
+@font-face {
+    font-family: "shadok"; 
+    src: url("https://shadok.neocities.org/fonts/shadok.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "funnytype"; 
+    src: url("https://shadok.neocities.org/fonts/funnytype.ttf") format("truetype");
+}
