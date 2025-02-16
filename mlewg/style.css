@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap');
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "funnytype"; 
+    src: url("https://shadok.neocities.org/fonts/funnytype.ttf") format("truetype");
     font-size: 13.5pt;
     color: #fafafa;
     background-color: #0f0f0f;
