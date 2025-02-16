@@ -2,6 +2,10 @@
     font-family: "funnytype"; 
     src: url("../mlewg/content/fonts/funnytype.ttf") format("truetype");
 }
+font-face {
+    font-family: "shadok"; 
+    src: url("../mlewg/content/fonts/shadok.ttf") format("truetype");
+}
 
 body {
     font-family: "funnytype"; 
@@ -43,6 +47,7 @@ body {
 
 .tunte {
     color: #d61770;
+    font-family: "shadok"; 
 }
 
 .image {
