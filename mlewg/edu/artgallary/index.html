@@ -1,1 +1,36 @@
-<iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/3186905"><a href="https://bobatealee.itch.io/doom-the-gallery-experience">DOOM: The Gallery Experience by bobatealee, CreechMagoo, SCUM DOG GAMES</a></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Iframe</title>
+    <style>
+        /* Reset body and html to have no margin or padding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        /* Make the iframe take up the full screen */
+        #game_drop {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove border */
+        }
+    </style>
+</head>
+<body>
+    <iframe 
+        id="game_drop" 
+        allowfullscreen="true" 
+        scrolling="no" 
+        msallowfullscreen="true" 
+        allowtransparency="true" 
+        webkitallowfullscreen="true" 
+        mozallowfullscreen="true" 
+        allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share" 
+        src="https://html-classic.itch.zone/html/12778038/index.html">
+    </iframe>
+</body>
+</html>
