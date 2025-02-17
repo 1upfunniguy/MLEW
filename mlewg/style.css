@@ -11,7 +11,7 @@ body {
     font-family: "funnytype"; 
     font-size: 13.5pt;
     color: #fafafa;
-    background-color: #4C4E52;
+    background-color: #373737;
 }
 
 #navbar {
@@ -77,6 +77,21 @@ body {
     -webkit-background-clip: text;
 }
 
+a.gay {
+    background-image: linear-gradient(to left,#1770d6, #17d67d, #d61770);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none;
+}
+
+a.gay:hover {
+    background-image: linear-gradient(to left,#1770d6, #17d67d, #d61770);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 .saltine {
     color: inherit;
     text-decoration: none;
@@ -95,13 +110,12 @@ a {
     text-decoration: none;
 }
  
- a:link, a:visited {
+a:link, a:visited {
     color: #9063CD; text-decoration:none;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
-  
-  a:hover {
+
+a:hover {
     color: #a45ee9; text-decoration:none;    
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
-
