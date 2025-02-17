@@ -70,15 +70,26 @@ body {
     font-size: 15pt;
 }
 
-.gay a, 
-.gay a:visited, 
-.gay a:hover, 
-.gay a:active {
-    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770) !important;
-    color: transparent !important;
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
-    text-decoration: none !important;
+/* Gradient text effect for normal state */
+a.gay {
+    display: inline-block;
+    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none;
+}
+
+/* Keep gradient when hovered */
+a.gay:hover, 
+a.gay:focus, 
+a.gay:active, 
+a.gay:visited {
+    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none;
 }
 
 .saltine {
