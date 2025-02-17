@@ -70,26 +70,15 @@ body {
     font-size: 15pt;
 }
 
-.gay {
-    background-image: linear-gradient(to left,#1770d6, #17d67d,#d61770);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-a.gay {
-    background-image: linear-gradient(to left,#1770d6, #17d67d, #d61770);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-decoration: none;
-}
-
-a.gay:hover {
-    background-image: linear-gradient(to left,#1770d6, #17d67d, #d61770);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+.gay a, 
+.gay a:visited, 
+.gay a:hover, 
+.gay a:active {
+    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770) !important;
+    color: transparent !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    text-decoration: none !important;
 }
 
 .saltine {
