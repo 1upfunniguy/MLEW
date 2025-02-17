@@ -70,28 +70,6 @@ body {
     font-size: 15pt;
 }
 
-/* Gradient text effect for normal state */
-a.gay {
-    display: inline-block;
-    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-decoration: none;
-}
-
-/* Keep gradient when hovered */
-a.gay:hover, 
-a.gay:focus, 
-a.gay:active, 
-a.gay:visited {
-    background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770);
-    color: transparent !important;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-decoration: none;
-}
-
 .saltine {
     color: inherit;
     text-decoration: none;
@@ -110,12 +88,15 @@ a {
     text-decoration: none;
 }
  
-a:link, a:visited {
-    color: #9063CD; text-decoration:none;
+.le-epik-tag a:link,
+.le-epik-tag a:visited {
+    color: #9063CD; 
+    text-decoration: none;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
-a:hover {
-    color: #a45ee9; text-decoration:none;    
+.le-epik-tag a:hover {
+    color: #a45ee9; 
+    text-decoration: none;    
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
