@@ -86,16 +86,3 @@ h2 {
 a {
     text-decoration: none;
 }
- 
-.le-epik-tag a:link,
-.le-epik-tag a:visited {
-    color: #9063CD; 
-    text-decoration: none;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
-}
-
-.le-epik-tag a:hover {
-    color: #a45ee9; 
-    text-decoration: none;    
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
-}
