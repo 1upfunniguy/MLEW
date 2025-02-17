@@ -86,7 +86,7 @@ a.gay:focus,
 a.gay:active, 
 a.gay:visited {
     background-image: linear-gradient(to left, #1770d6, #17d67d, #d61770);
-    color: transparent;
+    color: transparent !important;
     background-clip: text;
     -webkit-background-clip: text;
     text-decoration: none;
