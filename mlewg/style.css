@@ -11,7 +11,7 @@ body {
     font-family: "funnytype"; 
     font-size: 13.5pt;
     color: #fafafa;
-    background-color: #808080;
+    background-color: #0f0f0f;
 }
 
 #navbar {
@@ -40,13 +40,11 @@ body {
 .head {
     font-size: 40pt;
     font-family: "shadok"; 
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
 .menze {
     color: #17d67d;
     font-family: "shadok"; 
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
 .tunte {
@@ -93,12 +91,4 @@ h2 {
 a {
     color: #1770d6;
     text-decoration: none;
-}
- 
- a:link, a:visited {
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
-}
-  
-  a:hover {  
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
