@@ -11,7 +11,7 @@ body {
     font-family: "funnytype"; 
     font-size: 13.5pt;
     color: #fafafa;
-    background-color: #808080;
+    background-color: #4C4E52;
 }
 
 #navbar {
@@ -96,7 +96,7 @@ a {
 }
  
  a:link, a:visited {
-    color: #9966cc; text-decoration:none;
+    color: #9063CD; text-decoration:none;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
   
