@@ -2,10 +2,3 @@
     font-family: "funnytype"; 
     src: url("../mlewg/content/fonts/funnytype.ttf") format("truetype");
 }
-
-body {
-    font-family: "funnytype"; 
-    font-size: 13.5pt;
-    color: #fafafa;
-    background-color: #0f0f0f;
-}
