@@ -94,6 +94,9 @@ _______________
 [![Contrib](https://contrib.rocks/image?repo=1upfunniguy/MLEW#)](https://github.com/1upfunniguy/MLEW/graphs/contributors)
 ## todo
 - [x] do what u need to do lil bro
-- [ ] add flash games
-- [ ] fix other games
+- [x] fix flash games
+- [x] fix quake
+- [x] fix other games
+- [x] get doom working like none before
+- [x] get other games
 </div>
