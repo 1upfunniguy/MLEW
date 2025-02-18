@@ -12,8 +12,8 @@
   <meta property="og:title" content='DOOM &middot; js-dos' />
   <meta property="og:description" content="Play in the DOOM in browser." />
   <meta property="og:type" content="game" />
-  <meta property="og:url" content="../mlewg/edu/ULTIMATEDOOM" />
-  <meta property="og:image" content="../mlewg/edu/ULTIMATEDOOM/DOOM.png" />
+  <meta property="og:url" content="https://thedoggybrad.github.io/doom_on_js-dos/" />
+  <meta property="og:image" content="https://thedoggybrad.github.io/doom_on_js-dos/DOOM.png" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="app.css">
@@ -27,14 +27,14 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
     
-  <script type="text/javascript" src="../mlewg/edu/ULTIMATEDOOM/js-dos-api.js"></script>
+  <script type="text/javascript" src="https://thedoggybrad.github.io/doom_on_js-dos/js-dos-api.js"></script>
 
 
   <body style="background-color:#121212; color: white">
    
 <style>
     #DOOM > .dosbox-container { width: 640px; height: 400px; }
-    #DOOM > .dosbox-container > .dosbox-overlay { background: url("../mlewg/edu/ULTIMATEDOOM/DOOM.png"); }
+    #DOOM > .dosbox-container > .dosbox-overlay { background: url("https://thedoggybrad.github.io/doom_on_js-dos/DOOM.png"); }
     #DOOM > .dosbox-container > .dosbox-overlay > .dosbox-start {
         border-radius: 17px 17px 17px 17px;
         -moz-border-radius: 17px 17px 17px 17px;
@@ -60,7 +60,7 @@
   var dosbox_DOOM = new Dosbox({
     id: "DOOM",
     onload: function (dosbox) {
-      dosbox_DOOM.run("../mlewg/edu/ULTIMATEDOOM/DOOM-@evilution.zip", "./DOOM/DOOM.EXE");
+      dosbox_DOOM.run("https://github.com/thedoggybrad/doom_on_js-dos/DOOM-@evilution.zip", "./DOOM/DOOM.EXE");
     },
     onrun: function (dosbox, app) {
       console.log("App '" + app + "' is runned");
