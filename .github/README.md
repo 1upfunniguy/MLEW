@@ -19,7 +19,7 @@
 [![Googie Badge](https://custom-icon-badges.demolab.com/badge/approved-5C4033?style=plastic&label=googie&logoColor=&logo=googiewithoutbg)](http://bribble.co/dog.html "googie web")
 [![Sad Spongebob Badge](https://custom-icon-badges.demolab.com/badge/spongebob-yellow?style=plastic&label=sad&logoColor=&logo=happyspongebob)](https://www.reddit.com/r/spongebob/comments/17qb955/why_is_spongebob_sad_wrong_answers_only/ "sad spongebob")
 [![Fwip](https://custom-icon-badges.demolab.com/badge/approved-white?style=plastic&label=fwip&logoColor=&logo=fwipwithoutbg)](https://funny.com "fwip")
-[![GitHub Last Commit Badge](https://custom-icon-badges.demolab.com/github/last-commit/1upfunniguy/MLEW?logo=history&logoColor=white&style=plastic)](https://github.com/1upfunniguy/MLEW/commits/main "last commit")
+[![GitHub Last Commit Badge](https://img.shields.io/github/last-commit/1upfunniguy/MLEW?logo=history&logoColor=white&style=plastic)](https://github.com/1upfunniguy/MLEW/commits/main "last commit")
 </div>
 
 > [!CAUTION]
@@ -58,7 +58,7 @@ For support contact me. The fastest way to reach me is on discord @1upfunniguy. 
 _______________  
 ### ⚠️⚠️⚠️ NOW ENTERING THE NERDY ZONE ⚠️⚠️⚠️
 _______________
-<img src="../static/imgs/nerd.gif" alt="Nerd Emoji" width="300" style="border: 5px solid black;"/><br>
+<img src="../imgs/nerd.gif" alt="Nerd Emoji" width="300" style="border: 5px solid black;"/><br>
 
 </div>
 
@@ -94,6 +94,9 @@ _______________
 [![Contrib](https://contrib.rocks/image?repo=1upfunniguy/MLEW#)](https://github.com/1upfunniguy/MLEW/graphs/contributors)
 ## todo
 - [x] do what u need to do lil bro
-- [ ] add flash games
-- [ ] fix other games
+- [x] fix flash games
+- [x] fix quake
+- [x] fix other games
+- [x] get doom working like none before
+- [x] get other games
 </div>

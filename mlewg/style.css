@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&display=swap');
+@font-face {
+    font-family: "funnytype"; 
+    src: url("../mlewg/content/fonts/funnytype.ttf") format("truetype");
+}
+@font-face {
+    font-family: "shadok"; 
+    src: url("../mlewg/content/fonts/shadok.ttf") format("truetype");
+}
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "funnytype"; 
     font-size: 13.5pt;
     color: #fafafa;
     background-color: #0f0f0f;
@@ -32,14 +39,19 @@ body {
 
 .head {
     font-size: 40pt;
+    font-family: "shadok"; 
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
 .menze {
     color: #17d67d;
+    font-family: "shadok"; 
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
 .tunte {
     color: #d61770;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
 .image {
@@ -81,4 +93,5 @@ h2 {
 
 a {
     color: #1770d6;
+    text-decoration: none;
 }
