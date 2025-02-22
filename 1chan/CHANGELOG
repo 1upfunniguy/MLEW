@@ -1,0 +1,890 @@
+my little forum changelog
+-------------------------
+
+20220803.1 (2022-08-03)
+-----------------------
+
+- feature: support the upload of WebP-images
+- change: semantic HTML-elements on several places and modern CSS-rules (flexboxes instead floating boxes here and there)
+- fix: remove outdated query partsthat tried to access column mlf2_entries.email_notifications
+- fix: ensure, that suígnatures are reliably positioned under all content of a forum entry
+- fix: putting the cursor into the empty search field in the page header and pressing [Enter] led to a PHP warning
+- fix: (partially) When classifying entries in locked threads the get unlocked sometimes, happens more seldom now but there is a remaining corner case to inspect
+- fix: wrong order of altering the column mlf2_userdata.user_email, defining the unique-key for this column before changing its charset to utf8 (without 'mb4') leads to the error of a to long index in some MySQL-versions
+- fix: remove multiple definitions of unique indexes for the columns mlf2_userdata.user_name and mlf2_userdata.user_email in the installation and update scripts, the indexes does not break the structure but they are superfluous
+
+20220529.1 (2022-05-29)
+-----------------------
+
+- feature: show an icon to admins and mods for entries that are not classified as ham or spam, if spam detection service B8 or Akismet is activated
+- change: first overhaul of the main section of forum pages, affects mainly the main views (thread listings) and the administration start page
+- fix: when deleting a user delete also the notification switch in the entries table, normally we use the subscriptions table for this but in forums with entries that was handled with the old subscription handling it may be possible, that there are old subscriptions for registered users left
+
+20220517.1 (2022-05-17)
+-----------------------
+
+- fixed: the feature inactivity notification sent an unlimited number of e-mails, what caused the project domain to get blacklisted; to prevent this for external forum operators, the number of e-mails is now limited to 5 per daily action
+- fixed: because of the fixed height of the page header the user menu was inaccessible on narrow viewports since the change from XHTML 1.0 to HTML (5)
+- the column `mlf2_userdata.user_email` was to large for using an index with charset utf8mb4 on MySQL 5.5 and 5.6, reset it to charset utf8 (3 byte chars only)
+
+20220509.1 (2022-05-09)
+-----------------------
+
+- feature: stick the page footer to the bottom of the viewport with the help of a CSS-flexbox
+- changed: removed CSS-fixes for Internet Explorers 6 and 7 (RIP)
+- changed: replaced main block elements (<div>) for the page with semantic HTML-elements
+- fixed: a syntax error that prevented the update script from working (PR #597)
+- fixed: a wrong used English word (a IMHO typical false friend for native German speakers)
+
+20220508.1 (2022-05-08)
+-----------------------
+
+- feature: provide a forum wide setting to store a target name for breaking out of a frame or iframe (_self, _parent, _top or a given name of a target frame)
+- feature: add BB-code tags for marking text as right-to-left or as left-to-right written
+- feature: unify the HTML-structure of a user name to make it possible to style the HTML-element of the user name in every place with the same CSS-rules
+- feature: provide a user setting to make it possible for users to open links in a forum entry in a new browser window or tab
+- feature: request a reaction of an inactive user or delete the account after an additional waiting time
+- featurette: provide a back-to-top-link on every page and every single forum entry
+- changed: minimal PHP version 7.3
+- changed: compatibility up to PHP 8.1
+- changed: removed the compatibility to ancient browsers down to IE6 from the JavaScript sources
+- updated: upgrade of the external modules, where one was available
+- updated: overhaul of the swedish language file
+- added: language file for Traditional Chinese
+- fixed: database table columns for user names and e-mail-addresses are set to be unique to prevent the use of similar user names (in the meaning of the MySQL-database-system) or the double use of e-mail-addresses
+
+2.4.24 (2020-10-12)
+-------------------
+- fixed: broken layout of the links to the RSS-feed of a single thread in thread.inc.tpl and thread_linear.inc.tpl
+- fixed: unintended text-transform: lowercase; for the link to top of the page in the options of an entry
+- added: add classes for the user type to the thread tree below the entry in the single-entry-view
+
+2.4.23 (2020-09-30)
+-------------------
+- fixed: wrong formatting of the link for a threads own RSS-feed, got broken by the work on formatting the RSS-links in the page footer
+- fixed: the non-English and non-German strings for the to-top-of-page-links had a broken comment part
+
+2.4.22 (2020-09-29)
+-------------------
+- fixed: broken backup restoring function for the entries table, rework of the backup function for better code readability
+- fixed: corrected file size computation for the list of backup files; very small file sizes (up to a few hundred bytes) was shown as "0.00 MB" instead i.e. "0.0006 MB"
+- fixed: remove of since PHP 7.2 deprecated function each(), replaced with foreach()
+- fixed: wrong key name for error message in admin area about an incorrect e-mail-address
+- added: link to top of the page in the page footer and in the options menu of every entry
+- added: backup function for subscriptions and tags
+- added: natural sorting of the tag list, makes sorting case insensitive
+
+2.4.21 (2020-04-25)
+-------------------
+- fixed: regex for e-mail-validation followed a lazy syntax style, that invalidated with PRCE2. which was introduced with PHP 7.3; because of that one was unable to register a new account when running MLF 2.4.x under PHP 7.3 or newer
+- fixed: image URLs in the RSS-feed was specified with only the local, relative path on the domain, we do need a complete URl with protocol, domain and path because the feed reader requests the feed from outside the domain
+
+2.4.99.3 (2019-09-24)
+---------------------
+
+- fixed: show spam entries in the thread tree not for authors of spammy postings
+- fixed: delete the new tables when uninstalling the forum
+
+2.4.99.2 (2019-08-08)
+---------------------
+
+- feature: send the notification mail about a new entry after an entry was manually classified as ham
+- feature: tags can be inserted not only by admins and moderators but also from unregistered and registered users from now on (optional setting)
+- feature: e-mails can be sent with a SMTP-class or via PHP's own mail()-function
+- feature: a regsitered user can decide, if he is contactable for the forum team, for all registered users or for all users and visitors of a forum
+- fixed: the column size of mlf2_tags.tag exceeded the possible index size (768 bytes) when the charset of the column is utf8mb4, limit the column size to 128 chars
+- changed: create all tables with the engine InnoDB
+- changed: list the spam entries in the main view with all elements for manipulation instead listing the entries in the search view
+- changed: when an entry was detected as spam redirect the user to the single-entry-view because the notification can be placed reproducible inside the viewport
+
+2.4.99.1 (2019-06-01)
+---------------------
+
+- feature: restrict access to the user list to the forum team (administrators and moderators)
+- feature: allow topics to be pinned/sticked to the certain category or to all categories
+- feature: change the charset of most of the tables to support 4-byte-characters, i.e. emojis
+- fixed: unify mail encoding, was different depending of the checked characters
+- fixed: added a CSRF-token to posting delete function calls
+- fixed: relative pathes in the src-attribute of images in the RSS feed made the images inaccessible in the feed
+- changed: the quote-message-link is now a button
+
+2.4.20 (2019-05-15)
+-------------------
+- fixed: call for a removed function in the JS-code
+- fixed: inconsistend mail encoding, depended on an input string and could therefore result in wrong encoding, now fixed to the encoding, provided in the language file (normally UTF-8)
+- fixed: missing CSRF-token in case of deleting postings
+
+2.4.99.0 (2019-02-11)
+---------------------
+
+- feature: upload management page in the admin area, list all uploaded images, delete images groupwise
+- feature: information about the user who uploads a new image gets stored in a database table
+- feature: Bayes based spam filter
+- feature: optional TeX support through MathJax library (has to be linked manually)
+- removed: optional TeX support through the Google online service, service got abandoned
+- removed: flash button and flash bb-code
+- fixed: replace while loops with deprecated PHP-function "each" with foreach loops
+
+2.4.19.1 (2019-02-07)
+---------------------
+- fixed: reading the setting next_daily_action failed because of checking for a wrong structure, caused HTTP-status 500 every when and then
+- fixed: function mysqli_fetch_all is not available in every PHP-installation, caused error messages, HTTP-status 500 or white pages in such cases
+
+2.4.19 (2019-02-03)
+-------------------
+- fixed: when editing a posting, an activated subscription can not be saved in the database because of a syntax error on the database query
+- fixed: images, included in a posting, got elongated in the Ajax-preview of a posting
+- changed: a few settings moved to the table mlf2_temp_infos because they are no settings at all
+
+2.4.18.1 (2019-01-14)
+---------------------
+- fixed: table name in install.sql MUST NOT be surrounded by backticks, this makes the prefix replacement during installation impossible; this is only relevant during first installation
+
+2.4.18 (2019-01-13)
+-------------------
+- fixed: unregistered users was not able to subscribe to their own postings because of field user_id being NOT NULL in the subscriptions table
+- fixed: because of failing subscriptions of unregistered users for thread opening postings the thread in itself was broken and not deletable
+- fixed: sending e-mails over the contact form failed because of forgotten function call for form time handling
+- fixed: deleting a posting with subscriptions left orphaned subscriptions because they got not removed from the database
+- fixed: the check for password strength failed when more than one char in a category was required and these chars did not follow one after the other
+- fixed: if one used the thumbnail funtion to include an image to a posting, the image got the right width but was elongated to the complete possible height of the posting.
+- change: the default protocol, used in the JS-prompts for links and images when creating a posting is from now on "https://" instead "http://"
+- change: changed the language strings, key: show_spam_link, for english and german language, led to danger of confusion ("show spam (no. of entries)" vs. "list spam") (enahncement for admins and mods)
+- change: the update script disables the forum during the database operations of the update and reenables it afterwards (admin only feature), at the moment it got enabled before one updates the files and folders; @admins: please check the status after an update in the settings page
+
+2.4.17 (2019-01-06)
+-------------------
+- fixed: set the decimal point as fix char because different decimal separators (i.e. comma in german language) causes errors in floating number operations in PHP
+- fixed: the checkbox for the Flash-bb-code-setting got reintroduced (will definitely get removed with version 2.5, change was removed by accident in the 2.4.x-branch)
+- fixed: remove the confirm-password-field from the form for change ones own password, function was removed for the other forms in versions 2.4.16
+- feature: minimal and maximal time between requesting a form and sending the filled form back to the forum-server as separate settings for posting form, e-mail form and registration form
+- feature: a user is from now on able to close her/his own forum account, until now this was only possible for the admin/forum operator
+- feature: a by the registered users granted acceptance to the terms of use and/or the data privacy statement can be recalled and a newly acceptance can be enforced for the case of changes in the terms of use and/or the data privacy statement
+- feature: further possible requirements for password quality (enforce a number of lowercase and/or capital letters, ciphers and/or "special" chars), disabled by default
+- change: removed the JS-function to create the bb-code [msg] for forum entries, it needed a blacklist of not covered exceptions that was incomplete; entries will from now on handled as [link] or [url] like all other links; existing msg-bb-codes will still get interpreted
+- change: not selected checkboxes and radio buttons in the settings forms of the admin panel will not grayed out from now on, was a misleading UI-feature because the form fields looked like disabled but was still accessible
+
+2.4.16 (2018-12-07)
+-------------------
+- fixed: do not create a list item for a non existing bookmark tag for the users bookmark list
+- fixed: errorneous use of a hardcoded table name that led to failing read attempts of a users subscriptions
+
+2.4.15 (2018-11-30)
+-------------------
+- fixed: entries could not be edited
+- fixed: subscribung to or unsubscribing from an entry was not possible when saving the edit of an entry
+
+2.4.14 (2018-11-26)
+-------------------
+- fixed: several forms in the admin area lacked the CSRF-token
+- fixed: remove underscores from "data privacy statement" in the language files
+- fixed: removed the workaround of setting the language to en-us in the turkish language file, underlying problem was solved with PHP5.2
+- feature: add a checkbox to make the password visible for input verification during registration, remove therefore the second password field
+- feature: add a unsubscribe link to the e-mails with a notification about a new reply
+- feature: add a new table to store the subscriptions independent from the entry in itself
+- feature: allow SVG-graphics as smilies, graphics have to be uploaded per FTP
+- update: danish language file updated by project-forum-user Tommy Nillson
+- update: norwegian language file updated by Github-user @flatnick
+
+2.4.13 (2018-08-12)
+-------------------
+- fixed: icon for Ajax-preview of an entry was not displayed, if the entry is locked
+- fixed: reordering registration-form fields because firefox users could be unable to register dependent from the browser settings (prefilled form fields)
+- fixed: status of the checkbox for accepting the data privacy statement got lost when previewing the entry
+- fixed: display data privacy statement in a popup like the terms of use in case of an entry from an unregistered user
+- fixed: missing fields for the dates of the acceptance of the terms of use and the data privacy statement in the backup script for the user data
+- fixed: set a birthday date in single quotes in the backup script for the user data
+- fixed: remove field mlf2_entries.tags from the backup script for the forum entries because it does no longer exist
+- fixed: masked an occurence of single quotes in the german language file
+- fixed: set the forums own e-mail-address as sender of an e-mail in every case, set a possibly given divergent address as Reply-To-header; prevents not sending e-mails because of not matching domain names (forum domain versus domain part of an e-mail-address)
+
+2.4.12 (2018-06-29)
+-------------------
+- fixed array of update targets for versions 2.4.10 and 2.4.11 because versions from 2.3.5 to 2.3.7 got no update of the table structure
+
+2.4.11 (2018-06-25)
+-------------------
+- fixed: used the wrong setting for the terms-of-use-URL in the new template user_agreement.inc.tpl because of a copy'n'paste error, one was unable to read the terms of use before accepting it
+- fixed: a lost underscore in the admin template
+
+2.4.10 (2018-06-13)
+-------------------
+- fixed: the russian language had a few syntax errors, introduced with the reformatting of the language files (2.4.7)
+- fixed: the version check in the admin panel was broken, when the update was executed before the forum itself found the new version on Github
+- fixed: the meta element for the charset definition moved to top of the title to apply also for the title
+- feature: make it possible to force an agreement to a data privacy statement in the same manner as with the terms of rules
+- feature: store the date of the agreement (data privacy statement and/or terms of use) with the users data
+- feature: enforce a new agreement to adata privacy statement and/or terms of use with the deletion of the timestamp of the old agreement (no user interface yet!)
+- change: actualised Bad Behavior from 2.2.19 to version 2.2.20
+- change: actualised GesHi from 1.0.8.11 to version 1.0.9
+- change: actualised Smarty from 3.1.30 to version 3.1.32
+- change: because of the minimal system requirement for Bad Behavior the minimal MySQL version raises to 5.0
+
+2.4.9 (2018-04-13)
+------------------
+- fixed: use the function get_avatar also in the admin panel, used before only the code for the old file name scheme whcih leads to only displaying avatars with names in this old name scheme
+- fixed: avatar field in the user data form of the admin panel had no label because of missing string in the language files
+- fixed: adapt changed URL-parameter behaviour for folding threads to the JS-sources, didn't work with the switch instead the toggle
+- fixed: changed long date format for german language to month as number with leading zero, out written month name "März" can cause encoding problem on some servers
+- fixed: the deletion of entries about read postings was broken in the case of deletion after X days, used the old and removed setting name read_state_expiration_date instead read_state_expiration_value
+- added: sentence about automatic generation of e-mails to inform about new entries
+- added: make the mouse cursor a hand (pointer) when hovering over a (visible) label element
+- added: put pixel dimensions of uploaded images into the HTMl source, when included in entries, prevents page jumping during load process for only this case(!)
+
+2.4.8 (2018-02-18)
+------------------
+- fixed double closing tag of a select in the admin.inc.tpl
+- fixed the use of a table alias in a database query that caused a MySQL error
+- removed a few empty lines in the code in search.inc.php because some of them caused headers-sent-erros
+- fixed the use of a wrong variable name in bookmark.inc.php
+- fixed forgotten masking of single quotes, used as apostrophe in the german language file
+- fixed wrong cases range for partial backups, the three cases that was introduced in the 2.4-branch wasn't recognised as valid
+- fixed the invalid use of column name tags in the entries table because the column no longer exists
+- fixed wrong path names of files that have to be updated in the update to version 2.4.7, yet relevant because of updates from earlier versions
+- fixed superfluous column name "tags" in create statement of table mlf2_entries
+- added the version number of the minimal required PHP-version
+- added CSRF-tokens to user_edit.inc.tpl, user_edit_email.inc.tpl, user_edit_pw.inc.tpl and the corresponding code in user.inc.php
+- added the links to the original project site and forum again, was changed to the interim site and forum because of the temporary inaccessibility of the original site
+- added danish language file, translation by Tommy Nielsson (tommy@jernbanen.dk)
+- added a rework of the swedish language file, mainly based on the work of Tommy Nielsson (tommy@svenska-lok.se)
+- replace "Bookmarks" with "Lesezeichen" in the german language file
+- removed a few line breaks and spaces at a line end in bookmarks.inc.tpl
+- removed a size attribute in an input submit button
+
+2.4.7 (2018-01-05)
+------------------
+- fixed database issue because of the obsolete field *_userdata.entries_read, can cause error in some database configurations
+- fixed the use of a wrong string for too long user name in the create-new-user-function of the admin panel
+- fixed an check for existence of categories in the main script, can cause error in PHP 7.2 when no categories are present
+- fixed handling of not given birthday date, set it to NULL in that case, can cause error in some MySQL-configurations
+- added redirect to the last page, one has visited, after the users login
+- added the availability of tags to the bookmark function
+- added new tables for tag handling, existing tags for postings will be handed over to one of the new tables
+- added a few fields as honeypots for spammers to the registration and the posting form
+- changed handling of the URL-parameters 'fold_threads', 'toggle_view' and 'toggle_thread_view', are not toggles anymore, fix reproducible behaviour for every value instead
+
+2.4.6 (2017-11-05)
+------------------
+- fix for displaying the new version number after update in the update script itself
+- fix for missing rules for visited links in the list of latest entries
+- fix for wrong syntax in the meta element "referrer", that was introduced in version 2.4.5 (author: https://github.com/Romchik)
+- removed doubled title attributes (author: https://github.com/Romchik)
+- rework of the HTML-structure in the side- and bottombar, removal of a few obsolete CSS-rules
+- refactoring of the *.inc.php-files, better readability for future development, no functional changes at that point
+- fix for broken toggling of check for banned IPs or user agents, should toggle automatically when listing bans but didn't
+- fix broken query for reading user data for notification in case of account creation through the admin
+- fix for doubled key in the german language file
+- fix for ordering of user data lists when sorted by the user names, collation led to sorting in the order names beginning with numbers, capital letters and in the end low letters, now capitals and low letters are sorted mixed in their natural order
+
+2.4.5 (2017-10-09)
+------------------
+- fix for wrong variable name in the function getMessageStatus
+- removed orphaned code fragment, was never used
+- add a meta element named "referrer", that causes not sending a referrer when open an external link or (for older browsers) sending a referrer with onlythe domain part, it's a small contribution for forum users privacy
+
+2.4.4 (2017-10-03)
+------------------
+- fix for by mistake overwritten user type
+- fix for not accepted email addresses with a TLD longer than four chars
+- fix for not marking the opening message of a thread as new if the thread is folded and a new answer was posted
+- make the error message of the update script for wrong or non existing file config/VERSION more descriptive
+
+2.4.3 (2017-07-09)
+------------------
+- fix for lost CSS-rule for element #image-canvas
+- fix, remove graphical separator for link list
+- fix cache handling, newer IE-versions was not taken into account
+- fix marking as unread for visited entries which was dropped from the list of visited entries
+- fix collation of the user name field to distinguish between "a" and "ä" (examlpe)
+- fix doubled key in the language files
+- prepopulate the field for the forum-URL in the installation script with the protocol which is actually in use
+- add indices to several database tables to speed up the loading time of the forum
+- enhanced handling of read status (new setting for selection of handling scheme), in general higher values
+
+2.4.2 (2017-03-12)
+------------------
+- fixed the installation of the settings table without a PK on the column 'name' (in update procedure since 2.3.99.1)
+- fixed the lack of the third gender-radio-button in the user editing form of the admin area
+- fixed the undesirably setting of class .read for not registered and not logged in visitors of a forum
+- added alphabetical ordering of the list of files and directories that has to be updated
+
+2.4.1 (2017-02-20)
+------------------
+- fixed a lost 'a' in the defaults template style.css, only relevant, when using style.css instead style.min.css
+- fixed compatibility with PHP 5.2, even when an update to (at least) PHP 5.6 is recommended
+- fixed a non descriptive error message for the absence of the new file config/VERSION (must be present when installing or updating)
+
+2.4 (2017-02-16)
+----------------
+- fixed wrong category in select field when editing an entry
+- fixed URL for latest release leads now to the page of the release instead to "latest"
+
+2.3.99.3 (pre release of 2.4) (2017-02-05)
+------------------
+- fixed NULL value for bookmarks table field order_id
+- fixed wrong use of PHP construct break in an if-block
+- added a form field to the user settings to remove a specified gender
+- added a few HTML-elements for housing of interpunctions in the entries meta data
+
+2.3.99.2 (pre release of 2.4) (2017-01-24)
+------------------
+- fixed accidentally duplicating of settings when installing the forum with a database backup
+- fixed the unexpected behaviour of the refresh link and in context the new and read marking of entries
+- fixed the view breaking diyplay of images that are wider than the viewport of the browser and the width of the Ajax-preview
+- fixed the issue of unnecessarily displaying the Ajax-preview when the entry itself is empty
+- fixed a buggy handling of blocked IPs when one tries to log in
+- do not add and remove inline styles of HTML-elements with JavaScript, toggle class names instead
+- added the possibility to trigger the Ajax-preview by mouse over on the icon
+- added a function for bookmarking entries
+- added an email message to a user that was activated by an administrator
+- added a warning for the forum team about the not from the server removed installation script
+- added a notification for the forum team about registered but not activated users
+- added a notification for the forum team about the current version number of the installation
+- added a notification for the forum team about the actual available release with a link to the download location
+- added a link to the releases list for the case, that the query for the actual available release failes
+
+2.3.7 (2016-10-10)
+------------------
+- fixed further spelling error (German language)
+- fixed max-width for images in the ajax-preview
+- fixed a warning about variable name, that was used as function parameter and afterwards redeclared as new variable
+- fixed unintended closing the ajax-preview by clicking the horizontal scrollbar of the preview 
+- added translation for two untranslated strings in the German language file
+
+2.3.7beta (1 and 2) (2016-10-04, 2016-10-05)
+------------------
+- feature, time limit for blocking IP after three failed login attempts is now configurable (`temp_block_ip_after_repeated_failed_logins` > 0)
+- fixed security issue, CSRF-protection
+- fixed security issue, relative path overwrite protection
+- fixed security issue, context-sesitive-masking of strings in HTML
+- fixed error in the update function, update over several versions was not possible
+- fixed language config, multiple use of a keyword with different text in different blocks
+- fixed spelling error (English language)
+- use class constructor in the BBCodeClass, old behaviour is deprecated in actual PHP-versions
+- update Smarty (3.1.30)
+- update Bad Behaviour (2.2.19)
+
+2.3.6.1 (2016-08-04)
+--------------------
+- Allow last_login to be NULL, NOT NULL caused errors when registering a user
+- Database error when one declared a erroneous database login credential during the installation
+- Several spelling and grammar errors in german.lang
+- Feature: A link to the list of the own postings of the logged in user
+
+2.3.5 (2016-06-02)
+------------------
+- Smarty update (3.1.29)
+- Bad Behavior updated (2.2.18)
+- Marked locked thread without opening (http://mylittleforum.net/forum/index.php?id=8721)
+- Several minor translation errors in german.lang (http://mylittleforum.net/forum/index.php?id=8549)
+- Sticky becomes unstuck when thread is edited-Fix (http://mylittleforum.net/forum/index.php?id=8310)
+- JavaScript fix for iOS (http://mylittleforum.net/forum/index.php?id=8393)
+- Showing registered users (http://mylittleforum.net/forum/index.php?id=8285)
+- Replace mysql_* by mysqli_* functions (http://mylittleforum.net/forum/index.php?id=8942)
+- Set empty timestamp values to null for MySQL>=5.6.5
+
+Edited files:
+- js/
+- modules/smarty/
+- modules/bad-behavior/
+- lang/german.lang
+- themes/default/images/bg_sprite_1.png
+- themes/default/subtemplates/entry.inc.tpl
+- themes/default/subtemplates/index.inc.tpl
+- themes/default/subtemplates/index_table.inc.tpl
+- themes/default/subtemplates/thread.inc.tpl
+- themes/default/subtemplates/thread_linear.inc.tpl
+- themes/default/style.css
+- themes/default/style.mini.css
+- includes/admin.inc.php
+- includes/auto_login.inc.php
+- includes/contact.inc.php
+- includes/entry.inc.php
+- includes/functions.inc.php
+- includes/index.inc.php
+- includes/login.inc.php
+- includes/main.inc.php
+- includes/page.inc.php
+- includes/posting.inc.php
+- includes/register.inc.php
+- includes/rss.inc.php
+- includes/search.inc.php
+- includes/thread.inc.php
+- includes/user.inc.php
+
+
+2.3.4 (2015-02-08)
+------------------
+- Security vulnerability fix (http://mylittleforum.net/forum/index.php?id=8182)
+- Fix in contains_invalid_string() function (http://mylittleforum.net/forum/index.php?id=8169)
+- Smarty update (3.1.21)
+
+2.3.3 (2014-04-10)
+------------------
+- htmlspecialchars warnings bug fix (http://mylittleforum.net/forum/index.php?id=7576)
+- more smilies button bug fix (http://mylittleforum.net/forum/index.php?id=7612)
+- French language file bug fix (http://mylittleforum.net/forum/index.php?id=7175)
+- Spanish translation completed
+
+2.3.2 (2013-11-24)
+------------------
+- language bug fix: http://mylittleforum.net/forum/index.php?id=7077
+- theme switch bug fix: http://mylittleforum.net/forum/index.php?id=7345
+- Smarty updated (3.1.15)
+- Bad Behavior updated (2.2.14)
+- Swedish language file added
+
+
+2.3.1 (2012-12-01)
+------------------
+- JavaScript fix: http://mylittleforum.net/forum/index.php?id=6718
+- Stop Forum Spam (http://www.stopforumspam.com/) implemented
+- list spam feature implemented
+- Smarty updated (3.1.12)
+- Bad Behavior updated (2.2.11)
+- GeSHi updated (1.0.8.11)
+- set default time zone to UTC to prevent generating a E_NOTICE
+
+2.3 (2011-09-01)
+------------------
+- Smarty updated (3.0.8)
+- Bad Behavior updated (2.0.44)
+- GeSHi updated (1.0.8.10)
+- fixed this bug: http://mylittleforum.net/forum/index.php?id=5787
+- minor JavaScript modifications
+- possibility of akismet spam checking of posts by registered users added
+- added administration options to user profile page
+
+Edited files:
+- includes/
+- js/
+- lang/
+- modules/bad-behavior/
+- modules/geshi/
+- modules/smarty/
+- themes/default/main.tpl
+- themes/default/subtemplats/admin.inc.tpl
+- themes/default/subtemplats/entry.inc.tpl
+- themes/default/subtemplats/index.inc.tpl
+- themes/default/subtemplats/index_table.inc.tpl
+- themes/default/subtemplats/thread.inc.tpl
+- themes/default/subtemplats/user.inc.tpl
+- themes/default/subtemplats/user_profile.inc.tpl
+- index.php
+
+Database changes:
+- setting "akismet_check_registered" added:
+  INSERT INTO mlf2_settings VALUES ('akismet_check_registered', '0');
+ 
+Manual update:
+- replace the changed files 
+- set "version" to "2.3" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.8 (2011-03-08)
+------------------
+- the timestamp is exclusively fetched from the database server now
+  (http://mylittleforum.net/forum/index.php?id=5706)
+- imagecopyresized() replaced by imagecopyresampled()
+- minor modifications in stringparser_bbcode class to prevent deprecated and
+  strict standards warning in PHP 5.3
+- image-code is directly included into message after upload
+- BBCode size button can now be deactivated 
+
+Edited files:
+- index.php
+- includes/
+- modules/stringparser_bbcode/
+- themes/default/upload_image.tpl
+- themes/default/subtemplates/posting.inc.tpl
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed files
+- set "version" to "2.2.8" in Admin --> Forum settings --> Advanced settings
+
+2.2.7 (2010-11-21)
+------------------
+- minor CSS and JavaScript modifications
+- Chinese and Croatian language files updated
+
+Edited files:
+- themes/default/style.css
+- themes/default/style.min.css
+- js/main.js
+- js/main.min.js
+- lang/chinese.lang
+- lang/croatian.lang
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed files
+- set "version" to "2.2.7" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.6 (2010-07-10)
+------------------
+- minor template bug fixed (bbcode button "image" was displayed even if
+  disabled)
+- rss feed uses cached entry data now
+- control characters filter for rss feed implemented
+
+Edited files:
+- includes/functions.inc.php
+- includes/rss.inc.php
+- themes/default/subtemplates/posting.inc.tpl
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed files
+- set "version" to "2.2.6" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.5 (2010-06-21)
+------------------
+- Template bug fixed (http://mylittleforum.net/forum/index.php?id=5000)
+
+Edited files:
+- themes/default/subtemplates/thread.inc.tpl
+- themes/default/subtemplates/thread_linear.inc.tpl
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed files
+- set "version" to "2.2.5" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.4 (2010-06-11)
+------------------
+- Template bug fixed (http://mylittleforum.net/forum/index.php?id=4982)
+
+Edited files:
+- themes/default/subtemplates/user_postings.inc.tpl
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed file
+- set "version" to "2.2.4" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.3 (2010-05-30)
+------------------
+- Mail header separator changed from "\r\n" to "\n". Seems to be less 
+  error-prone although it doesn't comply with RFC 2822
+- Minor JS improvements
+- Minor language file changes
+  
+Edited files:
+ - includes/functions.inc.php
+ - js/main.js
+ - js/main.min.js
+ - lang/english.lang
+ - lang/german.lang
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed file
+- set "version" to "2.2.3" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.2 (2010-05-26)
+------------------
+- Bugfix: JS error if not logged in and forum is accessible by registered users 
+  only
+  
+Edited files:
+ - index.php
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed file
+- set "version" to "2.2.2" in Admin --> Forum settings --> Advanced settings
+
+
+2.2.1 (2010-05-20)
+------------------
+- Minor JavaScript improvements / JavaScript issue in Safari fixed
+- Russian language file updated 
+
+Edited files:
+ - js/main.js
+ - js/main.min.js
+ - js/posting.js
+ - js/posting.min.js
+ - lang/russian.lang
+
+Database changes:
+- no database changes
+ 
+Manual update:
+- replace the changed files
+- set "version" to "2.2.1" in Admin --> Forum settings --> Advanced settings
+
+
+2.2 (2010-05-13)
+----------------
+Changes:
+- New user settings: language, time zone and theme
+- Server-side storage of read postings for registered users implemented
+- JavaScript code completely rewritten
+- New BBCode for TeX formulas ([tex]TeX formula[/tex])
+- New thumbnail feature ([img=thumbnail]image URL[img])
+- Template/CSS improvements (menus as unordered lists, CSS Sprites for 
+  background images)
+
+Edited files:
+ - all
+
+Database changes:
+ - new colums in userdata table, new rows in settings table;
+   see update/update.sql
+
+
+2.1.4 (2010-02-08)
+------------------
+- Modified quoted-printable encoding for e-mails
+- Skipped user data check of registered users when posting (is already done when 
+  registering or editing user data)
+- Bugfix: graphical CAPTCHA was not displayed if cookies were disabled
+
+Changed files:
+- includes/functions.inc.php
+- includes/posting.inc.php
+- templates/default/subtemplates/posting.tpl.inc
+- templates/default/subtemplates/contact.tpl.inc
+
+Database changes:
+- no database changes
+
+Manual update:
+- replace the changed files
+- set "version" to "2.1.4" in Admin --> Forum settings --> Advanced settings
+
+2.1.3 (2010-01-25)
+------------------
+Changes:
+ - Fixed bug where an error occurred if a thread starting posting was moved to a
+   reply in the same thread (http://mylittleforum.net/bugtracker/view.php?id=8)
+
+Edited files:
+ - includes/posting.inc.php
+
+Database changes:
+ - no database changes
+
+Manual update:
+ - replace the file includes/posting.inc.php
+ - set "version" to "2.1.3" in Admin --> Forum settings --> Advanced settings
+
+
+2.1.2 (2010-01-02)
+------------------
+- language files added: Chinese, Italian, Norwegian, Tamil
+- improved paragraph handling for flash BBCode
+- check for special characters in usernames in order to prevent identical
+  looking usernames (however, this is still limited as unicode usernames are
+  possible) (new function contains_special_characters() in
+  includes/function.inc.php)
+- JavaScript function insert_link() improved (Milo)
+  (http://mylittleforum.net/forum/index.php?id=4482)
+- e-mail messages are quoted-printable encoded now
+- fixed this bug: http://mylittleforum.net/bugtracker/view.php?id=7
+- thread connection lines implemented (only non IE browsers)
+- some CSS clean up
+
+
+2.1.1 (2009-07-09)
+------------------
+
+- button to insert BBCode "[code]" implemented
+- Russian language file added
+- counting of postings in user list disabled as it caused too much server load
+- updated Smarty to version 2.6.26
+
+
+2.1 (2009-06-19)
+----------------
+- new BBCode to insert flash videos
+- personal category selection for registered users
+- improved automatic login (without redirection and on various computers
+  possible now)
+- latest posting box and tag cloud show postings/tags of current category now
+- mark old/all/none added to "Manage postings"
+- Ajax preview bubble can be closed by clicking somewhere outside of it now
+- implemented <wfw:commentRss> in rss feed of thread starts (thus some feed
+  readers display the belonging replies)
+- improved backup function in order to prevend timeout and memory size overload
+- improved handling of banned IPs (IP ranges and CIDR notation possible now)
+- implemented auto lock old threads feature
+- updated GeSHi syntax highlighter to version 1.0.8.3
+- corrected time format of <pubDate> in RSS Feeds according to RFC 2822
+- time zone can be specified now (advanced settings-->timezone; for possible
+  values see here: http://php.net/manual/en/timezones.php; optional, requires
+  requires PHP > 5.2)
+- implemented display of current forum time
+- improved image uploader: images can now be deleted by admins and mods
+- added (incomplete) Spanish language file
+- profile is checked for not accepted words now when editing it
+- changed magic_quotes_gpc behavior (slashes are removed now from GPCs if
+  magic_quotes_gpc is enabled)
+- updated Smarty (version 2.6.25)
+
+2.0.1 (2009-01-16)
+------------------
+- fixed bug with username maximum length
+  (http://mylittleforum.net/forum/index.php?id=3547)
+- implemented search for users by username and e-mail
+  (http://mylittleforum.net/forum/index.php?id=3547)
+
+2.0 (2008-12-27)
+----------------
+- updated Smarty (version 2.6.22)
+- Turkish language file added
+
+2.0 RC 8 (2008-11-23)
+---------------------
+- updated Smarty (version 2.6.20)
+- Norwegian language file added
+
+2.0 RC 7 (2008-10-19)
+---------------------
+- fixed bug in includes/register.inc.php
+  (http://mylittleforum.net/forum/index.php?id=3343)
+- added category element in rss feed
+- minor structural changes in includes/posting.inc.php and
+  templates/default/subtemplates/posting.tpl.inc
+
+2.0 RC 6 (2008-09-21)
+---------------------
+- fixed bug in lock thread feature
+  (http://mylittleforum.net/forum/index.php?id=3307)
+- fixed bug where, when accessing an entry as not logged in user and the forum
+  is accessible by registered users only, the redirect to the login form and
+  back to the entry didn't work
+  (http://mylittleforum.net/forum/index.php?id=3323)
+- language file corrections
+- Chinese language file added
+
+2.0 RC 5 (2008-09-04)
+---------------------
+- fixed bug where, when editing a reply the category was deleted
+  (http://mylittleforum.net/forum/index.php?id=3202)
+- changed ajax preview in order that the preview bubble does not remain in the
+  DOM when not needed
+- renamed file js/javascripts.js into js/main.js
+- added setting "forum_readonly"
+- added setting "tags"
+- added Danish language file
+
+2.0 RC 4 (2008-08-09)
+---------------------
+- All e-mails are sent now by one central function ("my_mail")
+- Subject and text length limitation for e-mails implemented
+- Added "accept-charset" to all forms
+- added prompt to enter a URL on the [img] bbcode button if no text was selected
+  (http://mylittleforum.net/forum/index.php?id=3071)
+- If the session expires while writing a message the text is displayed now after
+  submitting the form so that you're able to "rescue" it.
+- updated the PHP Akismet Class (0.3.4)
+- removed the	variable "p_user_id" from includes/posting.inc.php and
+  templates/default/subtemplates/posting.tpl.inc
+- fixed bug where, in the list of registered users the status "online" was not
+  displayed
+- fixed CSS bug where, in IE6 the avatars were not displayed in opened
+  complete threads (http://mylittleforum.net/forum/index.php?id=3091)
+- locking of individual postings implemented
+  (http://mylittleforum.net/forum/index.php?id=2897)
+- minor code and template changes
+
+2.0 RC 3 (2008-07-20)
+---------------------
+- changed naming of uploaded images
+  (http://mylittleforum.net/forum/index.php?id=2994)
+- changed setting "user_online_counter" (carries length of time period now)
+- fixed utf-8 issues with e-mail headers
+- fixed bug where, when editing a posting as unregistered user (if enabled) the
+  terms of use agreement checkbox was not displayed (if enabled)
+- added German language file
+
+2.0 RC 2 (2008-07-08)
+---------------------
+- added "Open in thread" link (http://mylittleforum.net/forum/index.php?id=2804)
+- implemented time-frame (request of form until form submit) to complicate
+  automated form submissions
+- fixed some utf-8 issues (missing charset in e-mails, using multibyte string
+  functions)
+- minor template improvements
+- updated Bad Behavior (2.0.16)
+- updated GeSHi (1.0.7.22)
+- updated BBCode Parser Class (0.3.3)
+
+2.0 RC 1 (2008-05-31)
+---------------------
+- New BB Codes [pre][/pre] (http://mylittleforum.net/forum/index.php?id=2725)
+  and [monospace][/monospace] (http://mylittleforum.net/forum/index.php?id=2737)
+- Keeping position within main page when going back in Firefox
+  (http://mylittleforum.net/forum/index.php?id=2747)
+- Some of the corrections posted here
+  http://mylittleforum.net/forum/index.php?id=2796
+
+2.0 beta 26 (2008-04-06)
+------------------------
+- fixed bug concerning email contact
+  (http://mylittleforum.net/forum/index.php?id=2516)
+- changed behavior in email contact (no more confirmation to sender)
+  (http://mylittleforum.net/forum/index.php?id=2485)
+- structural change in templates: subtemplates stored in subfolder
+  "subtemplates" now
+
+2.0 beta 25 (2008-02-27)
+------------------------
+- The minimum password length can be defined now (Advanced settings:
+  min_pw_length).
+- Passwords are saved as salted SHA1 hashes now (to ensure downward
+  compatibility the old MD5 hashes are still valid).
+- updated Smarty (version 2.6.19)
+
+2.0 beta 24 (2008-02-11)
+------------------------
+- The new e-mail address has to be confirmed now when changing the e-mail
+  adrress.
+- Fixed bug concerning incorrect thread tree times in opened posting
+  (http://mylittleforum.net/forum/index.php?id=2361)
+- implemented current version of the strinparser bb code class (0.3.2b)
+  (http://mylittleforum.net/forum/index.php?id=2362)
+
+2.0 beta 23 (2008-01-25)
+------------------------
+- new function to move postings / split threads
+
+2.0 beta 22 (2008-01-22)
+------------------------
+- fixed bug in includes/index.inc.php (empty user names of registered users
+  in latest postings)
+- fixed bug in includes/posting.inc.php (empty user names of registered users
+  in subnavigation)
+- fixed bug in includes/functions.inc.php (empty user names of registered users
+  in notification e-mails)
+- corrected language varable name (bbcode_link_url_marking --> bbcode_link_url)
+
+2.0 beta 21 (2008-01-19)
+------------------------
+- fixed bug in RSS feed (user names of registered users were not displayed
+  since version 2.0 beta 20)
+- new user search in user area
+- by default, the e-mail address of new users is not contactable; the default
+  value can be set in the advanced settings (default_email_contact)
