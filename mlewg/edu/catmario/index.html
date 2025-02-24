@@ -1,31 +1,41 @@
-<html lang="en-us"><head>
+<!doctype html>
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>cat mario</title>
+    <title>Open Syobon Action</title>
     <style>
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
       div.emscripten { text-align: center; font-size: 12px; }
-      div.emscripten_border { border: 0px solid black; }
+      div.emscripten_border { border: 1px solid black; }
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
       canvas.emscripten { border: 0px none; }
-      body { font-family: helvetica, arial, sans-serif; color: #000; }
-      h1, h2 { color: #000; text-align: center; }
+      body { background: #000; font-family: helvetica, arial, sans-serif; color: #ccc; }
+      h1, h2 { color: #fff; text-align: center; }
       #fullscreen-btn { margin: 20px; }
-      a { color: #000; }
+      a { color: #66c; }
     </style>
-  <style type="text/css"></style><style type="text/css" id="tts-styles">[data-tts-block-id].tts-active {background: rgba(206, 225, 255, 0.9) !important;} [data-tts-sentence-id].tts-active {background: rgba(0, 89, 191, 0.7) !important;}</style></head>
+  </head>
   <body>
-    
-    
-    <div class="emscripten" id="status"></div>
+    <h1>Open Syobon Action</h1>
+    <h2>a.k.a. Cat Mario</h2>
+    <div class="emscripten" id="status">Downloading...</div>
     <div class="emscripten">
-      <progress value="0" max="1" id="progress" hidden=""></progress>  
+      <progress value="0" max="100" id="progress" hidden=1></progress>  
     </div>
     <div class="emscripten_border">
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" width="480" height="420"></canvas>
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
-    
-    <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+    <div class="emscripten">
+      <input id="fullscreen-btn" type="button" value="Fullscreen"
+        onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, 
+                                          document.getElementById('resize').checked)">
+      <br/>
+      <a href="http://sourceforge.net/projects/opensyobon/">Original Source</a>.
+      Ported by <a href="https://twitter.com/jezng">@jezng</a> using <a
+          href="http://emscripten.org">Emscripten</a>.
+    </div>
+    <script type='text/javascript'>
       // connect to canvas
       var Module = {
         preRun: [],
@@ -65,7 +75,7 @@
       };
       Module.setStatus('Downloading...');
     </script>
-    <script type="text/javascript">// Note: For maximum-speed code, see "Optimizing Code" on the Emscripten wiki, https://github.com/kripken/emscripten/wiki/Optimizing-Code
+    <script type='text/javascript'>// Note: For maximum-speed code, see "Optimizing Code" on the Emscripten wiki, https://github.com/kripken/emscripten/wiki/Optimizing-Code
 // Note: Some Emscripten settings may limit the speed of the generated code.
 try {
   this['Module'] = Module;
@@ -6790,6 +6800,5 @@ run();
         ga('create', 'UA-42392611-1', 'int3.github.io');
         ga('send', 'pageview');
     </script>
-  
-
-<div id="screenRecording-controls" style="display: none;"><div id="screenRecording-controls__open-settings-btn"><img src="chrome-extension://flmihfcdcgigpfcfjpdcniidbfnffdcf/images/inject/gear.png"></div><div id="screenRecording-controls__settings"><div id="screenRecording-controls__settings__logo-container"><img src="chrome-extension://flmihfcdcgigpfcfjpdcniidbfnffdcf/images/inject/logo.svg"></div><div id="screenRecording-controls__settings__main-btn" class="screenRecording-controls__settings__btn screenRecording-controls__settings__btn_active"><div style="background-image: url(&quot;chrome-extension://flmihfcdcgigpfcfjpdcniidbfnffdcf/images/inject/pause.svg&quot;);"></div></div><div id="screenRecording-controls__settings__stop-btn" class="screenRecording-controls__settings__btn"><div style="background-image: url(&quot;chrome-extension://flmihfcdcgigpfcfjpdcniidbfnffdcf/images/inject/stop.svg&quot;);"></div></div><div id="screenRecording-controls__settings__close-btn" class="screenRecording-controls__settings__btn"><div style="background-image: url(&quot;chrome-extension://flmihfcdcgigpfcfjpdcniidbfnffdcf/images/inject/close.svg&quot;);"></div></div></div></div></body></html>
+  </body>
+</html>
