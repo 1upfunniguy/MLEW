@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --scary-maze-font: "Londrina Solid", cursive;
+}
+
+body {
+  background-color: #000;
+}
+
+.scary-maze-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-intro {
+  background-color: #00ffff;
+  width: 800px;
+  height: 600px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--scary-maze-font);
+  overflow: hidden;
+}
+
+#game-intro .logo-img {
+  width: 500px;
+  height: 170px;
+  background-image: url(/img/scarymaze-logo.png);
+  background-size: 500px 170px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: 50px;
+  left: 150px;
+}
+
+#game-intro h1 {
+  font-size: 1.5em;
+  position: relative;
+  bottom: 20px;
+  left: 325px;
+}
+
+#game-intro .description {
+  position: relative;
+  top: 50px;
+  font-size: 2em;
+  line-height: 1.5;
+}
+
+#game-intro h4 {
+  position: relative;
+  top: 80px;
+  font-style: italic;
+}
+
+#game-intro button {
+  width: 150px;
+  height: 90px;
+  border: none;
+  background-color: #000;
+  background-image: url(/img/play-btn.png);
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  top: 101px;
+}
+
+#game .level-one {
+  margin-left: 250px;
+  cursor: url(/img/scarymaze-cursor.png), auto;
+  display: none;
+}
+
+#game .level-two {
+  margin-left: 50px;
+  cursor: url(/img/scarymaze-cursor.png), auto;
+  display: none;
+}
+
+#game .level-three {
+  margin-left: 200px;
+  cursor: url(/img/scarymaze-cursor.png), auto;
+  display: none;
+}
+
+.scary-img {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
