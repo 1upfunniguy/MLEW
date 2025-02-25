@@ -1,0 +1,100 @@
+{
+	"name": "dumpster",
+	"plugin-id": "Sprite",
+	"sid": 141733921541438,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 888018291730651
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 972900827459117
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 21,
+						"height": 43,
+						"originX": 0.5714285714285714,
+						"originY": 0.8604651162790697,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4981439,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.3488372093023256,
+								0.9047619047619048,
+								0.3488372093023256,
+								0.9047619047619048,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 605899217581965,
+				"name": "right",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 21,
+						"height": 43,
+						"originX": 0.6190476190476191,
+						"originY": 0.8604651162790697,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 578825,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0.09523809523809523,
+								1,
+								0.09523809523809523,
+								0.3488372093023256,
+								1,
+								0.3488372093023256
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 133257874179253,
+				"name": "left",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

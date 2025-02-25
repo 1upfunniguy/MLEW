@@ -1,0 +1,59 @@
+{
+	"name": "menuBlur",
+	"plugin-id": "Sprite",
+	"sid": 768333702002580,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "screen",
+			"name": "screen"
+		},
+		{
+			"effectId": "blurhorizontal",
+			"name": "blurHorizontal1"
+		},
+		{
+			"effectId": "blurvertical",
+			"name": "blurVertical1"
+		},
+		{
+			"effectId": "blurhorizontal",
+			"name": "blurHorizontal2"
+		},
+		{
+			"effectId": "blurvertical",
+			"name": "blurVertical2"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1,
+						"height": 1,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3332436,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 684150331575131,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

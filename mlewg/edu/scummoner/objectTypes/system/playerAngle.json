@@ -1,0 +1,50 @@
+{
+	"name": "playerAngle",
+	"plugin-id": "Sprite",
+	"sid": 727184867758508,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 15,
+						"height": 15,
+						"originX": 0.4666666666666667,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4821715,
+						"collisionPoly": {
+							"points": [
+								0.4,
+								0.26666666666666666,
+								1,
+								0.26666666666666666,
+								1,
+								0.7333333333333333,
+								0.4,
+								0.7333333333333333
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 706528321590409,
+				"name": "default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

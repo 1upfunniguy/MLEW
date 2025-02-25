@@ -1,0 +1,23 @@
+{
+	"name": "tutorials",
+	"plugin-id": "Sprite",
+	"sid": 157886124205428,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"boulder",
+		"barrel",
+		"blood",
+		"dummy",
+		"devil",
+		"cloud",
+		"car",
+		"dumpster",
+		"manhole",
+		"trashCan",
+		"player",
+		"tutorialKey",
+		"menuSummonItem"
+	]
+}

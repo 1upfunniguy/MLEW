@@ -1,0 +1,38 @@
+{
+	"name": "bloods",
+	"plugin-id": "Sprite",
+	"sid": 978499001417741,
+	"instanceVariables": [
+		{
+			"name": "lifetime",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 650273939638045
+		},
+		{
+			"name": "fade",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 338485658503411
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 772060933796642
+		},
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 793967781519219
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"blood",
+		"bloodyFootstep"
+	]
+}

@@ -1,0 +1,150 @@
+{
+	"name": "tutorialControls",
+	"enabled": true,
+	"interpolationMode": "default",
+	"resultMode": "default",
+	"ease": "noease",
+	"pathMode": "line",
+	"resizeMode": "size",
+	"playheadTime": 1.5,
+	"totalTime": 3,
+	"stepTime": 0.1,
+	"useStepTime": true,
+	"showingInterpolationModes": false,
+	"showingResultModes": false,
+	"showingEases": false,
+	"showingPathModes": false,
+	"scale": 1,
+	"loop": false,
+	"pingPong": false,
+	"repeatCount": 1,
+	"startOnLayout": "",
+	"transformWithSceneGraph": true,
+	"ignoreSystemTimescale": true,
+	"tracks": [
+		{
+			"type": "value-track",
+			"name": "Value Track 1",
+			"project": "b391sry5odc",
+			"enabled": true,
+			"interpolationMode": "default",
+			"ease": "default",
+			"initialVisibility": true,
+			"id": "tutorialControls",
+			"keyframes": [
+				{
+					"time": 0,
+					"tags": "",
+					"enabled": true,
+					"ease": "default"
+				},
+				{
+					"time": 0.5,
+					"tags": "",
+					"enabled": true,
+					"ease": "default"
+				},
+				{
+					"time": 1.5,
+					"tags": "",
+					"enabled": true,
+					"ease": "default"
+				},
+				{
+					"time": 2.5,
+					"tags": "",
+					"enabled": true,
+					"ease": "default"
+				}
+			],
+			"propertyTracks": [
+				{
+					"property": "value",
+					"source": {
+						"type": "value",
+						"uid": "value"
+					},
+					"enabled": true,
+					"interpolationMode": "default",
+					"ease": "default",
+					"propertyKeyframes": [
+						{
+							"time": 0,
+							"enabled": true,
+							"ease": "default",
+							"value": 0,
+							"rValue": 0,
+							"aValue": 0,
+							"addons": []
+						},
+						{
+							"time": 0.5,
+							"enabled": true,
+							"ease": "default",
+							"value": 1,
+							"rValue": 1,
+							"aValue": 1,
+							"addons": []
+						},
+						{
+							"time": 1.5,
+							"enabled": true,
+							"ease": "default",
+							"value": 2,
+							"rValue": 2,
+							"aValue": 2,
+							"addons": []
+						},
+						{
+							"time": 2.5,
+							"enabled": true,
+							"ease": "default",
+							"value": 3,
+							"rValue": 3,
+							"aValue": 3,
+							"addons": []
+						}
+					]
+				}
+			],
+			"propertyTracksRoot": {
+				"enabled": true,
+				"interpolationMode": "default",
+				"resultMode": "default",
+				"ease": "default",
+				"pathMode": "default",
+				"resizeMode": "default",
+				"expanded": true,
+				"name": "Property Track Folder",
+				"items": [],
+				"subfolders": []
+			}
+		}
+	],
+	"tracksRoot": {
+		"enabled": true,
+		"interpolationMode": "default",
+		"resultMode": "default",
+		"ease": "default",
+		"pathMode": "default",
+		"resizeMode": "default",
+		"expanded": true,
+		"name": "Track Folder",
+		"items": [],
+		"subfolders": []
+	},
+	"nestedTimelinesRoot": {
+		"enabled": true,
+		"interpolationMode": "default",
+		"resultMode": "default",
+		"ease": "default",
+		"pathMode": "default",
+		"resizeMode": "default",
+		"expanded": true,
+		"name": "Timelines",
+		"items": [],
+		"subfolders": []
+	},
+	"nestedData": {},
+	"transitionsData": []
+}

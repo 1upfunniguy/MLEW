@@ -1,0 +1,29 @@
+{
+	"name": "objects",
+	"plugin-id": "Sprite",
+	"sid": 684906662486224,
+	"instanceVariables": [
+		{
+			"name": "onFire",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 393033086746272
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 706881274331881
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"car",
+		"trashCan",
+		"dumpster",
+		"tree",
+		"barrel"
+	]
+}

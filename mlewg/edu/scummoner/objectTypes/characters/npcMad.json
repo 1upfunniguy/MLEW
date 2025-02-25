@@ -1,0 +1,27 @@
+{
+	"name": "npcMad",
+	"plugin-id": "Particles",
+	"sid": 596692732526377,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 833771313802332
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 6,
+		"height": 6,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8060995,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

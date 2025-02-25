@@ -1,0 +1,27 @@
+{
+	"name": "summonAppear",
+	"plugin-id": "Particles",
+	"sid": 885112290798679,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 836782577559496
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 4,
+		"height": 4,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1602195,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

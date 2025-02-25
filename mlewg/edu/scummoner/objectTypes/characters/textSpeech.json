@@ -1,0 +1,54 @@
+{
+	"name": "textSpeech",
+	"plugin-id": "Spritefont2",
+	"sid": 337013029345849,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "type",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 161097441731254
+		},
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 783197673183174
+		},
+		{
+			"name": "initialHeight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 992024797513442
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 551110760857469
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 368543932214886
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 156,
+		"height": 84,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5780315,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

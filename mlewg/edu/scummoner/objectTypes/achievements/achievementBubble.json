@@ -1,0 +1,27 @@
+{
+	"name": "achievementBubble",
+	"plugin-id": "NinePatch",
+	"sid": 978490449124811,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 708839540412451
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2562122,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

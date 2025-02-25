@@ -1,0 +1,36 @@
+{
+	"name": "menuBar",
+	"plugin-id": "NinePatch",
+	"sid": 675150836160364,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 343859325693310
+		},
+		{
+			"name": "type",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 196879845774472
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 10,
+		"height": 10,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2807140,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

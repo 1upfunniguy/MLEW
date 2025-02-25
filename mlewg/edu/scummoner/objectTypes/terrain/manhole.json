@@ -1,0 +1,86 @@
+{
+	"name": "manhole",
+	"plugin-id": "Sprite",
+	"sid": 554895376502563,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 23,
+						"originX": 0.5,
+						"originY": 0.4782608695652174,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8839328,
+						"collisionPoly": {
+							"points": [
+								0.15,
+								0.21739130434782608,
+								0.85,
+								0.21739130434782608,
+								0.85,
+								0.6956521739130435,
+								0.15,
+								0.6956521739130435
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 451653974191291,
+				"name": "default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 23,
+						"originX": 0.5,
+						"originY": 0.4782608695652174,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6271576,
+						"collisionPoly": {
+							"points": [
+								0.1,
+								0.21739130434782608,
+								0.9,
+								0.21739130434782608,
+								0.9,
+								0.782608695652174,
+								0.1,
+								0.782608695652174
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 293771970203331,
+				"name": "open",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

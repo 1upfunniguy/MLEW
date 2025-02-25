@@ -1,0 +1,27 @@
+{
+	"name": "cloudRain",
+	"plugin-id": "Particles",
+	"sid": 157781116724924,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 914420889009869
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 3,
+		"height": 3,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 208690,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

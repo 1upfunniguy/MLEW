@@ -1,0 +1,71 @@
+{
+	"name": "playerControl",
+	"plugin-id": "Sprite",
+	"sid": 149564419574655,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "dirX",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 592918864943652
+		},
+		{
+			"name": "dirY",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 983109058601427
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "custom",
+			"name": "Custom",
+			"sid": 200111812474124
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 15,
+						"height": 15,
+						"originX": 0.4666666666666667,
+						"originY": 0.4666666666666667,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7426902,
+						"collisionPoly": {
+							"points": [
+								0.06666666666666667,
+								0.3333333333333333,
+								0.9333333333333333,
+								0.3333333333333333,
+								0.9333333333333333,
+								0.6666666666666666,
+								0.06666666666666667,
+								0.6666666666666666
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 957073438409106,
+				"name": "default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

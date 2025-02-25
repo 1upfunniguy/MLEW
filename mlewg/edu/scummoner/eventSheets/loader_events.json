@@ -1,0 +1,48 @@
+{
+	"name": "loader_events",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 401446626017164
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "menuBar",
+					"sid": 719109747654810,
+					"parameters": {
+						"width": "loadingprogress*304"
+					}
+				}
+			],
+			"sid": 815188338176596
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 598998378210289
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 312765464989174,
+					"parameters": {
+						"layout": "menu"
+					}
+				}
+			],
+			"sid": 237713066462497
+		}
+	],
+	"sid": 873130529450582
+}

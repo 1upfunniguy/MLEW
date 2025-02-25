@@ -1,0 +1,27 @@
+{
+	"name": "poof",
+	"plugin-id": "Particles",
+	"sid": 912862078754114,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 969338881943570
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 12,
+		"height": 12,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8908595,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

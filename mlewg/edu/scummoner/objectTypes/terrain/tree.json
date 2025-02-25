@@ -1,0 +1,100 @@
+{
+	"name": "tree",
+	"plugin-id": "Sprite",
+	"sid": 715459066257056,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "health",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 877009412422610
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 100905267982215
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 72,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1152281,
+						"collisionPoly": {
+							"points": [
+								0.3333333333333333,
+								0.9375,
+								0.6666666666666666,
+								0.9375,
+								0.6666666666666666,
+								0.9973958333333334,
+								0.3333333333333333,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 483868961346214,
+				"name": "tree",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 72,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4523503,
+						"collisionPoly": {
+							"points": [
+								0.3333333333333333,
+								0.9375,
+								0.6666666666666666,
+								0.9375,
+								0.6666666666666666,
+								0.9973958333333334,
+								0.3333333333333333,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 988396201413857,
+				"name": "stump",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

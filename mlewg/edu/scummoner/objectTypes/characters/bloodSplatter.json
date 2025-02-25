@@ -1,0 +1,27 @@
+{
+	"name": "bloodSplatter",
+	"plugin-id": "Particles",
+	"sid": 707785468111602,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 384817823141732
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 4,
+		"height": 4,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7509585,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

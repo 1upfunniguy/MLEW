@@ -1,0 +1,27 @@
+{
+	"name": "boulderSplash",
+	"plugin-id": "Particles",
+	"sid": 990197352333487,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 494451762891029
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 3,
+		"height": 3,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1307986,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

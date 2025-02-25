@@ -1,0 +1,40 @@
+{
+	"name": "waterOverlay",
+	"plugin-id": "TiledBg",
+	"sid": 976112912833410,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 623914699782982
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 739967346762744
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 685295825643120
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 256,
+		"height": 256,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3275120,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"name": "textSmall",
+	"plugin-id": "Spritefont2",
+	"sid": 915315972322966,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "type",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 754179851705183
+		},
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 513049081081520
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "skymen_BetterOutline",
+			"name": "BetterOutline"
+		}
+	],
+	"image": {
+		"width": 156,
+		"height": 84,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5239074,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name": "explosion",
+	"plugin-id": "Particles",
+	"sid": 542090837484518,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "NoSave",
+			"name": "NoSave",
+			"sid": 678127974692619
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7637616,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}
