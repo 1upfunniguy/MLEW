@@ -8,32 +8,35 @@
 <meta name="generator" content="Scirra Construct">
 	<meta name="description" content="Summon things to ruin lives">
 	<link rel="manifest" href="appmanifest.json">
-	<link rel="apple-touch-icon" sizes="128x128" href="https://files.scum.dog/games/scummoner/icons/icon-128.png">
-	<link rel="apple-touch-icon" sizes="256x256" href="https://files.scum.dog/games/scummoner/icons/icon-256.png">
-	<link rel="apple-touch-icon" sizes="512x512" href="https://files.scum.dog/games/scummoner/icons/icon-512.png">
-	<link rel="icon" type="image/png" href="https://files.scum.dog/games/scummoner/icons/icon-512.png">
+	<link rel="apple-touch-icon" sizes="128x128" href="icons/icon-128.png">
+	<link rel="apple-touch-icon" sizes="256x256" href="icons/icon-256.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+	<link rel="icon" type="image/png" href="icons/icon-512.png">
 
-   <style>
-            /* Reset body and html to have no margin or padding */
-            html, body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                overflow: hidden; /* Prevent scrolling */
-            }
-            /* Make the iframe take up the full screen */
-            #game_drop {
-                width: 100%;
-                height: 100%;
-                border: none; /* Remove border */
-            }
-        </style>
-    </head>
-    <body>
-        <iframe 
-            id="game_drop" 
-            allowfullscreen="true" 
-            src="https://files.scum.dog/games/scummoner/"
-        </iframe>
-    </body>
-    </html>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<script>
+if (location.protocol.substr(0, 4) === "file")
+{
+	alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
+}
+</script>
+	<script src="box2d.wasm.js"></script>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+	<script src="scripts/supportcheck.js"></script>
+	<script src="scripts/offlineclient.js" type="module"></script>
+	<script src="scripts/main.js" type="module"></script>
+	<script src="scripts/register-sw.js" type="module"></script>
+
+</body>
+</html>
+
