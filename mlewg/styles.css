@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Light background */
+    color: #333; /* Default text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #fff; /* White background */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #ff4d4d; /* Add red border around container */
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 3rem;
+    color: #ff4d4d; /* TurboWarp red */
+    margin-bottom: 20px;
+}
+
+/* Links Section */
+.links h2 {
+    font-size: 2rem;
+    color: #333; /* Default text color */
+    margin-bottom: 10px;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links li {
+    margin: 10px 0;
+}
+
+.links a {
+    text-decoration: none;
+    color: #ff4d4d; /* TurboWarp red for text */
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffe6e6; /* Light red background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #ff4d4d; /* Border in red */
+}
+
+.links a:hover {
+    background-color: #ff4d4d; /* Red on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #777; /* Light grey text */
+}
+
+/* Optional - Add a subtle red background for footer */
+footer p {
+    color: #ff4d4d; /* Match footer text to TurboWarp red */
+}
