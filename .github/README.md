@@ -4,15 +4,15 @@
     <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://mlew.vercel.app/mlewwww.png"
+      srcset="https://mlew.vercel.app/mlewwww-inverted.png"
     />
     <source
       media="(prefers-color-scheme: light)"
       srcset="https://mlew.vercel.app/mlewwww.png"
     />
     <img
-      alt="snake thingy"
-      title="snake thingy"
+      alt="fwiphub"
+      title="fwiphub"
       src="https://mlew.vercel.app/mlewwww.png"
     />
   </picture>
