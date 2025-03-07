@@ -111,4 +111,5 @@ _______________
 - [x] fix other games
 - [x] get doom working like none before
 - [x] get other games
+- [x] finish this checklist
 </div>
