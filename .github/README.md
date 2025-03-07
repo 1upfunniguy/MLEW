@@ -1,28 +1,31 @@
-<div align="center">
-
-<p align="center">
+<a href="https://mlew.vercel.app" target="_blank" style="text-decoration: none;">
+  <p align="center">
     <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://mlew.vercel.app/mlew-inverted.png"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://mlew.vercel.app/mlewwww.png"
-    />
-    <img
-      alt="fwiphub"
-      title="fwiphub"
-      src="https://mlew.vercel.app/mlewwww.png"
-    />
-  </picture>
-
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://mlew.vercel.app/mlew-inverted.png"
+      />
+      <source
+        media="(prefers-color-scheme: light)"
+        srcset="https://mlew.vercel.app/mlewwww.png"
+      />
+      <img
+        alt="fwiphub"
+        title="fwiphub"
+        src="https://mlew.vercel.app/mlewwww.png"
+      />
+    </picture>
+  </p>
+</a>
+<div align="center">
+    
 #### give a star, this project took a while <3 ⭐️✨
+
 <img src= "../imgs/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
 <hr>
 <p align="center">
 -
-<a href="https://raw.githubusercontent.com/1upfunniguy/MLEW/refs/heads/main/.github/thankyou.md">thank you for stopping by</a>
+<a href="https://mlew.vercel.app/.github/thankyou.md">thank you for stopping by</a>
 -
 </p>
 <hr>
@@ -44,22 +47,22 @@
 
 Development Setup
 
-1. Install Packages
+1. fork
 
 ```
-pnpm install
+https://github.com/1upfunniguy/MLEW/fork
 ```
 
-2. Start hot reload Development Server
+2. create a few commits
 
 ```
-pnpm dev
+ie. changing like an image or smth
 ```
 
-3. Output a release file
+3. send a pull request
 
 ```
-pnpm build
+https://docs.github.com/articles/about-pull-requests
 ```
 
 ## Support
