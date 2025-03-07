@@ -1,9 +1,21 @@
 <div align="center">
 
 <p align="center">
-  <a href="https://cooltext.com"> 
-<img src="https://images.cooltext.com/5720490.gif" /></a>
-</p>
+    <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://mlew.vercel.app/mlewwww.png"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://mlew.vercel.app/mlewwww.png"
+    />
+    <img
+      alt="snake thingy"
+      title="snake thingy"
+      src="https://mlew.vercel.app/mlewwww.png"
+    />
+  </picture>
 
 #### give a star, this project took a while <3 ⭐️✨
 <img src= "../imgs/fwip.png" alt="fwip" width="300" style="border: 5px solid black;">
