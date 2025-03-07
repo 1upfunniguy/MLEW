@@ -4,7 +4,7 @@
     <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://mlew.vercel.app/mlewwww-inverted.png"
+      srcset="https://mlew.vercel.app/mlew-inverted.png"
     />
     <source
       media="(prefers-color-scheme: light)"
