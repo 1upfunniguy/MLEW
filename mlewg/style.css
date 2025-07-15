@@ -62,8 +62,8 @@ body {
 .corner-menze {
   position: fixed;
   top: 0;
-  right: 0; /* changed from left: 0 */
-  width: 150px;
+  right: 30; /* changed from left: 0 */
+  width: 200px;
   z-index: 9999;
   pointer-events: none;
 }
