@@ -1,11 +1,58 @@
-<div style="text-align: center; transform: rotate(1deg);" class="cen" align="center" width="600px">
-      <p style="cen">Got questions? Wanna draw something cool? Send away below!</p><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Page</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      transform: rotate(1deg);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .container p {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .iframe-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+      max-width: 600px;
+    }
+
+    iframe.spask {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Got questions? Wanna draw something cool? Send away below!</p>
+    <div class="iframe-wrapper">
+      <iframe 
+        src="https://1up.straw.page/" 
+        class="spask" 
+        sandbox="allow-scripts allow-forms" 
+        scrolling="no">
+      </iframe>
     </div>
-    
-    <div class="cen" style="position: relative; overflow: hidden; max-width:600px; max-height:500px" width="500px" height="100px">
-      <iframe src="https://1up.straw.page/" class="spask" frameBorder="0px" scrolling="no"></iframe><br><br>
-    </div>
-    
-    <div style="text-align: center; transform: rotate(1deg);" class="cen" align="center" width="600px">
-      <br><br>
-    </div>
+  </div>
+</body>
+</html>
