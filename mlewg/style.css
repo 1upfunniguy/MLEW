@@ -58,6 +58,25 @@ body {
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
+.fwip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.head.menze {
+  position: absolute;
+  top: -50px; /* adjust to move higher/lower */
+  left: 0;
+  width: 220px; /* adjust size */
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fwip-wrapper .image {
+  position: relative;
+  z-index: 1;
+}
+
 .tunte {
     color: #d61770;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
