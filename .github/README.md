@@ -112,6 +112,5 @@ _______________
 - [x] fix other games
 - [x] get doom working like none before
 - [x] get other games
-- [ ] finish this checklist
-- [ ] get turbowarp addons working 
+- [x] be lazy and dont fix turbowarp addons-
 </div>
