@@ -58,16 +58,30 @@ body {
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
+/* Corner floating menze */
+.corner-menze {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Inside the fwip-wrapper */
 .fwip-wrapper {
   position: relative;
   display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
+/* Overlapping menze */
 .head.menze {
   position: absolute;
-  top: -50px; /* adjust to move higher/lower */
-  left: 0;
-  width: 220px; /* adjust size */
+  top: -40px;
+  left: -40px;
+  width: 200px;
   z-index: 10;
   pointer-events: none;
 }
