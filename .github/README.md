@@ -45,8 +45,6 @@
 
 # Contributing
 
-Development Setup
-
 1. fork
 
 ```
