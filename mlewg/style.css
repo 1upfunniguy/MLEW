@@ -40,7 +40,7 @@ body {
 #corner-gif {
   position: absolute;
   top: 0;
-  right: -20px; /* pushes it 20px off the right edge */
+  right: 30px; /* pushes it 20px off the right edge */
   width: 200px;  /* made it a bit bigger */
   z-index: 9999;
   pointer-events: none;
