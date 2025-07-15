@@ -37,6 +37,15 @@ body {
     margin-right: auto;
 }
 
+#corner-gif {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px; /* Adjust size as needed */
+  z-index: 9999; /* Make sure it's on top */
+  pointer-events: none; /* So it doesn't block clicks */
+}
+
 .head {
     font-size: 40pt;
     font-family: "shadok"; 
