@@ -60,7 +60,7 @@ body {
 
 /* Corner floating menze */
 .corner-menze {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 20; /* changed from left: 0 */
   width: 200px;
