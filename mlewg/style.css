@@ -63,7 +63,7 @@ body {
   position: absolute;
   top: 0;
   right: 30px; /* changed from left: 0 */
-  width: 200px;
+  width: 250px;
   z-index: 9999;
   pointer-events: none;
 }
