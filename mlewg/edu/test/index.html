@@ -4,27 +4,21 @@
     <meta charset="UTF-8">
     <title>SSF2 via Proxy</title>
 
-    <!-- Ruffle config to spoof supersmashflash.com and proxy sockets -->
+    <!-- Ruffle Configuration with WebSocket Proxy -->
     <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.RufflePlayer.config = {
-            // 👇 This is where the SocketProxy interface is implemented
             socket_proxies: [
                 {
                     host: "mcleodgaming.com",
                     port: 27888,
-                    proxyUrl: "ws://localhost:22500/proxy/mgn"
-                },
-                {
-                    host: "supersmashflash.com",
-                    port: 80,
-                    proxyUrl: "ws://localhost:22500/proxy/ssf2"
+                    proxyUrl: "ws://localhost:225500/proxy/mgn"
                 }
             ]
         };
     </script>
 
-    <!-- Ruffle player -->
+    <!-- Load Ruffle -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <style>
@@ -60,15 +54,15 @@
             if (ruffle && container) {
                 const player = ruffle.createPlayer();
 
-                // 👇 Spoof the original domain (critical for some SWFs)
-                player.setAttribute("data-url", "https://www.supersmashflash.com/flash/games/SSF2Beta_v1_3_1_2_hacked.swf");
+                // 👇 Spoof the original domain (important for multiplayer logic)
+                player.setAttribute("data-url", "http://www.supersmashflash.com/flash/games/SSF2Beta_v1_3_1_2_hacked.swf");
 
                 player.style.width = "100%";
                 player.style.height = "100%";
                 container.appendChild(player);
 
                 // 👇 Load from your local proxy to bypass CORS
-                player.load("http://localhost:22500/ssf2.swf");
+                player.load("http://localhost:225500/flash/games/SSF2Beta_v1_3_1_2_hacked.swf");
             } else {
                 console.error("Ruffle failed to initialize.");
             }
