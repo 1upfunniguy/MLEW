@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>SSF2 Test</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
         html, body {
@@ -36,9 +36,15 @@
 
             if (ruffle && container) {
                 const player = ruffle.createPlayer();
+
+                // Tell Ruffle to pretend the SWF came from supersmashflash.com
+                player.setAttribute("data-url", "https://www.supersmashflash.com/flash/games/SSF2Beta_v1_4_0_1/SSF2Beta_v1_4_0_1.swf");
+
                 player.style.width = "100%";
                 player.style.height = "100%";
                 container.appendChild(player);
+
+                // Load your local or remote copy of the SWF
                 player.load("../test/SSF2.swf");
             } else {
                 console.error("Ruffle failed to initialize.");
