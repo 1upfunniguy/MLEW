@@ -1,23 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Papa's Pizzeria</title>
-       <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-    </head>
-    <body>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Roboto&display=swap');
-            
-            body {
-                font-family: 'Jetbrains Mono';
-                color: rgb(255, 255, 255);
-                background-color: rgb(25, 25, 25);
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pizzer</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0f0f0f;
+            overflow: hidden;
+        }
+
+        #player {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        ruffle-player {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer?.newest() || window.RufflePlayer?.createPlayer();
+            const container = document.getElementById("player");
+
+            if (ruffle && container) {
+                const player = ruffle.createPlayer();
+                player.style.width = "100%";
+                player.style.height = "100%";
+                container.appendChild(player);
+                player.load("../pizzaria/game.swf");
+            } else {
+                console.error("Ruffle failed to initialize.");
             }
-        </style>
-        <object width="720" height="480">
-            <param name="movie" value="game.swf">
-            <embed src="../mlewg/edu/papa/pizzeria/game.swf" width="720" height="480">
-            </embed>
-        </object>
-    </body>
+        });
+    </script>
+</body>
 </html>
