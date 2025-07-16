@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>SSF2 via Proxy</title>
+
+    <!-- Configure Ruffle BEFORE loading -->
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.RufflePlayer.config = {
+            socket_proxies: [
+                {
+                    host: "mcleodgaming.com",
+                    port: 27888,
+                    proxyUrl: "ws://localhost:22500/proxy/mgn"
+                }
+            ]
+        };
+    </script>
+
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
     <style>
         html, body {
             margin: 0;
@@ -37,18 +53,12 @@
             if (ruffle && container) {
                 const player = ruffle.createPlayer();
 
-                // Simulate the SWF coming from supersmashflash.com
-                player.setAttribute("data-url", "https://www.supersmashflash.com/flash/games/SSF2Beta_v1_4_0_1");
-
                 player.style.width = "100%";
                 player.style.height = "100%";
                 container.appendChild(player);
 
-                // Load via Ruffle proxy at localhost:22500
-                // This assumes your proxy routes or hosts the SWF at this path:
-                const swfPath = "http://localhost:22500/flash/games/SSF2Beta_v1_3_1_2_hacked.swf";
-
-                player.load(swfPath);
+                // Load the official SWF directly from supersmashflash.com
+                player.load("https://www.supersmashflash.com/flash/games/SSF2Beta_v1_3_1_2_hacked.swf");
             } else {
                 console.error("Ruffle failed to initialize.");
             }
