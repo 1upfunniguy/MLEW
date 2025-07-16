@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SSF2 Test</title>
+    <title>SSF2 via Proxy</title>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <style>
         html, body {
@@ -37,15 +37,18 @@
             if (ruffle && container) {
                 const player = ruffle.createPlayer();
 
-                // Tell Ruffle to pretend the SWF came from supersmashflash.com
+                // Simulate the SWF coming from supersmashflash.com
                 player.setAttribute("data-url", "https://www.supersmashflash.com/flash/games/SSF2Beta_v1_4_0_1");
 
                 player.style.width = "100%";
                 player.style.height = "100%";
                 container.appendChild(player);
 
-                // Load your local or remote copy of the SWF
-                player.load("../test/SSF2Beta_v1_3_1_2_hacked.swf");
+                // Load via Ruffle proxy at localhost:22500
+                // This assumes your proxy routes or hosts the SWF at this path:
+                const swfPath = "http://localhost:22500/flash/games/SSF2Beta_v1_3_1_2_hacked.swf";
+
+                player.load(swfPath);
             } else {
                 console.error("Ruffle failed to initialize.");
             }
