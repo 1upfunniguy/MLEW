@@ -81,6 +81,13 @@ body {
   cursor: pointer;  
 }
 
+.corner-rizzy {
+  position: absolute;
+  width: 250px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
 /* Inside the fwip-wrapper */
 .fwip-wrapper {
   position: relative;
