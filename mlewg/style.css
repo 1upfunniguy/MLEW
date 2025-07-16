@@ -58,6 +58,15 @@ body {
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
 }
 
+.corner-link {
+    position: fixed;
+    top: 0;
+    right: 30px;
+    width: 250px;
+    z-index: 9999;
+    display: block;
+}
+
 /* Corner floating menze */
 .corner-menze {
   position: absolute;
@@ -66,6 +75,9 @@ body {
   width: 250px;
   z-index: 9999;
   pointer-events: none;
+  height: auto;
+  display: block;
+  cursor: pointer;  
 }
 
 /* Inside the fwip-wrapper */
