@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fancy pants</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0f0f0f;
+            overflow: hidden;
+        }
+
+        #player {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        ruffle-player {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer?.newest() || window.RufflePlayer?.createPlayer();
+            const container = document.getElementById("player");
+
+            if (ruffle && container) {
+                const player = ruffle.createPlayer();
+                player.style.width = "100%";
+                player.style.height = "100%";
+                container.appendChild(player);
+                player.load("../fancy-pants/world1/FPAWorld1.swf");
+            } else {
+                console.error("Ruffle failed to initialize.");
+            }
+        });
+    </script>
+</body>
+</html>
