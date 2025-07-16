@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>cat ninja</title>
-        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-    </head>
-    <body>
-        <style>
-            body {
-                background-color: #0f0f0f;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1 on 1 Soccer</title>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0f0f0f;
+            overflow: hidden;
+        }
 
-object {
-                text-align: center;
-                max-width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-               };
-        </style>
-        <object width="920" height="780">
-            <param name="movie" value="cat-ninja.swf">
-            <embed src="../mlewg/edu/catninja/cat-ninja.swf" width="720" height="480">
-            </embed>
-        </object>
-    </body>
+        #player {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        ruffle-player {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+
+    <script>
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer?.newest() || window.RufflePlayer?.createPlayer();
+            const container = document.getElementById("player");
+
+            if (ruffle && container) {
+                const player = ruffle.createPlayer();
+                player.style.width = "100%";
+                player.style.height = "100%";
+                container.appendChild(player);
+                player.load("../mlewg/edu/catninja/cat-ninja.swf");
+            } else {
+                console.error("Ruffle failed to initialize.");
+            }
+        });
+    </script>
+</body>
 </html>
