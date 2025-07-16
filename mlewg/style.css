@@ -59,9 +59,10 @@ body {
 }
 
 .corner-link {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 30px;
+    width: 250px;
     z-index: 9999;
     display: block;
 }
