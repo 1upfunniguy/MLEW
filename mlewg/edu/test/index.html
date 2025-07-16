@@ -18,6 +18,32 @@
         };
     </script>
 
+    <!-- 👇 Override fetch to redirect CORS-blocked URLs through a proxy -->
+    <script>
+        (function (originalFetch) {
+            const changeUrl = function (url) {
+                // Replace domain with your proxy address if needed
+                if (url.startsWith("http://www.supersmashflash.com/")) {
+                    return url.replace("http://www.supersmashflash.com", "http://localhost:22500");
+                }
+                return url;
+            };
+
+            window.fetch = function () {
+                let a = Array.from(arguments);
+                if (typeof a[0] === "string") {
+                    a[0] = changeUrl(a[0]);
+                } else if (a[0] && typeof a[0].url === "string") {
+                    const changedUrl = changeUrl(a[0].url);
+                    if (changedUrl !== a[0].url) {
+                        a[0] = changedUrl;
+                    }
+                }
+                return originalFetch.apply(window, a);
+            };
+        })(window.fetch);
+    </script>
+
     <!-- Load Ruffle -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
