@@ -3,16 +3,16 @@
     <picture>
       <source
         media="(prefers-color-scheme: dark)"
-        srcset="https://mlew.vercel.app/mlew-inverted.png"
+        srcset="https://github.com/1upfunniguy/MLEW/blob/main/imgs/mlew-inverted.png?raw=true"
       />
       <source
         media="(prefers-color-scheme: light)"
-        srcset="https://mlew.vercel.app/mlewwww.png"
+        srcset="https://github.com/1upfunniguy/MLEW/blob/main/imgs/mlewwww.png?raw=true"
       />
       <img
         alt="fwiphub"
         title="fwiphub"
-        src="https://mlew.vercel.app/mlewwww.png"
+        src="https://github.com/1upfunniguy/MLEW/blob/main/imgs/mlewwww.png?raw=true"
       />
     </picture>
   </p>
