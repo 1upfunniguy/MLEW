@@ -377,119 +377,127 @@ const playlist = [
 
 
       const player = document.getElementById('audioPlayer');
-      const toggleBtn = document.getElementById('toggleBtn');
-      const skipBtn = document.getElementById('skipBtn');
-      const playlistUI = document.getElementById('playlist');
-      const songNameEl = document.getElementById('songName');
-      const artistNameEl = document.getElementById('artistName');
-      const visualizer = document.getElementById('visualizer');
-      const ctx = visualizer.getContext('2d');
+const toggleBtn = document.getElementById('toggleBtn');
+const skipBtn = document.getElementById('skipBtn');
+const playlistUI = document.getElementById('playlist');
+const songNameEl = document.getElementById('songName');
+const artistNameEl = document.getElementById('artistName');
+const visualizer = document.getElementById('visualizer');
+const ctx = visualizer.getContext('2d');
 
-      // Audio Context for Visualizer
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioCtx = new AudioContext();
-      const analyser = audioCtx.createAnalyser();
-      const sourceNode = audioCtx.createMediaElementSource(player);
-      sourceNode.connect(analyser);
-      analyser.connect(audioCtx.destination);
-      analyser.fftSize = 64;
-      const bufferLength = analyser.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
+// Audio Context for Visualizer
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
+const analyser = audioCtx.createAnalyser();
+const sourceNode = audioCtx.createMediaElementSource(player);
+sourceNode.connect(analyser);
+analyser.connect(audioCtx.destination);
+analyser.fftSize = 64;
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
 
-      let currentIndex = 0;
+let currentIndex = 0;
 
-      // Resize canvas to fit container width
-      function resizeCanvas() {
-        visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
-        visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
+// Shuffle playlist function
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-      // Play selected track
-      function playTrack(index) {
-        currentIndex = index % playlist.length;
-        const track = playlist[currentIndex];
-        player.src = `/music/${encodeURIComponent(track.file)}`;
-        player.play();
-        updateNowPlaying(track.title, track.artist);
-        updatePlaylistUI();
-      }
+// Resize canvas to fit container width
+function resizeCanvas() {
+  visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
+  visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
-      // Update now playing text
-      function updateNowPlaying(title, artist) {
-        songNameEl.textContent = title;
-        artistNameEl.textContent = artist;
-      }
+// Play selected track
+function playTrack(index) {
+  currentIndex = index % playlist.length;
+  const track = playlist[currentIndex];
+  player.src = `/music/${encodeURIComponent(track.file)}`;
+  player.play();
+  updateNowPlaying(track.title, track.artist);
+  updatePlaylistUI();
+}
 
-      // Update playlist UI active class
-      function updatePlaylistUI() {
-        document.querySelectorAll('#playlist .track').forEach((el, i) => {
-          el.classList.toggle('active', i === currentIndex);
-        });
-      }
+// Update now playing text
+function updateNowPlaying(title, artist) {
+  songNameEl.textContent = title;
+  artistNameEl.textContent = artist;
+}
 
-      // Draw audio visualizer bars
-      function drawVisualizer() {
-        requestAnimationFrame(drawVisualizer);
-        analyser.getByteFrequencyData(dataArray);
+// Update playlist UI active class
+function updatePlaylistUI() {
+  document.querySelectorAll('#playlist .track').forEach((el, i) => {
+    el.classList.toggle('active', i === currentIndex);
+  });
+}
 
-        ctx.clearRect(0, 0, visualizer.width, visualizer.height);
-        const barWidth = visualizer.width / bufferLength * 1.5;
-        let x = 0;
-        for (let i = 0; i < bufferLength; i++) {
-          const barHeight = dataArray[i] / 2;
-          ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
-          ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
-          x += barWidth + 1;
-        }
-      }
+// Draw audio visualizer bars
+function drawVisualizer() {
+  requestAnimationFrame(drawVisualizer);
+  analyser.getByteFrequencyData(dataArray);
 
-      // Setup playlist UI
-      playlist.forEach((track, i) => {
-        const div = document.createElement('div');
-        div.className = 'track';
-        div.textContent = `${track.title} — ${track.artist}`;
-        div.onclick = () => playTrack(i);
-        playlistUI.appendChild(div);
-      });
+  ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+  const barWidth = visualizer.width / bufferLength * 1.5;
+  let x = 0;
+  for (let i = 0; i < bufferLength; i++) {
+    const barHeight = dataArray[i] / 2;
+    ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
+    ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
+    x += barWidth + 1;
+  }
+}
 
-      // Play next track on ended
-      player.addEventListener('ended', () => {
-        playTrack(currentIndex + 1);
-      });
+// Shuffle playlist before UI + playback setup
+shuffle(playlist);
 
-      // Pause/resume toggle
-      toggleBtn.addEventListener('click', () => {
-        if (player.paused) {
-          player.play();
-          toggleBtn.textContent = 'Pause';
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-        } else {
-          player.pause();
-          toggleBtn.textContent = 'Play';
-        }
-      });
+// Setup playlist UI
+playlist.forEach((track, i) => {
+  const div = document.createElement('div');
+  div.className = 'track';
+  div.textContent = `${track.title} — ${track.artist}`;
+  div.onclick = () => playTrack(i);
+  playlistUI.appendChild(div);
+});
 
-      // Skip button
-      skipBtn.addEventListener('click', () => {
-        playTrack(currentIndex + 1);
-      });
+// Play next track on ended
+player.addEventListener('ended', () => {
+  playTrack((currentIndex + 1) % playlist.length);
+});
 
-      // Start playing first track and visualizer
-      playTrack(0);
-      drawVisualizer();
+// Pause/resume toggle
+toggleBtn.addEventListener('click', () => {
+  if (player.paused) {
+    player.play();
+    toggleBtn.textContent = 'Pause';
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  } else {
+    player.pause();
+    toggleBtn.textContent = 'Play';
+  }
+});
 
-      // Resume AudioContext on first interaction (some browsers block autoplay)
-      document.body.addEventListener('click', () => {
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-      }, { once: true });
-    });
-  </script>
-</head>
+// Skip button
+skipBtn.addEventListener('click', () => {
+  playTrack((currentIndex + 1) % playlist.length);
+});
+
+// Start playing first track and visualizer
+playTrack(0);
+drawVisualizer();
+
+// Resume AudioContext on first interaction (some browsers block autoplay)
+document.body.addEventListener('click', () => {
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}, { once: true });
 
 <body oncontextmenu="return disableRightClick();">
 
@@ -525,4 +533,4 @@ const playlist = [
 <!-- Controls --> <div id="playerControls" aria-label="Audio player controls"> <button id="toggleBtn" aria-pressed="false" aria-label="Play or pause music">Pause</button> <button id="skipBtn" aria-label="Skip to next track">Skip ▶️</button> </div> <!-- Visualizer Canvas -->
 
 <canvas id="visualizer" aria-hidden="true"></canvas>
-<!-- Playlist UI --> <div id="playlist" role="list" aria-label="Music playlist"> <!-- Tracks inserted by JS --> </div> <hr /> <!-- Footer --> <footer> <h1>&copy; 2025 1up Entertainment LLC&trade;</h1> </footer> </body> </html> ```
+<!-- Playlist UI --> <div id="playlist" role="list" aria-label="Music playlist"> <!-- Tracks inserted by JS --> </div> <hr /> <!-- Footer --> <footer> <h1>&copy; 2025 1up Entertainment LLC&trade;</h1> </footer> </body> </html>
