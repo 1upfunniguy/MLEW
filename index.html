@@ -239,7 +239,7 @@
   </style>
 
   <script>
-    // Disable Right-Click
+    // Disable Right-Click (unchanged)
     function disableRightClick() {
       alert("Hi imma steal u press ok NOW!!!");
       window.location.href = '../bigrat';
@@ -257,31 +257,17 @@
       playlist = playlist.sort(() => Math.random() - 0.5);
 
       const player = document.getElementById('audioPlayer');
-      const source = document.getElementById('audioSource');
       let current = 0;
 
       function playNext() {
-  if (current >= playlist.length) current = 0;
-
-  source.src = playlist[current++];
-  player.load();
-
-  // Start muted so autoplay is allowed
-  player.muted = true;
-
-  player.play()
-    .then(() => {
-      // Unmute after playback starts successfully
-      player.muted = false;
-    })
-    .catch(() => {
-      // Retry after delay if blocked
-      setTimeout(() => player.play(), 500);
-    });
-
-  updateNowPlaying(source.src);
-}
-
+        if (current >= playlist.length) current = 0;
+        player.src = playlist[current++];
+        player.play().catch(() => {
+          setTimeout(() => player.play(), 500);
+        });
+        // Update Now Playing
+        updateNowPlaying(player.src);
+      }
 
       player.addEventListener('ended', playNext);
       playNext();
@@ -348,10 +334,10 @@
     <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div>
   </div>
 
-  <!-- Hidden Audio Player -->
-<audio id="audioPlayer" autoplay muted>
-  <source id="audioSource" src="" type="audio/mpeg" />
-</audio>
+  <!-- Hidden Audio Player (controls present but visually hidden) -->
+  <audio id="audioPlayer" autoplay controls style="width:0; height:0; opacity:0; position:absolute; left:-9999px;">
+    <source id="audioSource" src="" type="audio/mpeg" />
+  </audio>
 
   <hr />
 
