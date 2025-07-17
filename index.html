@@ -204,8 +204,13 @@
 
     /* Hide native audio player */
     audio {
-      display: none;
-    }
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
 
     /* Now Playing Styles */
     #nowPlaying {
