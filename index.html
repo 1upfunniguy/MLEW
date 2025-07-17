@@ -10,52 +10,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/zepto.min.js"></script>
     <link rel="stylesheet" href="style.css"> 
-    
-    <!-- thanks metatgs.io love u <3 -->
-    <!-- Primary Meta Tags -->
+    <script src="music.js"></script>
     <meta name="title" content="My Le Epik Website" />
     <meta name="description" content="The most epik website ever made" />
-
-    <!-- Open Graph  Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mlew.vercel.app/" />
     <meta property="og:title" content="My Le Epik Website" />
     <meta property="og:description" content="The most epik website ever made" />
     <meta property="og:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://mlew.vercel.app/imgs/fwip.png" />
     <meta property="twitter:title" content="My Le Epik Website" />
     <meta property="twitter:description" content="The most epik website ever made" />
     <meta property="twitter:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-
-  <style>
-        /* =====================================================
-           CSS Shi
-        ===================================================== */
+    <style>
         :root {
             --main-border-color: black;
             --main-border-width: 5px;
             --main-border-radius: 15px;
-            --main-image-max-width: 160%; /* Increased from 80% to 160% for 200% larger */
-            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Enhanced drop shadow */
+            --main-image-max-width: 160%;
+            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
-        /* =====================================================
-           Harry Styles
-        ===================================================== */
         body {
             color: #fff;
             background-color: #191919;
             font-family: 'funnytype';
             margin: 0;
             padding: 0;
-            text-align: center; /* Center-align all text by default */
+            text-align: center;
             font-size: 13.5pt;
         }
-        /* =====================================================
-           GIF Container For Containing Gifs
-        ===================================================== */
         #gif-container {
             margin: 20px 0;
         }
@@ -63,9 +47,6 @@
             max-width: 100%;
             height: auto;
         }
-        /* =====================================================
-           FWIP
-        ===================================================== */
         #additional-image {
             margin: 20px 0;
         }
@@ -77,23 +58,16 @@
             box-shadow: var(--main-image-box-shadow);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        /* Optional: Hover Effect for Main Image */
         #additional-image img:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
         }
-        /* =====================================================
-           Small Text Section Its small unlike low taper fade
-        ===================================================== */
         .smalltext {
             font-size: 11pt;
             font-style: italic;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             margin: 20px 0;
         }
-        /* =====================================================
-           Dropdowns :D
-        ===================================================== */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -133,13 +107,9 @@
             background-color: #323232;
             color: Chartreuse;
         }
-        /* Show dropdown menu on hover */
         .dropdown:hover .dropdown-menu {
             display: block;
         }
-        /* =====================================================
-           Gay Animation Just Like Me FrFr
-        ===================================================== */
         @keyframes rainbow {
             0% { color: red; }
             16.67% { color: orange; }
@@ -149,16 +119,12 @@
             83.33% { color: indigo; }
             100% { color: violet; }
         }
-        /* Applying Rainbow Animation to all relevant elements */
         .gaytext, .dropdown span, .dropdown-item {
-            animation: rainbow 10s linear infinite; /* Sync across elements */
+            animation: rainbow 10s linear infinite;
         }
         h1, .smalltext {
-            animation: rainbow 10s linear infinite; /* Ensures sync */
+            animation: rainbow 10s linear infinite;
         }
-        /* =====================================================
-           Gay Text Info Just Like Me FrFr
-        ===================================================== */
         .gaytext {
             position: absolute;
             top: 10px;
@@ -167,18 +133,12 @@
             font-style: italic;
             color: rgb(42, 104, 20);
         }
-        /* =====================================================
-           Foot Stuff
-        ===================================================== */
         footer {
             margin: 40px 0 20px 0;
         }
         footer h1 {
             font-size: 14pt;
         }
-        /* =====================================================
-           Link Harry Styles
-        ===================================================== */
         a:link, a:visited {
             text-decoration: none;
             color: green;
@@ -187,9 +147,6 @@
             text-decoration: underline;
             color: Chartreuse;
         }
-        /* =====================================================
-           Stuff For Phones
-        ===================================================== */
         @media (max-width: 600px) {
             #additional-image img {
                 max-width: 1000%;
@@ -209,7 +166,6 @@
         }
     </style>
     <script>
-        // Disable Right-Click
         function disableRightClick() {
             alert("Hi imma steal u press ok NOW!!!");
             window.location.href = '../bigrat';
@@ -218,21 +174,13 @@
     </script>
 </head>
 <body oncontextmenu="return disableRightClick();">
-    
-    <!-- Gay Text Info --> <!-- just like me frfr -->
-   <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
-
-    <!-- GIF Replacement Like My Parents -->
+    <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
     <div id="gif-container">
         <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
     </div>
-
-    <!-- FWIP -->
     <div id="additional-image">
         <img src="../imgs/fwip.png" alt="fwip" width="150">
     </div>
-
-    <!-- Dropdowns :D -->
     <div class="dropdown">
         <span onmouseover="changeText('&#11015;Links&#11015;')" onmouseout="changeText('&#11015;Links&#11015;')">&#11014;Links&#11014;</span>
         <div class="dropdown-menu">
@@ -246,51 +194,30 @@
             <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
         </div>
     </div>
-
+    <audio id="audioPlayer" controls autoplay></audio>
     <script>
         function changeText(text) {
             document.querySelector('.dropdown span').innerHTML = text;
         }
-    </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <audio id="audioPlayer" controls autoplay></audio>
-
-  <script>
-    async function startPlayer() {
-      const res = await fetch('/api/music');
-      let playlist = await res.json();
-
-      // Shuffle
-      playlist = playlist.sort(() => Math.random() - 0.5);
-      playlist = playlist.map(file => `/music/${file}`);
-
-      const player = document.getElementById('audioPlayer');
-      let current = 0;
-
-      function playNext() {
-        if (current < playlist.length) {
-          player.src = playlist[current++];
-          player.play();
+        async function startPlayer() {
+            const res = await fetch('/api/music');
+            let playlist = await res.json();
+            playlist = playlist.sort(() => Math.random() - 0.5);
+            playlist = playlist.map(file => `/music/${file}`);
+            const player = document.getElementById('audioPlayer');
+            let current = 0;
+            function playNext() {
+                if (current < playlist.length) {
+                    player.src = playlist[current++];
+                    player.play();
+                }
+            }
+            player.addEventListener('ended', playNext);
+            playNext();
         }
-      }
-
-      player.addEventListener('ended', playNext);
-      playNext();
-    }
-
-    startPlayer();
-  </script>
-</body>
-</html>
-
+        startPlayer();
+    </script>
     <hr>
-    
-    <!-- Foot Stuff -->
     <footer>
         <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
     </footer>
