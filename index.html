@@ -202,12 +202,10 @@
       }
     }
 
-    /* Hide native audio player */
+    /* Audio player styling */
     audio {
-  display: block;
-  margin: 20px auto;
-}
-
+      display: none; /* hide native controls, we have custom buttons */
+    }
 
     /* Now Playing Styles */
     #nowPlaying {
@@ -238,18 +236,68 @@
       margin-top: 4px;
       font-size: 13pt;
     }
-  </style>
 
-    <style>
-    /* Your existing styles here */
+    /* Custom buttons styling */
+    #playerControls {
+      margin: 15px auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    #playerControls button {
+      background: #232323;
+      border: 2px solid lightgreen;
+      border-radius: 8px;
+      color: lightgreen;
+      font-size: 16pt;
+      padding: 8px 15px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    #playerControls button:hover {
+      background-color: #324832;
+    }
 
-    /* Hide audio controls but keep audio playable */
-audio {
-  display: block;
-  margin: 20px auto;
-  width: 300px;
-}
+    /* Playlist styling */
+    #playlist {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: left;
+      background: #232323;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.8);
+      font-size: 14pt;
+      user-select: none;
+    }
+    .track {
+      padding: 8px 12px;
+      border-bottom: 1px solid #3a3a3a;
+      cursor: pointer;
+      color: lightgreen;
+      transition: background-color 0.3s;
+    }
+    .track:hover {
+      background-color: #324832;
+    }
+    .track.active {
+      background-color: #67a667;
+      font-weight: bold;
+      color: #122;
+    }
 
+    /* Visualizer styling */
+    #visualizer {
+      width: 100%;
+      max-width: 600px;
+      height: 100px;
+      background: #222;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    }
   </style>
 
   <script>
@@ -264,58 +312,139 @@ audio {
       document.querySelector('.dropdown span').innerHTML = text;
     }
 
-    async function startPlayer() {
-      const res = await fetch('/api/music');
-      let playlist = await res.json();
-      playlist = playlist.map(file => `/music/${encodeURIComponent(file)}`);
-      playlist = playlist.sort(() => Math.random() - 0.5);
+    window.addEventListener('load', () => {
+      // Playlist data
+      const playlist = [
+        { file: "01 - OLLIE LOKO - IM OLLIE.mp3", title: "IM OLLIE", artist: "OLLIE LOKO" },
+        { file: "01 BUN BUN.m4a", title: "BUN BUN", artist: "Lena" },
+        { file: "01 THE GOODBYE BABY.m4a", title: "THE GOODBYE BABY", artist: "Lena" },
+        { file: "02 - OLLIE LOKO - SUPER SAIYAN 3.mp3", title: "SUPER SAIYAN 3", artist: "OLLIE LOKO" },
+        { file: "02 KOROK.m4a", title: "KOROK", artist: "Lena" },
+        { file: "02 SNEAKERS THE CAT.m4a", title: "SNEAKERS THE CAT", artist: "Lena" },
+        { file: "03 - OLLIE LOKO - E-NUFF 4-U.mp3", title: "E-NUFF 4-U", artist: "OLLIE LOKO" },
+        { file: "03 FLOWERS.m4a", title: "FLOWERS", artist: "Lena" },
+        { file: "03 PASTA.m4a", title: "PASTA", artist: "Lena" },
+        { file: "04 - OLLIE LOKO - LETTING GO.mp3", title: "LETTING GO", artist: "OLLIE LOKO" },
+        { file: "04 SUNLIGHT.m4a", title: "SUNLIGHT", artist: "Lena" },
+        { file: "04 THE VALLEY.m4a", title: "THE VALLEY", artist: "Lena" },
+        { file: "05 - OLLIE LOKO - LIFE.mp3", title: "LIFE", artist: "OLLIE LOKO" },
+        { file: "05 HONK HONK.m4a", title: "HONK HONK", artist: "Lena" },
+        { file: "05 YAKKI.m4a", title: "YAKKI", artist: "Lena" },
+        // ... add more if you want
+      ];
 
       const player = document.getElementById('audioPlayer');
-      const source = document.getElementById('audioSource');
-      let current = 0;
+      const toggleBtn = document.getElementById('toggleBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      const playlistUI = document.getElementById('playlist');
+      const songNameEl = document.getElementById('songName');
+      const artistNameEl = document.getElementById('artistName');
+      const visualizer = document.getElementById('visualizer');
+      const ctx = visualizer.getContext('2d');
 
-      function playNext() {
-  if (current >= playlist.length) current = 0;
-  source.src = playlist[current++];
-  player.load();
+      // Audio Context for Visualizer
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const analyser = audioCtx.createAnalyser();
+      const sourceNode = audioCtx.createMediaElementSource(player);
+      sourceNode.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      analyser.fftSize = 64;
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
 
-  // Temporarily keep muted for autoplay
-  player.muted = true;
+      let currentIndex = 0;
 
-  player.play().then(() => {
-    player.muted = false; // unmute after starting
-  }).catch(err => {
-    console.warn("Playback failed, retrying:", err);
-    setTimeout(() => {
-      player.play().then(() => player.muted = false);
-    }, 500);
-  });
-
-  updateNowPlaying(source.src);
-}
-
-      player.addEventListener('ended', playNext);
-      playNext();
-
-      function updateNowPlaying(src) {
-        const filename = decodeURIComponent(src.split('/').pop());
-        let artist = 'Unknown Artist';
-        let song = filename;
-
-        if (filename.includes(' - ')) {
-          const parts = filename.split(' - ');
-          artist = parts[0];
-          song = parts.slice(1).join(' - ').replace(/\.\w+$/, '');
-        } else {
-          song = filename.replace(/\.\w+$/, '');
-        }
-
-        document.getElementById('songName').textContent = song;
-        document.getElementById('artistName').textContent = artist;
+      // Resize canvas to fit container width
+      function resizeCanvas() {
+        visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
+        visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
       }
-    }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
 
-    window.addEventListener('load', startPlayer);
+      // Play selected track
+      function playTrack(index) {
+        currentIndex = index % playlist.length;
+        const track = playlist[currentIndex];
+        player.src = `/music/${encodeURIComponent(track.file)}`;
+        player.play();
+        updateNowPlaying(track.title, track.artist);
+        updatePlaylistUI();
+      }
+
+      // Update now playing text
+      function updateNowPlaying(title, artist) {
+        songNameEl.textContent = title;
+        artistNameEl.textContent = artist;
+      }
+
+      // Update playlist UI active class
+      function updatePlaylistUI() {
+        document.querySelectorAll('#playlist .track').forEach((el, i) => {
+          el.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      // Draw audio visualizer bars
+      function drawVisualizer() {
+        requestAnimationFrame(drawVisualizer);
+        analyser.getByteFrequencyData(dataArray);
+
+        ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+        const barWidth = visualizer.width / bufferLength * 1.5;
+        let x = 0;
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+          ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
+          ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
+          x += barWidth + 1;
+        }
+      }
+
+      // Setup playlist UI
+      playlist.forEach((track, i) => {
+        const div = document.createElement('div');
+        div.className = 'track';
+        div.textContent = `${track.title} — ${track.artist}`;
+        div.onclick = () => playTrack(i);
+        playlistUI.appendChild(div);
+      });
+
+      // Play next track on ended
+      player.addEventListener('ended', () => {
+        playTrack(currentIndex + 1);
+      });
+
+      // Pause/resume toggle
+      toggleBtn.addEventListener('click', () => {
+        if (player.paused) {
+          player.play();
+          toggleBtn.textContent = 'Pause';
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+        } else {
+          player.pause();
+          toggleBtn.textContent = 'Play';
+        }
+      });
+
+      // Skip button
+      skipBtn.addEventListener('click', () => {
+        playTrack(currentIndex + 1);
+      });
+
+      // Start playing first track and visualizer
+      playTrack(0);
+      drawVisualizer();
+
+      // Resume AudioContext on first interaction (some browsers block autoplay)
+      document.body.addEventListener('click', () => {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }, { once: true });
+    });
   </script>
 </head>
 
@@ -342,34 +471,15 @@ audio {
       <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
       <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
       <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
-      <p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
-      <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
-      <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
-      <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
-    </div>
-  </div>
+<p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
+<p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
+<p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
+<p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
+</div>
+</div> <!-- Now Playing Section --> <div id="nowPlaying" aria-live="polite" aria-atomic="true" tabindex="0"> <div id="nowPlayingHeader"> <div>Now Playing</div> <div id="nowPlayingEmoji" aria-label="music note emoji" role="img">🎵</div> </div> <div id="nowPlayingSong">Song: <span id="songName"></span></div> <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div> </div> <!-- Audio element (hidden) -->
 
-  <!-- Now Playing Section -->
-  <div id="nowPlaying" aria-live="polite" aria-atomic="true" tabindex="0">
-    <div id="nowPlayingHeader">
-      <div>Now Playing</div>
-      <div id="nowPlayingEmoji" aria-label="music note emoji" role="img">🎵</div>
-    </div>
-    <div id="nowPlayingSong">Song: <span id="songName"></span></div>
-    <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div>
-  </div>
+<audio id="audioPlayer" crossorigin="anonymous"></audio>
+<!-- Controls --> <div id="playerControls" aria-label="Audio player controls"> <button id="toggleBtn" aria-pressed="false" aria-label="Play or pause music">Pause</button> <button id="skipBtn" aria-label="Skip to next track">Skip ▶️</button> </div> <!-- Visualizer Canvas -->
 
-  <!-- Audio player with single source tag -->
-<audio id="audioPlayer" controls autoplay muted style="display: block; margin: 20px auto;">
-  <source id="audioSource" src="" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-
-  <hr />
-
-  <!-- Footer -->
-  <footer>
-    <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
-  </footer>
-</body>
-</html>
+<canvas id="visualizer" aria-hidden="true"></canvas>
+<!-- Playlist UI --> <div id="playlist" role="list" aria-label="Music playlist"> <!-- Tracks inserted by JS --> </div> <hr /> <!-- Footer --> <footer> <h1>&copy; 2025 1up Entertainment LLC&trade;</h1> </footer> </body> </html> ```
