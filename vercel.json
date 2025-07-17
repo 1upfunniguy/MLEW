@@ -1,12 +1,5 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "builds": [
-    {
-      "src": "api/*.py",
-      "use": "@vercel/python"
-    }
-  ],
   "redirects": [
     {
       "source": "/rat",
