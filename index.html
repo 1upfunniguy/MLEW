@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Le Epik Website</title>
-  <link rel="icon" type="image/x-icon" href="../imgs/fwip.png">
+  <link rel="icon" type="image/x-icon" href="../imgs/fwip.png" />
+  
   <script src="../static/js/jquery.js"></script>
   <script src="../embed/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../js/zepto.min.js"></script>
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="style.css" />
 
+  <!-- thanks metatgs.io love u <3 -->
   <meta name="title" content="My Le Epik Website" />
   <meta name="description" content="The most epik website ever made" />
   <meta property="og:type" content="website" />
@@ -25,6 +27,9 @@
   <meta property="twitter:image" content="https://mlew.vercel.app/imgs/fwip.png" />
 
   <style>
+    /* =====================================================
+       CSS Shi
+    ===================================================== */
     :root {
       --main-border-color: black;
       --main-border-width: 5px;
@@ -32,6 +37,9 @@
       --main-image-max-width: 160%;
       --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
     }
+    /* =====================================================
+       Harry Styles
+    ===================================================== */
     body {
       color: #fff;
       background-color: #191919;
@@ -41,6 +49,9 @@
       text-align: center;
       font-size: 13.5pt;
     }
+    /* =====================================================
+       GIF Container For Containing Gifs
+    ===================================================== */
     #gif-container {
       margin: 20px 0;
     }
@@ -48,6 +59,9 @@
       max-width: 100%;
       height: auto;
     }
+    /* =====================================================
+       FWIP
+    ===================================================== */
     #additional-image {
       margin: 20px 0;
     }
@@ -63,12 +77,18 @@
       transform: scale(1.05);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
     }
+    /* =====================================================
+       Small Text Section Its small unlike low taper fade
+    ===================================================== */
     .smalltext {
       font-size: 11pt;
       font-style: italic;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 20px 0;
     }
+    /* =====================================================
+       Dropdowns :D
+    ===================================================== */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -111,6 +131,9 @@
     .dropdown:hover .dropdown-menu {
       display: block;
     }
+    /* =====================================================
+       Gay Animation Just Like Me FrFr
+    ===================================================== */
     @keyframes rainbow {
       0% { color: red; }
       16.67% { color: orange; }
@@ -120,12 +143,16 @@
       83.33% { color: indigo; }
       100% { color: violet; }
     }
+    /* Applying Rainbow Animation to all relevant elements */
     .gaytext, .dropdown span, .dropdown-item {
       animation: rainbow 10s linear infinite;
     }
     h1, .smalltext {
       animation: rainbow 10s linear infinite;
     }
+    /* =====================================================
+       Gay Text Info Just Like Me FrFr
+    ===================================================== */
     .gaytext {
       position: absolute;
       top: 10px;
@@ -134,12 +161,18 @@
       font-style: italic;
       color: rgb(42, 104, 20);
     }
+    /* =====================================================
+       Foot Stuff
+    ===================================================== */
     footer {
       margin: 40px 0 20px 0;
     }
     footer h1 {
       font-size: 14pt;
     }
+    /* =====================================================
+       Link Harry Styles
+    ===================================================== */
     a:link, a:visited {
       text-decoration: none;
       color: green;
@@ -148,18 +181,9 @@
       text-decoration: underline;
       color: Chartreuse;
     }
-    #nowPlaying {
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      margin-top: 30px;
-    }
-    #nowPlaying.visible {
-      opacity: 1;
-    }
-    #nowPlayingText {
-      font-size: 12pt;
-      color: lightgreen;
-    }
+    /* =====================================================
+       Stuff For Phones
+    ===================================================== */
     @media (max-width: 600px) {
       #additional-image img {
         max-width: 1000%;
@@ -177,12 +201,45 @@
         font-size: 12pt;
       }
     }
+
+    /* Hide native audio player */
     audio {
       display: none;
+    }
+
+    /* Now Playing Styles */
+    #nowPlaying {
+      margin: 20px auto;
+      padding: 12px 20px;
+      max-width: 320px;
+      background-color: #232323;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.8);
+      color: lightgreen;
+      font-family: 'funnytype';
+      font-size: 14pt;
+      user-select: none;
+    }
+    #nowPlayingHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: bold;
+      font-size: 18pt;
+      margin-bottom: 8px;
+    }
+    #nowPlayingEmoji {
+      font-size: 24pt;
+    }
+    #nowPlayingSong, #nowPlayingArtist {
+      margin-top: 4px;
+      font-size: 13pt;
     }
   </style>
 
   <script>
+    // Disable Right-Click
     function disableRightClick() {
       alert("Hi imma steal u press ok NOW!!!");
       window.location.href = '../bigrat';
@@ -196,50 +253,44 @@
     async function startPlayer() {
       const res = await fetch('/api/music');
       let playlist = await res.json();
-      playlist = playlist.filter(file =>
-        /\.(mp3|m4a|ogg)$/i.test(file)
-      ).map(file => `/music/${encodeURIComponent(file)}`);
+      playlist = playlist.map(file => `/music/${encodeURIComponent(file)}`);
       playlist = playlist.sort(() => Math.random() - 0.5);
 
       const player = document.getElementById('audioPlayer');
-      const nowPlaying = document.getElementById('nowPlaying');
-      const nowPlayingText = document.getElementById('nowPlayingText');
       let current = 0;
-
-      function parseSongInfo(filename) {
-        const cleanName = decodeURIComponent(filename.split('/').pop()).replace(/\.[^/.]+$/, "");
-        const parts = cleanName.split(" - ");
-        if (parts.length >= 3) {
-          return {
-            artist: parts[1].trim(),
-            title: parts.slice(2).join(" - ").trim()
-          };
-        } else {
-          return { artist: "Unknown", title: cleanName };
-        }
-      }
-
-      function updateNowPlaying(filePath) {
-        const { artist, title } = parseSongInfo(filePath);
-        nowPlaying.classList.add('visible');
-        nowPlayingText.innerHTML = `
-          <img src="../imgs/fwip.png" alt="icon" style="width:20px; vertical-align:middle; margin-right:8px;">
-          <strong>${artist}</strong> — ${title}
-        `;
-      }
 
       function playNext() {
         if (current >= playlist.length) current = 0;
-        const file = playlist[current++];
-        player.src = file;
-        updateNowPlaying(file);
+        player.src = playlist[current++];
         player.play().catch(() => {
           setTimeout(() => player.play(), 500);
         });
+        // Update Now Playing
+        updateNowPlaying(player.src);
       }
 
       player.addEventListener('ended', playNext);
       playNext();
+
+      function updateNowPlaying(src) {
+        // Extract filename from src URL
+        const filename = decodeURIComponent(src.split('/').pop());
+        // Parse creator and song from filename: "artist - song.ext"
+        // Example: "ollie loko - songname.m4a"
+        let artist = 'Unknown Artist';
+        let song = filename;
+
+        if (filename.includes(' - ')) {
+          const parts = filename.split(' - ');
+          artist = parts[0];
+          song = parts.slice(1).join(' - ').replace(/\.\w+$/, '');
+        } else {
+          song = filename.replace(/\.\w+$/, '');
+        }
+
+        document.getElementById('songName').textContent = song;
+        document.getElementById('artistName').textContent = artist;
+      }
     }
 
     window.addEventListener('load', startPlayer);
@@ -247,67 +298,53 @@
 </head>
 
 <body oncontextmenu="return disableRightClick();">
-  <audio id="audioPlayer" autoplay></audio>
 
+  <!-- Funnytype font credit -->
   <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
 
-  <div id="gif-container">
-    <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
-  </div>
-
-  <div id="additional-image">
-    <img src="../imgs/fwip.png" alt="fwip" width="150">
-  </div>
-
-  <body oncontextmenu="return disableRightClick();">
-  <!-- Hidden audio player that auto-plays and loops -->
-  <audio id="audioPlayer" autoplay style="display:none"></audio>
-
-  <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
-
+  <!-- GIF Container -->
   <div id="gif-container">
     <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text" />
   </div>
 
+  <!-- FWIP Logo -->
   <div id="additional-image">
     <img src="../imgs/fwip.png" alt="fwip" width="150" />
   </div>
 
+  <!-- Dropdown Links -->
   <div class="dropdown">
-    <span onmouseover="changeText('↓Links↓')" onmouseout="changeText('↑Links↑')">↑Links↑</span>
-    <div class="dropdown-menu" role="menu" aria-label="Links menu">
-      <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank" role="menuitem">Sites by my friends</a></p>
-      <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank" role="menuitem">Youtube</a></p>
-      <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank" role="menuitem">Bluesky</a></p>
-      <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank" role="menuitem">GitHub</a></p>
-      <p><a href="../mlewg" class="dropdown-item" target="_blank" role="menuitem">MLEW GAMES</a></p>
-      <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank" role="menuitem">Sad Spongebob</a></p>
-      <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank" role="menuitem">Mlew Proxy</a></p>
-      <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank" role="menuitem">My Main Website</a></p>
+    <span onmouseover="changeText('&#11015;Links&#11015;')" onmouseout="changeText('&#11014;Links&#11014;')">&#11014;Links&#11014;</span>
+    <div class="dropdown-menu">
+      <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
+      <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
+      <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
+      <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
+      <p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
+      <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
+      <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
+      <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
     </div>
   </div>
 
   <!-- Now Playing Section -->
   <div id="nowPlaying" aria-live="polite" aria-atomic="true" tabindex="0">
-    <div id="nowPlayingHeader" role="heading" aria-level="2">
-      <div id="nowPlayingTitle">🎵 Now Playing</div>
+    <div id="nowPlayingHeader">
+      <div>Now Playing</div>
+      <div id="nowPlayingEmoji" aria-label="music note emoji" role="img">🎵</div>
     </div>
     <div id="nowPlayingSong">Song: <span id="songName"></span></div>
     <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div>
   </div>
 
+  <!-- Hidden Audio Player -->
+  <audio id="audioPlayer" autoplay></audio>
+
   <hr />
 
+  <!-- Footer -->
   <footer>
-    <h1>&copy; 2025 1up Entertainment LLC™</h1>
-  </footer>
-</body>
-
-
-  <hr>
-
-  <footer>
-    <h1>&copy; 2025 1up Entertainment LLC™</h1>
+    <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
   </footer>
 </body>
 </html>
