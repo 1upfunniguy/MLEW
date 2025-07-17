@@ -203,7 +203,7 @@
             const res = await fetch('/api/music');
             let playlist = await res.json();
             playlist = playlist.sort(() => Math.random() - 0.5);
-            playlist = playlist.map(file => `/music/${file}`);
+            playlist = playlist.map(file => `/api/music_file?file=${encodeURIComponent(file)}`);
             const player = document.getElementById('audioPlayer');
             let current = 0;
             function playNext() {
