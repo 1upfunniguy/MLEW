@@ -257,26 +257,26 @@
       playlist = playlist.sort(() => Math.random() - 0.5);
 
       const player = document.getElementById('audioPlayer');
+      const source = document.getElementById('audioSource');
       let current = 0;
 
       function playNext() {
         if (current >= playlist.length) current = 0;
-        player.src = playlist[current++];
+
+        source.src = playlist[current++];
+        player.load();
         player.play().catch(() => {
           setTimeout(() => player.play(), 500);
         });
-        // Update Now Playing
-        updateNowPlaying(player.src);
+
+        updateNowPlaying(source.src);
       }
 
       player.addEventListener('ended', playNext);
       playNext();
 
       function updateNowPlaying(src) {
-        // Extract filename from src URL
         const filename = decodeURIComponent(src.split('/').pop());
-        // Parse creator and song from filename: "artist - song.ext"
-        // Example: "ollie loko - songname.m4a"
         let artist = 'Unknown Artist';
         let song = filename;
 
@@ -338,7 +338,9 @@
   </div>
 
   <!-- Hidden Audio Player -->
-  <audio id="audioPlayer" autoplay></audio>
+  <audio id="audioPlayer" autoplay>
+    <source id="audioSource" src="" type="audio/mpeg" />
+  </audio>
 
   <hr />
 
