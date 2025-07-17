@@ -314,151 +314,146 @@
 
     window.addEventListener('load', () => {
       // Playlist data
-const player = document.getElementById('audioPlayer');
-const toggleBtn = document.getElementById('toggleBtn');
-const skipBtn = document.getElementById('skipBtn');
-const playlistUI = document.getElementById('playlist');
-const songNameEl = document.getElementById('songName');
-const artistNameEl = document.getElementById('artistName');
-const visualizer = document.getElementById('visualizer');
-const ctx = visualizer.getContext('2d');
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Player</title>
+  <style>
+    /* your CSS goes here */
+  </style>
 
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-const audioCtx = new AudioContext();
-const analyser = audioCtx.createAnalyser();
-const sourceNode = audioCtx.createMediaElementSource(player);
-sourceNode.connect(analyser);
-analyser.connect(audioCtx.destination);
-analyser.fftSize = 64;
-const bufferLength = analyser.frequencyBinCount;
-const dataArray = new Uint8Array(bufferLength);
+  <!-- ✅ Your JS goes here inside script tag -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const player = document.getElementById('audioPlayer');
+      const toggleBtn = document.getElementById('toggleBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      const playlistUI = document.getElementById('playlist');
+      const songNameEl = document.getElementById('songName');
+      const artistNameEl = document.getElementById('artistName');
+      const visualizer = document.getElementById('visualizer');
+      const ctx = visualizer.getContext('2d');
 
-let currentIndex = 0;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const analyser = audioCtx.createAnalyser();
+      const sourceNode = audioCtx.createMediaElementSource(player);
+      sourceNode.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      analyser.fftSize = 64;
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
 
-const originalPlaylist = [
-  { file: "01 - OLLIE LOKO - IM OLLIE.mp3", title: "IM OLLIE", artist: "OLLIE LOKO" },
-  { file: "01 BUN BUN.m4a", title: "BUN BUN", artist: "Lena" },
-  { file: "01 THE GOODBYE BABY.m4a", title: "THE GOODBYE BABY", artist: "Lena" },
-  { file: "02 - OLLIE LOKO - SUPER SAIYAN 3.mp3", title: "SUPER SAIYAN 3", artist: "OLLIE LOKO" },
-  { file: "02 KOROK.m4a", title: "KOROK", artist: "Lena" },
-  { file: "02 SNEAKERS THE CAT.m4a", title: "SNEAKERS THE CAT", artist: "Lena" },
-  { file: "03 - OLLIE LOKO - E-NUFF 4-U.mp3", title: "E-NUFF 4-U", artist: "OLLIE LOKO" },
-  { file: "03 FLOWERS.m4a", title: "FLOWERS", artist: "Lena" },
-  { file: "03 PASTA.m4a", title: "PASTA", artist: "Lena" },
-  { file: "04 - OLLIE LOKO - LETTING GO.mp3", title: "LETTING GO", artist: "OLLIE LOKO" },
-  { file: "04 SUNLIGHT.m4a", title: "SUNLIGHT", artist: "Lena" },
-  { file: "04 THE VALLEY.m4a", title: "THE VALLEY", artist: "Lena" },
-  { file: "05 - OLLIE LOKO - LIFE.mp3", title: "LIFE", artist: "OLLIE LOKO" },
-  { file: "05 HONK HONK.m4a", title: "HONK HONK", artist: "Lena" },
-  { file: "05 YAKKI.m4a", title: "YAKKI", artist: "Lena" }
-];
+      const playlist = [
+        { file: "01 - OLLIE LOKO - IM OLLIE.mp3", title: "IM OLLIE", artist: "OLLIE LOKO" },
+        { file: "01 BUN BUN.m4a", title: "BUN BUN", artist: "Lena" },
+        { file: "01 THE GOODBYE BABY.m4a", title: "THE GOODBYE BABY", artist: "Lena" },
+        { file: "02 - OLLIE LOKO - SUPER SAIYAN 3.mp3", title: "SUPER SAIYAN 3", artist: "OLLIE LOKO" },
+        { file: "02 KOROK.m4a", title: "KOROK", artist: "Lena" },
+        { file: "02 SNEAKERS THE CAT.m4a", title: "SNEAKERS THE CAT", artist: "Lena" },
+        { file: "03 - OLLIE LOKO - E-NUFF 4-U.mp3", title: "E-NUFF 4-U", artist: "OLLIE LOKO" },
+        { file: "03 FLOWERS.m4a", title: "FLOWERS", artist: "Lena" },
+        { file: "03 PASTA.m4a", title: "PASTA", artist: "Lena" },
+        { file: "04 - OLLIE LOKO - LETTING GO.mp3", title: "LETTING GO", artist: "OLLIE LOKO" },
+        { file: "04 SUNLIGHT.m4a", title: "SUNLIGHT", artist: "Lena" },
+        { file: "04 THE VALLEY.m4a", title: "THE VALLEY", artist: "Lena" },
+        { file: "05 - OLLIE LOKO - LIFE.mp3", title: "LIFE", artist: "OLLIE LOKO" },
+        { file: "05 HONK HONK.m4a", title: "HONK HONK", artist: "Lena" },
+        { file: "05 YAKKI.m4a", title: "YAKKI", artist: "Lena" }
+      ];
 
-let playlist = [];
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
 
-function shuffle(array) {
-  const copy = array.slice();
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+      shuffle(playlist);
 
-function resetPlaylistAndPlay() {
-  playlist = shuffle(originalPlaylist);
-  setupPlaylistUI();
-  playTrack(0);
-}
+      let currentIndex = 0;
 
-function resizeCanvas() {
-  visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
-  visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
-  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+      function resizeCanvas() {
+        visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
+        visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
 
-function playTrack(index) {
-  if (index === 0 && currentIndex === playlist.length - 1) {
-    resetPlaylistAndPlay();
-    return;
-  }
-  currentIndex = index % playlist.length;
-  const track = playlist[currentIndex];
-  player.src = `/music/${encodeURIComponent(track.file)}`;
-  player.play();
-  updateNowPlaying(track.title, track.artist);
-  updatePlaylistUI();
-}
+      function playTrack(index) {
+        currentIndex = index % playlist.length;
+        const track = playlist[currentIndex];
+        player.src = `/music/${encodeURIComponent(track.file)}`;
+        player.play();
+        updateNowPlaying(track.title, track.artist);
+        updatePlaylistUI();
+      }
 
-function updateNowPlaying(title, artist) {
-  songNameEl.textContent = title;
-  artistNameEl.textContent = artist;
-}
+      function updateNowPlaying(title, artist) {
+        songNameEl.textContent = title;
+        artistNameEl.textContent = artist;
+      }
 
-function updatePlaylistUI() {
-  document.querySelectorAll('#playlist .track').forEach((el, i) => {
-    el.classList.toggle('active', i === currentIndex);
-  });
-}
+      function updatePlaylistUI() {
+        document.querySelectorAll('#playlist .track').forEach((el, i) => {
+          el.classList.toggle('active', i === currentIndex);
+        });
+      }
 
-function setupPlaylistUI() {
-  playlistUI.innerHTML = '';
-  playlist.forEach((track, i) => {
-    const div = document.createElement('div');
-    div.className = 'track';
-    div.textContent = `${track.title} — ${track.artist}`;
-    div.onclick = () => playTrack(i);
-    playlistUI.appendChild(div);
-  });
-}
+      function drawVisualizer() {
+        requestAnimationFrame(drawVisualizer);
+        analyser.getByteFrequencyData(dataArray);
+        ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+        const barWidth = visualizer.width / bufferLength * 1.5;
+        let x = 0;
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+          ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
+          ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
+          x += barWidth + 1;
+        }
+      }
 
-function drawVisualizer() {
-  requestAnimationFrame(drawVisualizer);
-  analyser.getByteFrequencyData(dataArray);
+      playlist.forEach((track, i) => {
+        const div = document.createElement('div');
+        div.className = 'track';
+        div.textContent = `${track.title} — ${track.artist}`;
+        div.onclick = () => playTrack(i);
+        playlistUI.appendChild(div);
+      });
 
-  ctx.clearRect(0, 0, visualizer.width, visualizer.height);
-  const barWidth = visualizer.width / bufferLength * 1.5;
-  let x = 0;
-  for (let i = 0; i < bufferLength; i++) {
-    const barHeight = dataArray[i] / 2;
-    ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
-    ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
-    x += barWidth + 1;
-  }
-}
+      player.addEventListener('ended', () => {
+        playTrack((currentIndex + 1) % playlist.length);
+      });
 
-player.addEventListener('ended', () => {
-  if (currentIndex + 1 >= playlist.length) {
-    resetPlaylistAndPlay(); // reshuffle and start over
-  } else {
-    playTrack(currentIndex + 1);
-  }
-});
+      toggleBtn.addEventListener('click', () => {
+        if (player.paused) {
+          player.play();
+          toggleBtn.textContent = 'Pause';
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+        } else {
+          player.pause();
+          toggleBtn.textContent = 'Play';
+        }
+      });
 
-toggleBtn.addEventListener('click', () => {
-  if (player.paused) {
-    player.play();
-    toggleBtn.textContent = 'Pause';
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-  } else {
-    player.pause();
-    toggleBtn.textContent = 'Play';
-  }
-});
+      skipBtn.addEventListener('click', () => {
+        playTrack((currentIndex + 1) % playlist.length);
+      });
 
-skipBtn.addEventListener('click', () => {
-  playTrack((currentIndex + 1) % playlist.length);
-});
+      playTrack(0);
+      drawVisualizer();
 
-resetPlaylistAndPlay(); // Shuffle and start
-drawVisualizer();
+      document.body.addEventListener('click', () => {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }, { once: true });
+    });
+  </script>
+</head>
 
-document.body.addEventListener('click', () => {
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
-}, { once: true });
 
 <body oncontextmenu="return disableRightClick();">
 
