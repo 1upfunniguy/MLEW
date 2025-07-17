@@ -252,6 +252,41 @@
             document.querySelector('.dropdown span').innerHTML = text;
         }
     </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <audio id="audioPlayer" controls autoplay></audio>
+
+  <script>
+    async function startPlayer() {
+      const res = await fetch('/api/music');
+      let playlist = await res.json();
+
+      // Shuffle
+      playlist = playlist.sort(() => Math.random() - 0.5);
+      playlist = playlist.map(file => `/music/${file}`);
+
+      const player = document.getElementById('audioPlayer');
+      let current = 0;
+
+      function playNext() {
+        if (current < playlist.length) {
+          player.src = playlist[current++];
+          player.play();
+        }
+      }
+
+      player.addEventListener('ended', playNext);
+      playNext();
+    }
+
+    startPlayer();
+  </script>
+</body>
+</html>
 
     <hr>
     
