@@ -1,224 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Le Epik Website</title>
-    <link rel="icon" type="image/x-icon" href="../imgs/fwip.png">
-    <script src="../static/js/jquery.js"></script>
-    <script src="../embed/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../js/zepto.min.js"></script>
-    <link rel="stylesheet" href="style.css"> 
-    <meta name="title" content="My Le Epik Website" />
-    <meta name="description" content="The most epik website ever made" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mlew.vercel.app/" />
-    <meta property="og:title" content="My Le Epik Website" />
-    <meta property="og:description" content="The most epik website ever made" />
-    <meta property="og:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mlew.vercel.app/imgs/fwip.png" />
-    <meta property="twitter:title" content="My Le Epik Website" />
-    <meta property="twitter:description" content="The most epik website ever made" />
-    <meta property="twitter:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-    <style>
-        :root {
-            --main-border-color: black;
-            --main-border-width: 5px;
-            --main-border-radius: 15px;
-            --main-image-max-width: 160%;
-            --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-        }
-        body {
-            color: #fff;
-            background-color: #191919;
-            font-family: 'funnytype';
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            font-size: 13.5pt;
-        }
-        #gif-container {
-            margin: 20px 0;
-        }
-        #gif-container img {
-            max-width: 100%;
-            height: auto;
-        }
-        #additional-image {
-            margin: 20px 0;
-        }
-        #additional-image img {
-            max-width: var(--main-image-max-width);
-            height: auto;
-            border: var(--main-border-width) solid var(--main-border-color);
-            border-radius: var(--main-border-radius);
-            box-shadow: var(--main-image-box-shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        #additional-image img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
-        }
-        .smalltext {
-            font-size: 11pt;
-            font-style: italic;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            margin: 20px 0;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin: 20px 0;
-        }
-        .dropdown span {
-            cursor: pointer;
-            font-size: 16pt;
-            color: rgb(42, 104, 20);
-            transition: transform 0.2s;
-        }
-        .dropdown span:hover {
-            transform: scale(1.1);
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #232323;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 5px;
-        }
-        .dropdown-menu p {
-            margin: 0;
-        }
-        .dropdown-item {
-            padding: 10px;
-            color: lightgreen;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dropdown-item:hover {
-            background-color: #323232;
-            color: Chartreuse;
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        @keyframes rainbow {
-            0% { color: red; }
-            16.67% { color: orange; }
-            33.33% { color: yellow; }
-            50% { color: green; }
-            66.67% { color: blue; }
-            83.33% { color: indigo; }
-            100% { color: violet; }
-        }
-        .gaytext, .dropdown span, .dropdown-item {
-            animation: rainbow 10s linear infinite;
-        }
-        h1, .smalltext {
-            animation: rainbow 10s linear infinite;
-        }
-        .gaytext {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 11pt;
-            font-style: italic;
-            color: rgb(42, 104, 20);
-        }
-        footer {
-            margin: 40px 0 20px 0;
-        }
-        footer h1 {
-            font-size: 14pt;
-        }
-        a:link, a:visited {
-            text-decoration: none;
-            color: green;
-        }
-        a:hover, a:active {
-            text-decoration: underline;
-            color: Chartreuse;
-        }
-        @media (max-width: 600px) {
-            #additional-image img {
-                max-width: 1000%;
-            }
-            .dropdown-menu {
-                min-width: 150px;
-            }
-            .dropdown span {
-                font-size: 14pt;
-            }
-            #demo {
-                font-size: 14pt;
-            }
-            footer h1 {
-                font-size: 12pt;
-            }
-        }
-    </style>
-    <script>
-        function disableRightClick() {
-            alert("Hi imma steal u press ok NOW!!!");
-            window.location.href = '../bigrat';
-            return false;
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Le Epik Website</title>
+  <link rel="icon" type="image/x-icon" href="../imgs/fwip.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      color: #fff;
+      background-color: #191919;
+      font-family: 'funnytype';
+      text-align: center;
+    }
+    audio {
+      margin: 20px 0;
+    }
+  </style>
 </head>
 <body oncontextmenu="return disableRightClick();">
-    <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
-    <div id="gif-container">
-        <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
+  <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
+  <div id="gif-container">
+    <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text">
+  </div>
+  <div id="additional-image">
+    <img src="../imgs/fwip.png" alt="fwip" width="150">
+  </div>
+  <div class="dropdown">
+    <span onmouseover="changeText('↓Links↓')" onmouseout="changeText('↑Links↑')">↑Links↑</span>
+    <div class="dropdown-menu">
+      <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
+      <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
+      <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
+      <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
+      <p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
+      <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
+      <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
+      <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
     </div>
-    <div id="additional-image">
-        <img src="../imgs/fwip.png" alt="fwip" width="150">
-    </div>
-    <div class="dropdown">
-        <span onmouseover="changeText('&#11015;Links&#11015;')" onmouseout="changeText('&#11015;Links&#11015;')">&#11014;Links&#11014;</span>
-        <div class="dropdown-menu">
-            <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
-            <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
-            <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
-            <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
-            <p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
-            <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
-            <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
-            <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
-        </div>
-    </div>
-    <audio id="audioPlayer" controls autoplay></audio>
-    <script>
-        function changeText(text) {
-            document.querySelector('.dropdown span').innerHTML = text;
-        }
-        async function startPlayer() {
-            const res = await fetch('/api/music');
-            let playlist = await res.json();
-            playlist = playlist.sort(() => Math.random() - 0.5);
-            playlist = playlist.map(file => `/api/music_file?file=${encodeURIComponent(file)}`);
-            const player = document.getElementById('audioPlayer');
-            let current = 0;
-            function playNext() {
-                if (current < playlist.length) {
-                    player.src = playlist[current++];
-                    player.play();
-                }
-            }
-            player.addEventListener('ended', playNext);
-            playNext();
-        }
-        startPlayer();
-    </script>
-    <hr>
-    <footer>
-        <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
-    </footer>
+  </div>
+
+  <audio id="audioPlayer" controls autoplay></audio>
+
+  <script>
+    function changeText(text) {
+      document.querySelector('.dropdown span').innerHTML = text;
+    }
+    function disableRightClick() {
+      alert("Hi imma steal u press ok NOW!!!");
+      window.location.href = '../bigrat';
+      return false;
+    }
+
+    const playlist = [
+      "/music/01 - OLLIE LOKO - IM OLLIE.mp3",
+      "/music/01 BUN BUN.m4a",
+      "/music/01 THE GOODBYE BABY.m4a",
+      "/music/02 - OLLIE LOKO - SUPER SAIYAN 3.mp3",
+      "/music/02 KOROK.m4a",
+      "/music/02 SNEAKERS THE CAT.m4a",
+      "/music/03 - OLLIE LOKO - E-NUFF 4-U.mp3",
+      "/music/03 FLOWERS.m4a",
+      "/music/03 PASTA.m4a",
+      "/music/04 - OLLIE LOKO - LETTING GO.mp3",
+      "/music/04 SUNLIGHT.m4a",
+      "/music/04 THE VALLEY.m4a",
+      "/music/05 - OLLIE LOKO - LIFE.mp3",
+      "/music/05 HONK HONK.m4a",
+      "/music/05 YAKKI.m4a",
+      "/music/06 - OLLIE LOKO - GET OUT OF YER HEAD.mp3",
+      "/music/06 CHANGING.m4a",
+      "/music/06 MOO MOO!.m4a",
+      "/music/07 - OLLIE LOKO - (spawning).mp3",
+      "/music/07 DREAM 506.m4a",
+      "/music/07 ORANGE KITTY.m4a",
+      "/music/08 - OLLIE LOKO - SHIRT DIRT.mp3",
+      "/music/08 HRT-BR8K.m4a",
+      "/music/08 TOP OF THE MOUNTAIN.m4a",
+      "/music/09 - OLLIE LOKO - SO HIGH (OUTRAGEOUS).mp3",
+      "/music/09 BABY CALL.m4a",
+      "/music/09 MONKEY EAT BANANA.m4a",
+      "/music/10 - OLLIE LOKO - (chase and i on a boat).mp3",
+      "/music/10 BANANA SLUG.m4a",
+      "/music/10 THE RIVER.m4a",
+      "/music/11 - OLLIE LOKO - CAT FOOD FREESTYLE.mp3",
+      "/music/11 KOSHISHI MAYA PAPA.m4a",
+      "/music/11 SUNSET IN ALAMEDA.m4a",
+      "/music/12 - OLLIE LOKO - YESTERDAYZ.mp3",
+      "/music/12 TONY PIZZA.m4a",
+      "/music/13 - OLLIE LOKO - TRAVELING TO MARTINEZ.mp3",
+      "/music/13 HAPPY LITTLE GUY.m4a",
+      "/music/14 - OLLIE LOKO - BEEN TOO LONG.mp3",
+      "/music/14 APPLE SLUG.m4a",
+      "/music/15 TAKE ME WIFF U.m4a",
+      "/music/16 FAT ASS SANDWICH.m4a",
+      "/music/17 BILL JIDEN.m4a",
+      "/music/18 LITTLEST DOG.m4a",
+      "/music/19 MEOW.m4a",
+      "/music/20 BUBBLE TRAP.m4a",
+      "/music/21 CABIN.m4a",
+      "/music/22 BABI'S LAKEFRONT.m4a",
+      "/music/23 RAINY.m4a",
+      "/music/24 MU-MU DEPTHS.m4a",
+      "/music/25 ALAMEDA.m4a",
+      "/music/26 NOBODY.m4a",
+      "/music/27 FALLING AWAY.m4a",
+      "/music/28 DREAM 23.m4a",
+      "/music/29 CLOCK.m4a",
+      "/music/30 MINI MEOW.m4a",
+      "/music/31 GOODNIGHT.m4a",
+      "/music/[Official] Celeste Original Soundtrack - 17 - Little Goth.mp3",
+      "/music/[Official] Celeste Original Soundtrack - 21 - My Dearest Friends.mp3"
+    ].sort(() => Math.random() - 0.5);
+
+    const player = document.getElementById('audioPlayer');
+    let current = 0;
+
+    function playNext() {
+      if (current < playlist.length) {
+        player.src = playlist[current++];
+        player.play();
+      }
+    }
+
+    player.addEventListener('ended', playNext);
+    playNext();
+  </script>
+
+  <footer>
+    <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
+  </footer>
 </body>
 </html>
