@@ -1,5 +1,12 @@
 {
+  "version": 2,
   "cleanUrls": true,
+  "builds": [
+    {
+      "src": "api/*.py",
+      "use": "@vercel/python"
+    }
+  ],
   "redirects": [
     {
       "source": "/rat",
@@ -9,7 +16,7 @@
   ],
   "headers": [
     {
-      "source": "/mlewg/edu/eykiw/((?!somepath).*)",
+      "source": "/mlewg/edu/eykiw/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
