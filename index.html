@@ -276,14 +276,24 @@
       let current = 0;
 
       function playNext() {
-        if (current >= playlist.length) current = 0;
-        source.src = playlist[current++];
-        player.load();       // Important to call load() after changing source
-        player.play().catch(() => {
-          setTimeout(() => player.play(), 500);
-        });
-        updateNowPlaying(source.src);
-      }
+  if (current >= playlist.length) current = 0;
+  source.src = playlist[current++];
+  player.load();
+
+  // Temporarily keep muted for autoplay
+  player.muted = true;
+
+  player.play().then(() => {
+    player.muted = false; // unmute after starting
+  }).catch(err => {
+    console.warn("Playback failed, retrying:", err);
+    setTimeout(() => {
+      player.play().then(() => player.muted = false);
+    }, 500);
+  });
+
+  updateNowPlaying(source.src);
+}
 
       player.addEventListener('ended', playNext);
       playNext();
