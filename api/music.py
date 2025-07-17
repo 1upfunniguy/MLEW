@@ -1,15 +1,14 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
 MUSIC_FOLDER = 'music'
 
-@app.route('/api/music_file')
-def get_music_file():
-    filename = request.args.get('file')
-    if not filename:
-        return "Missing filename", 400
-    file_path = os.path.join(MUSIC_FOLDER, filename)
-    if not os.path.exists(file_path):
-        return "File not found", 404
-    return send_from_directory(MUSIC_FOLDER, filename)
+@app.route('/api/music')
+def list_music():
+    try:
+        files = [f for f in os.listdir(MUSIC_FOLDER)
+                 if f.lower().endswith(('.mp3', '.wav', '.ogg', '.m4a'))]
+        return jsonify(files)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
