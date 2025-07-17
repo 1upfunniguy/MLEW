@@ -261,16 +261,27 @@
       let current = 0;
 
       function playNext() {
-        if (current >= playlist.length) current = 0;
+  if (current >= playlist.length) current = 0;
 
-        source.src = playlist[current++];
-        player.load();
-        player.play().catch(() => {
-          setTimeout(() => player.play(), 500);
-        });
+  source.src = playlist[current++];
+  player.load();
 
-        updateNowPlaying(source.src);
-      }
+  // Start muted so autoplay is allowed
+  player.muted = true;
+
+  player.play()
+    .then(() => {
+      // Unmute after playback starts successfully
+      player.muted = false;
+    })
+    .catch(() => {
+      // Retry after delay if blocked
+      setTimeout(() => player.play(), 500);
+    });
+
+  updateNowPlaying(source.src);
+}
+
 
       player.addEventListener('ended', playNext);
       playNext();
@@ -338,9 +349,9 @@
   </div>
 
   <!-- Hidden Audio Player -->
-  <audio id="audioPlayer" autoplay>
-    <source id="audioSource" src="" type="audio/mpeg" />
-  </audio>
+<audio id="audioPlayer" autoplay muted>
+  <source id="audioSource" src="" type="audio/mpeg" />
+</audio>
 
   <hr />
 
