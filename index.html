@@ -6,30 +6,10 @@
   <title>My Le Epik Website</title>
   <link rel="icon" type="image/x-icon" href="../imgs/fwip.png" />
   
-  <script src="../static/js/jquery.js"></script>
-  <script src="../embed/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="../js/zepto.min.js"></script>
+  <!-- Fonts & CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- thanks metatgs.io love u <3 -->
-  <meta name="title" content="My Le Epik Website" />
-  <meta name="description" content="The most epik website ever made" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mlew.vercel.app/" />
-  <meta property="og:title" content="My Le Epik Website" />
-  <meta property="og:description" content="The most epik website ever made" />
-  <meta property="og:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://mlew.vercel.app/imgs/fwip.png" />
-  <meta property="twitter:title" content="My Le Epik Website" />
-  <meta property="twitter:description" content="The most epik website ever made" />
-  <meta property="twitter:image" content="https://mlew.vercel.app/imgs/fwip.png" />
-
   <style>
-    /* =====================================================
-       CSS Shi
-    ===================================================== */
+    /* Your CSS from before */
     :root {
       --main-border-color: black;
       --main-border-width: 5px;
@@ -37,9 +17,6 @@
       --main-image-max-width: 160%;
       --main-image-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
     }
-    /* =====================================================
-       Harry Styles
-    ===================================================== */
     body {
       color: #fff;
       background-color: #191919;
@@ -49,9 +26,6 @@
       text-align: center;
       font-size: 13.5pt;
     }
-    /* =====================================================
-       GIF Container For Containing Gifs
-    ===================================================== */
     #gif-container {
       margin: 20px 0;
     }
@@ -59,9 +33,6 @@
       max-width: 100%;
       height: auto;
     }
-    /* =====================================================
-       FWIP
-    ===================================================== */
     #additional-image {
       margin: 20px 0;
     }
@@ -77,18 +48,12 @@
       transform: scale(1.05);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
     }
-    /* =====================================================
-       Small Text Section Its small unlike low taper fade
-    ===================================================== */
     .smalltext {
       font-size: 11pt;
       font-style: italic;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 20px 0;
     }
-    /* =====================================================
-       Dropdowns :D
-    ===================================================== */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -131,9 +96,6 @@
     .dropdown:hover .dropdown-menu {
       display: block;
     }
-    /* =====================================================
-       Gay Animation Just Like Me FrFr
-    ===================================================== */
     @keyframes rainbow {
       0% { color: red; }
       16.67% { color: orange; }
@@ -143,16 +105,12 @@
       83.33% { color: indigo; }
       100% { color: violet; }
     }
-    /* Applying Rainbow Animation to all relevant elements */
     .gaytext, .dropdown span, .dropdown-item {
       animation: rainbow 10s linear infinite;
     }
     h1, .smalltext {
       animation: rainbow 10s linear infinite;
     }
-    /* =====================================================
-       Gay Text Info Just Like Me FrFr
-    ===================================================== */
     .gaytext {
       position: absolute;
       top: 10px;
@@ -161,18 +119,12 @@
       font-style: italic;
       color: rgb(42, 104, 20);
     }
-    /* =====================================================
-       Foot Stuff
-    ===================================================== */
     footer {
       margin: 40px 0 20px 0;
     }
     footer h1 {
       font-size: 14pt;
     }
-    /* =====================================================
-       Link Harry Styles
-    ===================================================== */
     a:link, a:visited {
       text-decoration: none;
       color: green;
@@ -181,9 +133,6 @@
       text-decoration: underline;
       color: Chartreuse;
     }
-    /* =====================================================
-       Stuff For Phones
-    ===================================================== */
     @media (max-width: 600px) {
       #additional-image img {
         max-width: 1000%;
@@ -201,13 +150,9 @@
         font-size: 12pt;
       }
     }
-
-    /* Audio player styling */
     audio {
-      display: none; /* hide native controls, we have custom buttons */
+      display: none; /* hide native controls */
     }
-
-    /* Now Playing Styles */
     #nowPlaying {
       margin: 20px auto;
       padding: 12px 20px;
@@ -236,8 +181,6 @@
       margin-top: 4px;
       font-size: 13pt;
     }
-
-    /* Custom buttons styling */
     #playerControls {
       margin: 15px auto;
       display: flex;
@@ -258,8 +201,6 @@
     #playerControls button:hover {
       background-color: #324832;
     }
-
-    /* Playlist styling */
     #playlist {
       max-width: 400px;
       margin: 20px auto;
@@ -286,8 +227,6 @@
       font-weight: bold;
       color: #122;
     }
-
-    /* Visualizer styling */
     #visualizer {
       width: 100%;
       max-width: 600px;
@@ -299,9 +238,61 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.8);
     }
   </style>
+</head>
+<body oncontextmenu="return disableRightClick();">
+
+  <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
+
+  <div id="gif-container">
+    <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text" />
+  </div>
+
+  <div id="additional-image">
+    <img src="../imgs/fwip.png" alt="fwip" width="150" />
+  </div>
+
+  <div class="dropdown">
+    <span onmouseover="changeText('&#11015;Links&#11015;')" onmouseout="changeText('&#11014;Links&#11014;')">&#11014;Links&#11014;</span>
+    <div class="dropdown-menu">
+      <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
+      <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
+      <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
+      <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
+      <p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
+      <p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
+      <p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
+      <p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
+    </div>
+  </div>
+
+  <div id="nowPlaying" aria-live="polite" aria-atomic="true" tabindex="0">
+    <div id="nowPlayingHeader">
+      <div>Now Playing</div>
+      <div id="nowPlayingEmoji" aria-label="music note emoji" role="img">🎵</div>
+    </div>
+    <div id="nowPlayingSong">Song: <span id="songName"></span></div>
+    <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div>
+  </div>
+
+  <audio id="audioPlayer" crossorigin="anonymous"></audio>
+
+  <div id="playerControls" aria-label="Audio player controls">
+    <button id="toggleBtn" aria-pressed="false" aria-label="Play or pause music">Pause</button>
+    <button id="skipBtn" aria-label="Skip to next track">Skip ▶️</button>
+  </div>
+
+  <canvas id="visualizer" aria-hidden="true"></canvas>
+
+  <div id="playlist" role="list" aria-label="Music playlist"></div>
+
+  <hr />
+
+  <footer>
+    <h1>&copy; 2025 1up Entertainment LLC&trade;</h1>
+  </footer>
 
   <script>
-    // Disable Right-Click (unchanged)
+    // Disable Right-Click
     function disableRightClick() {
       alert("Hi imma steal u press ok NOW!!!");
       window.location.href = '../bigrat';
@@ -312,181 +303,212 @@
       document.querySelector('.dropdown span').innerHTML = text;
     }
 
-    window.addEventListener('load', () => {
-      // Playlist data
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Player</title>
-  <style>
-    /* your CSS goes here */
-  </style>
-
-  <!-- ✅ Your JS goes here inside script tag -->
-  <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const player = document.getElementById('audioPlayer');
-      const toggleBtn = document.getElementById('toggleBtn');
-      const skipBtn = document.getElementById('skipBtn');
-      const playlistUI = document.getElementById('playlist');
-      const songNameEl = document.getElementById('songName');
-      const artistNameEl = document.getElementById('artistName');
-      const visualizer = document.getElementById('visualizer');
-      const ctx = visualizer.getContext('2d');
-
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      const audioCtx = new AudioContext();
-      const analyser = audioCtx.createAnalyser();
-      const sourceNode = audioCtx.createMediaElementSource(player);
-      sourceNode.connect(analyser);
-      analyser.connect(audioCtx.destination);
-      analyser.fftSize = 64;
-      const bufferLength = analyser.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
-
+      // Playlist data
       const playlist = [
         { file: "01 - OLLIE LOKO - IM OLLIE.mp3", title: "IM OLLIE", artist: "OLLIE LOKO" },
-        { file: "01 BUN BUN.m4a", title: "BUN BUN", artist: "Lena" },
-        { file: "01 THE GOODBYE BABY.m4a", title: "THE GOODBYE BABY", artist: "Lena" },
+        { file: "01 BUN BUN.m4a", title: "BUN BUN", artist: "OLLIE LOKO" },
+        { file: "01 THE GOODBYE BABY.m4a", title: "THE GOODBYE BABY", artist: "OLLIE LOKO" },
         { file: "02 - OLLIE LOKO - SUPER SAIYAN 3.mp3", title: "SUPER SAIYAN 3", artist: "OLLIE LOKO" },
-        { file: "02 KOROK.m4a", title: "KOROK", artist: "Lena" },
-        { file: "02 SNEAKERS THE CAT.m4a", title: "SNEAKERS THE CAT", artist: "Lena" },
+        { file: "02 KOROK.m4a", title: "KOROK", artist: "OLLIE LOKO" },
+        { file: "02 SNEAKERS THE CAT.m4a", title: "SNEAKERS THE CAT", artist: "OLLIE LOKO" },
         { file: "03 - OLLIE LOKO - E-NUFF 4-U.mp3", title: "E-NUFF 4-U", artist: "OLLIE LOKO" },
-        { file: "03 FLOWERS.m4a", title: "FLOWERS", artist: "Lena" },
-        { file: "03 PASTA.m4a", title: "PASTA", artist: "Lena" },
+        { file: "03 FLOWERS.m4a", title: "FLOWERS", artist: "OLLIE LOKO" },
+        { file: "03 PASTA.m4a", title: "PASTA", artist: "OLLIE LOKO" },
         { file: "04 - OLLIE LOKO - LETTING GO.mp3", title: "LETTING GO", artist: "OLLIE LOKO" },
-        { file: "04 SUNLIGHT.m4a", title: "SUNLIGHT", artist: "Lena" },
-        { file: "04 THE VALLEY.m4a", title: "THE VALLEY", artist: "Lena" },
+        { file: "04 SUNLIGHT.m4a", title: "SUNLIGHT", artist: "OLLIE LOKO" },
+        { file: "04 THE VALLEY.m4a", title: "THE VALLEY", artist: "OLLIE LOKO" },
         { file: "05 - OLLIE LOKO - LIFE.mp3", title: "LIFE", artist: "OLLIE LOKO" },
-        { file: "05 HONK HONK.m4a", title: "HONK HONK", artist: "Lena" },
-        { file: "05 YAKKI.m4a", title: "YAKKI", artist: "Lena" }
+        { file: "05 HONK HONK.m4a", title: "HONK HONK", artist: "OLLIE LOKO" },
+        { file: "05 YAKKI.m4a", title: "YAKKI", artist: "OLLIE LOKO" },
+        { file: "06 - OLLIE LOKO - GET OUT OF YER HEAD.mp3", title: "GET OUT OF YER HEAD", artist: "OLLIE LOKO" },
+        { file: "06 CHANGING.m4a", title: "CHANGING", artist: "OLLIE LOKO" },
+        { file: "06 MOO MOO!.m4a", title: "MOO MOO!", artist: "OLLIE LOKO" },
+        { file: "07 - OLLIE LOKO - (spawning).mp3", title: "(spawning)", artist: "OLLIE LOKO" },
+        { file: "07 DREAM 506.m4a", title: "DREAM 506", artist: "OLLIE LOKO" },
+        { file: "07 ORANGE KITTY.m4a", title: "ORANGE KITTY", artist: "OLLIE LOKO" },
+        { file: "08 - OLLIE LOKO - SHIRT DIRT.mp3", title: "SHIRT DIRT", artist: "OLLIE LOKO" },
+        { file: "08 HRT-BR8K.m4a", title: "HRT-BR8K", artist: "OLLIE LOKO" },
+        { file: "08 TOP OF THE MOUNTAIN.m4a", title: "TOP OF THE MOUNTAIN", artist: "OLLIE LOKO" },
+        { file: "09 - OLLIE LOKO - SO HIGH (OUTRAGEOUS).mp3", title: "SO HIGH (OUTRAGEOUS)", artist: "OLLIE LOKO" },
+        { file: "09 BABY CALL.m4a", title: "BABY CALL", artist: "OLLIE LOKO" },
+        { file: "09 MONKEY EAT BANANA.m4a", title: "MONKEY EAT BANANA", artist: "OLLIE LOKO" },
+        { file: "10 - OLLIE LOKO - (chase and i on a boat).mp3", title: "(chase and i on a boat)", artist: "OLLIE LOKO" },
+        { file: "10 BANANA SLUG.m4a", title: "BANANA SLUG", artist: "OLLIE LOKO" },
+        { file: "10 THE RIVER.m4a", title: "THE RIVER", artist: "OLLIE LOKO" },
+        { file: "11 - OLLIE LOKO - CAT FOOD FREESTYLE.mp3", title: "CAT FOOD FREESTYLE", artist: "OLLIE LOKO" },
+        { file: "11 KOSHISHI MAYA PAPA.m4a", title: "KOSHISHI MAYA PAPA", artist: "OLLIE LOKO" },
+        { file: "11 SUNSET IN ALAMEDA.m4a", title: "SUNSET IN ALAMEDA", artist: "OLLIE LOKO" },
+        { file: "12 - OLLIE LOKO - YESTERDAYZ.mp3", title: "YESTERDAYZ", artist: "OLLIE LOKO" },
+        { file: "12 TONY PIZZA.m4a", title: "TONY PIZZA", artist: "OLLIE LOKO" },
+        { file: "13 - OLLIE LOKO - TRAVELING TO MARTINEZ.mp3", title: "TRAVELING TO MARTINEZ", artist: "OLLIE LOKO" },
+        { file: "13 HAPPY LITTLE GUY.m4a", title: "HAPPY LITTLE GUY", artist: "OLLIE LOKO" },
+        { file: "14 - OLLIE LOKO - BEEN TOO LONG.mp3", title: "BEEN TOO LONG", artist: "OLLIE LOKO" },
+        { file: "14 APPLE SLUG.m4a", title: "APPLE SLUG", artist: "OLLIE LOKO" },
+        { file: "15 TAKE ME WIFF U.m4a", title: "TAKE ME WIFF U", artist: "OLLIE LOKO" },
+        { file: "16 FAT ASS SANDWICH.m4a", title: "FAT ASS SANDWICH", artist: "OLLIE LOKO" },
+        { file: "17 BILL JIDEN.m4a", title: "BILL JIDEN", artist: "OLLIE LOKO" },
+        { file: "18 LITTLEST DOG.m4a", title: "LITTLEST DOG", artist: "OLLIE LOKO" },
+        { file: "19 GREEDY.m4a", title: "GREEDY", artist: "OLLIE LOKO" },
+        { file: "20 HANDS IN AIR.m4a", title: "HANDS IN AIR", artist: "OLLIE LOKO" },
+        { file: "21 GONNA FLY.m4a", title: "GONNA FLY", artist: "OLLIE LOKO" },
       ];
 
-      function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-      }
+      // Selectors
+      const audio = document.getElementById('audioPlayer');
+      const toggleBtn = document.getElementById('toggleBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      const songNameElem = document.getElementById('songName');
+      const artistNameElem = document.getElementById('artistName');
+      const playlistElem = document.getElementById('playlist');
+      const canvas = document.getElementById('visualizer');
+      const ctx = canvas.getContext('2d');
 
-      shuffle(playlist);
+      let currentTrackIndex = 0;
+      let isPlaying = true;
 
-      let currentIndex = 0;
+      // Load the first song initially
+      function loadTrack(index) {
+        if (index < 0) index = playlist.length - 1;
+        if (index >= playlist.length) index = 0;
+        currentTrackIndex = index;
+        const track = playlist[currentTrackIndex];
+        audio.src = `../mlewg/music/${track.file}`;
+        songNameElem.textContent = track.title;
+        artistNameElem.textContent = track.artist;
 
-      function resizeCanvas() {
-        visualizer.width = visualizer.clientWidth * window.devicePixelRatio;
-        visualizer.height = visualizer.clientHeight * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
+        updatePlaylistHighlight();
 
-      function playTrack(index) {
-        currentIndex = index % playlist.length;
-        const track = playlist[currentIndex];
-        player.src = `/music/${encodeURIComponent(track.file)}`;
-        player.play();
-        updateNowPlaying(track.title, track.artist);
-        updatePlaylistUI();
-      }
-
-      function updateNowPlaying(title, artist) {
-        songNameEl.textContent = title;
-        artistNameEl.textContent = artist;
-      }
-
-      function updatePlaylistUI() {
-        document.querySelectorAll('#playlist .track').forEach((el, i) => {
-          el.classList.toggle('active', i === currentIndex);
+        // Play right away
+        audio.play().catch(e => {
+          // Autoplay might be blocked, just catch the error silently
+          isPlaying = false;
+          toggleBtn.textContent = "Play";
+          toggleBtn.setAttribute('aria-pressed', 'false');
         });
+      }
+
+      // Update the playlist UI highlighting current track
+      function updatePlaylistHighlight() {
+        const tracks = playlistElem.querySelectorAll('.track');
+        tracks.forEach((el, i) => {
+          if (i === currentTrackIndex) {
+            el.classList.add('active');
+            el.setAttribute('aria-current', 'true');
+          } else {
+            el.classList.remove('active');
+            el.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      // Setup playlist UI
+      playlist.forEach((track, i) => {
+        const trackElem = document.createElement('div');
+        trackElem.classList.add('track');
+        trackElem.textContent = `${track.title} - ${track.artist}`;
+        trackElem.setAttribute('role', 'listitem');
+        trackElem.tabIndex = 0;
+        trackElem.addEventListener('click', () => {
+          loadTrack(i);
+        });
+        trackElem.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            loadTrack(i);
+          }
+        });
+        playlistElem.appendChild(trackElem);
+      });
+
+      // Play/Pause toggle
+      toggleBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          isPlaying = true;
+          toggleBtn.textContent = 'Pause';
+          toggleBtn.setAttribute('aria-pressed', 'true');
+        } else {
+          audio.pause();
+          isPlaying = false;
+          toggleBtn.textContent = 'Play';
+          toggleBtn.setAttribute('aria-pressed', 'false');
+        }
+      });
+
+      // Skip button
+      skipBtn.addEventListener('click', () => {
+        currentTrackIndex++;
+        if (currentTrackIndex >= playlist.length) {
+          currentTrackIndex = 0;
+        }
+        loadTrack(currentTrackIndex);
+      });
+
+      // Auto skip on track end
+      audio.addEventListener('ended', () => {
+        skipBtn.click();
+      });
+
+      // Audio Visualizer Setup
+      let audioContext;
+      let analyser;
+      let source;
+      let dataArray;
+      let bufferLength;
+
+      function setupVisualizer() {
+        try {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          analyser = audioContext.createAnalyser();
+          source = audioContext.createMediaElementSource(audio);
+          source.connect(analyser);
+          analyser.connect(audioContext.destination);
+          analyser.fftSize = 64;
+          bufferLength = analyser.frequencyBinCount;
+          dataArray = new Uint8Array(bufferLength);
+          drawVisualizer();
+        } catch (e) {
+          console.warn("Web Audio API is not supported in this browser");
+        }
       }
 
       function drawVisualizer() {
         requestAnimationFrame(drawVisualizer);
+        if (!analyser) return;
+
         analyser.getByteFrequencyData(dataArray);
-        ctx.clearRect(0, 0, visualizer.width, visualizer.height);
-        const barWidth = visualizer.width / bufferLength * 1.5;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const barWidth = (canvas.width / bufferLength) * 1.5;
+        let barHeight;
         let x = 0;
+
         for (let i = 0; i < bufferLength; i++) {
-          const barHeight = dataArray[i] / 2;
-          ctx.fillStyle = `rgb(${barHeight + 100}, 50, 150)`;
-          ctx.fillRect(x, visualizer.height - barHeight, barWidth, barHeight);
-          x += barWidth + 1;
+          barHeight = dataArray[i];
+          ctx.fillStyle = `rgb(${barHeight + 100}, 255, 50)`;
+          ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+          x += barWidth + 2;
         }
       }
 
-      playlist.forEach((track, i) => {
-        const div = document.createElement('div');
-        div.className = 'track';
-        div.textContent = `${track.title} — ${track.artist}`;
-        div.onclick = () => playTrack(i);
-        playlistUI.appendChild(div);
+      // Resize canvas for visualizer
+      function resizeCanvas() {
+        canvas.width = Math.min(window.innerWidth, 600);
+        canvas.height = 100;
+      }
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
       });
 
-      player.addEventListener('ended', () => {
-        playTrack((currentIndex + 1) % playlist.length);
-      });
+      resizeCanvas();
+      setupVisualizer();
 
-      toggleBtn.addEventListener('click', () => {
-        if (player.paused) {
-          player.play();
-          toggleBtn.textContent = 'Pause';
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-        } else {
-          player.pause();
-          toggleBtn.textContent = 'Play';
-        }
-      });
-
-      skipBtn.addEventListener('click', () => {
-        playTrack((currentIndex + 1) % playlist.length);
-      });
-
-      playTrack(0);
-      drawVisualizer();
-
-      document.body.addEventListener('click', () => {
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-      }, { once: true });
+      // Load first track on page load
+      loadTrack(0);
     });
   </script>
-</head>
-
-
-<body oncontextmenu="return disableRightClick();">
-
-  <!-- Funnytype font credit -->
-  <p><a href="https://ekd.sc" class="gaytext" target="_blank">font by ekdsc (funnytype)</a></p>
-
-  <!-- GIF Container -->
-  <div id="gif-container">
-    <img src="https://images.cooltext.com/5720490.gif" alt="Cool Text" />
-  </div>
-
-  <!-- FWIP Logo -->
-  <div id="additional-image">
-    <img src="../imgs/fwip.png" alt="fwip" width="150" />
-  </div>
-
-  <!-- Dropdown Links -->
-  <div class="dropdown">
-    <span onmouseover="changeText('&#11015;Links&#11015;')" onmouseout="changeText('&#11014;Links&#11014;')">&#11014;Links&#11014;</span>
-    <div class="dropdown-menu">
-      <p><a href="https://cablemonkee.vercel.app" class="dropdown-item" target="_blank">Sites by my friends</a></p>
-      <p><a href="https://www.youtube.com/@1upfunniguy" class="dropdown-item" target="_blank">Youtube</a></p>
-      <p><a href="https://bsky.app/profile/1upfunniguy.bsky.social" class="dropdown-item" target="_blank">Bluesky</a></p>
-      <p><a href="https://github.com/1upfunniguy" class="dropdown-item" target="_blank">GitHub</a></p>
-<p><a href="../mlewg" class="dropdown-item" target="_blank">MLEW GAMES</a></p>
-<p><a href="../sad-spongebob/" class="dropdown-item" target="_blank">Sad Spongebob</a></p>
-<p><a href="https://dognetworkforpeoplenotnamedsahil.vercel.app" class="dropdown-item" target="_blank">Mlew Proxy</a></p>
-<p><a href="https://1upfunniguy.vercel.app" class="dropdown-item" target="_blank">My Main Website</a></p>
-</div>
-</div> <!-- Now Playing Section --> <div id="nowPlaying" aria-live="polite" aria-atomic="true" tabindex="0"> <div id="nowPlayingHeader"> <div>Now Playing</div> <div id="nowPlayingEmoji" aria-label="music note emoji" role="img">🎵</div> </div> <div id="nowPlayingSong">Song: <span id="songName"></span></div> <div id="nowPlayingArtist">Artist: <span id="artistName"></span></div> </div> <!-- Audio element (hidden) -->
-
-<audio id="audioPlayer" crossorigin="anonymous"></audio>
-<!-- Controls --> <div id="playerControls" aria-label="Audio player controls"> <button id="toggleBtn" aria-pressed="false" aria-label="Play or pause music">Pause</button> <button id="skipBtn" aria-label="Skip to next track">Skip ▶️</button> </div> <!-- Visualizer Canvas -->
-
-<canvas id="visualizer" aria-hidden="true"></canvas>
-<!-- Playlist UI --> <div id="playlist" role="list" aria-label="Music playlist"> <!-- Tracks inserted by JS --> </div> <hr /> <!-- Footer --> <footer> <h1>&copy; 2025 1up Entertainment LLC&trade;</h1> </footer> </body> </html>
+</body>
+</html>
