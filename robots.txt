@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /testing-branch/
+Disallow: /cool-aid/
+Sitemap: https://mlew.vercel.app/sitemap.xml
