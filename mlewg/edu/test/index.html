@@ -18,7 +18,7 @@
         };
     </script>
 
-    <!-- 👇 Override fetch to redirect CORS-blocked URLs through a proxy -->
+    <!-- Override fetch to redirect CORS-blocked URLs through a proxy -->
     <script>
         (function (originalFetch) {
             const changeUrl = function (url) {
@@ -80,14 +80,14 @@
             if (ruffle && container) {
                 const player = ruffle.createPlayer();
 
-                // 👇 Always spoof original domain (needed for multiplayer logic)
+                // Spoof original domain (needed for multiplayer logic)
                 player.setAttribute("data-url", "http://www.supersmashflash.com");
 
                 player.style.width = "100%";
                 player.style.height = "100%";
                 container.appendChild(player);
 
-                // 👇 Use different SWF URLs depending on host
+                // Use different SWF URLs depending on host
                 const isHosted = location.hostname.includes("mlew");
                 const swfUrl = isHosted
                     ? "http://www.supersmashflash.com/flash/games/SSF2Beta_v1_3_1_2_hacked.swf"
